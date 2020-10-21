@@ -1,0 +1,13 @@
+{
+    "python.pythonPath": "D:\\Final Year Project\\backend\\env\\Scripts\\python.exe",
+    "team.showWelcomeMessage": false,
+    "editor.formatOnSave": true,
+    "python.linting.pep8Enabled": true,
+    "python.linting.pylintPath": "pylint",
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django"
+    ],
+    "python.linting.pylintEnabled": true
+
+}

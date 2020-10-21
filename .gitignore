@@ -3,7 +3,13 @@
 install.txt
 notes.txt
 
-
+### vscode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
 
 # Created by https://www.toptal.com/developers/gitignore/api/react,django
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,django

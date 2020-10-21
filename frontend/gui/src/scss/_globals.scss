@@ -1,0 +1,17 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box; //inludes padding in the final size of element
+}
+
+//inherits box sizing property to all tags
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
+}
