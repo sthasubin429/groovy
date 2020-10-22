@@ -1,7 +1,11 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-class Header extends Component {
+import { connect } from 'react-redux';
+
+import * as actions from '../store/actions/auth';
+
+class Sidebar extends Component {
 
     render() {
         return (
@@ -33,12 +37,8 @@ class Header extends Component {
                                     <Link className="nav-link" to="/"> Help </Link>
                                 </li>
 
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/login"> Login </Link>
-                                </li>
-
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/register"> Register </Link>
+                                <li className="nav-item" onClick={this.props.logout}>
+                                    <Link className="nav-link"> Logout </Link>
                                 </li>
 
                                 
@@ -51,6 +51,10 @@ class Header extends Component {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+	return {
+		logout: () => dispatch(actions.logout())
+	};
+};
 
-
-export default Header;
+export default connect(null, mapDispatchToProps)(Sidebar);
