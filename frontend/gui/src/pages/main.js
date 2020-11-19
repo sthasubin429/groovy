@@ -1,26 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Header from '../components/header';
 import Footer from "../components/footer";
 import Sidebar from "../components/sidebar";
 
-import BaseRouter from "../routes";
+import {BaseRouter, LoggedInRoute} from "../routes";
 
-class Main extends Component {
+function Main(props) {
 
-    render() {
         return (
             <>
                 {
-                    this.props.isAuthenticated ?
-                    <Header/>
+                    props.isAuthenticated ?
+                    <>
+                        <Header/>
+                            <BaseRouter  />
+                        <Footer/>
+                    </>
                     :
-                    <Sidebar/>
+                    <>
+                        <Sidebar/>
+                            <LoggedInRoute />
+                        
+                    </>
+                    
                 }
-                    <BaseRouter />
-                <Footer/>
+                    
             </>
         );
-    }
+
 }
 
 export default Main;

@@ -15,3 +15,16 @@ class Songs(models.Model):
 
     def __str__(self):
         return self.song_name
+
+
+class Playlist(models.Model):
+    playlist_name = models.CharField(max_length=200)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.playlist_name
+
+
+class PlaylistDetails(models.Model):
+    playlist_id = models.ForeignKey(Playlist, on_delete=models.CASCADE)
+    playlist_songs = models.ForeignKey(Songs, on_delete=models.CASCADE)

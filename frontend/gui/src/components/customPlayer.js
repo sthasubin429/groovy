@@ -4,8 +4,9 @@ function CustomPlayer (props) {
     return (
         
         <>
-            Player
-            <audio autoPlay controls src={props.songs.song_audio} />
+            Custom Player
+            <audio autoPlay controls src={props.song.song_audio} />
+            <button onClick={() => props.handleNext()} > Next</button>
 
         </>
     );
