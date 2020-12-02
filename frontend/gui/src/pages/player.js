@@ -23,9 +23,9 @@ function Player(){
     
     
     useEffect(()=> {
-        if (!loading){         
+        if (!loading){       
             handleNowPlaying();
-            handleNext();
+            handleChange("next");
         }
     },[loading]);
     
@@ -40,25 +40,37 @@ function Player(){
           });
     }
     
-    const handleNext = () =>{
+    const handleChange = (changeValue) =>{
         console.log('old index ' + index)
-        if (index+1 < playlist.length){
-            const newIndex  = index + 1
-            setIndex(newIndex);
-            console.log('inside if ' + index)           
+        if(changeValue === "next"){
+            if (index+1 < playlist.length){
+                const newIndex  = index + 1
+                setIndex(newIndex);
+                console.log('inside if ' + index)           
+            }
+            else{
+                setIndex(0)
+                console.log('inside else ' + index)
+            }
         }
-        else{
-            setIndex(0)
-            console.log('inside else ' + index)
+        else if(changeValue === "prev"){
+            if(index !== 0 && index > 0){
+                const newIndex  = index - 1
+                setIndex(newIndex);
+            }
+            else{
+                setIndex(playlist.length-1);
+            }
         }
+        
         console.log('new index ' + index)
-        handleNowPlaying()
+        handleNowPlaying();
     }
 
     return (
         <>
             Player
-            <CustomPlayer song={nowPlaying} handleNext={handleNext}></CustomPlayer>
+            <CustomPlayer song={nowPlaying} handleChange={handleChange}></CustomPlayer>
         </>
     );
 

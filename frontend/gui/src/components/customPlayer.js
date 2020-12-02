@@ -5,8 +5,9 @@ function CustomPlayer (props) {
         
         <>
             Custom Player
+            <button onClick={() => props.handleChange("prev")} > Previous</button>
             <audio autoPlay controls src={props.song.song_audio} />
-            <button onClick={() => props.handleNext()} > Next</button>
+            <button onClick={() => props.handleChange("next")} > Next</button>
 
         </>
     );
