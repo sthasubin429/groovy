@@ -32,7 +32,7 @@ function Player(){
     
     const handleNowPlaying = () =>{
         const song_id = playlist[index].playlist_songs
-        axios.get(`http://127.0.0.1:8000/songs/api/` + song_id + `/`)
+        axios.get(`http://127.0.0.1:8000/songs/api/${song_id}/`)
         .then(res => {
             setNowPlaying(res.data)
         }).catch(err => {
