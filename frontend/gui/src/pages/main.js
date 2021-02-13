@@ -1,33 +1,32 @@
 import React from 'react';
 import Header from '../components/header';
-import Footer from "../components/footer";
-import Sidebar from "../components/sidebar";
+import Footer from '../components/footer';
+import Sidebar from '../components/sidebar';
 
-import {BaseRouter, LoggedInRoute} from "../routes";
+import { BaseRouter, LoggedInRoute } from '../routes';
 
 function Main(props) {
+	return (
+		<>
+			{props.isAuthenticated ? (
+				<>
+					<Header />
+					<BaseRouter />
+					<Footer />
+				</>
+			) : (
+				<>
+					<div className='left'>
+						<Sidebar />
+					</div>
 
-        return (
-            <>
-                {
-                    props.isAuthenticated ?
-                    <>
-                        <Header/>
-                            <BaseRouter  />
-                        <Footer/>
-                    </>
-                    :
-                    <>
-                        <Sidebar/>
-                            <LoggedInRoute />
-                        
-                    </>
-                    
-                }
-                    
-            </>
-        );
-
+					<div className='left'>
+						<LoggedInRoute />
+					</div>
+				</>
+			)}
+		</>
+	);
 }
 
 export default Main;
