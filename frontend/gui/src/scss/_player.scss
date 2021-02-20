@@ -1,5 +1,32 @@
-.customPlayer-songImg {
-	border-radius: 50%;
-	width: 12.5rem;
-	height: 12.5rem;
+.customPlayer-container {
+	margin: 20px;
+	padding: 30px;
+	background-color: $sidebar-background;
+	border-radius: 0.75rem;
+
+	.customPlayer-header {
+		margin: 20px 0;
+
+		* {
+			display: inline-block;
+			margin: 0px 10px;
+		}
+	}
+
+	.customPlayer-songImg {
+		border-radius: 50%;
+		width: 12.5rem;
+		height: 12.5rem;
+	}
+
+	.customPlayer-controls {
+		margin: 20px;
+
+		.main-controls {
+			margin: 0 2rem;
+			* {
+				margin: 0 0.3rem;
+			}
+		}
+	}
 }

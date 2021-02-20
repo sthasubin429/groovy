@@ -45,6 +45,24 @@ ul {
   display: table;
 }
 
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.jc-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ai-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .landing_main {
   font-size: 5em;
   width: 100%;
@@ -57,9 +75,37 @@ ul {
   padding: 2rem;
 }
 
-.customPlayer-songImg {
+.customPlayer-container {
+  margin: 20px;
+  padding: 30px;
+  background-color: #e8ecef;
+  border-radius: 0.75rem;
+}
+
+.customPlayer-container .customPlayer-header {
+  margin: 20px 0;
+}
+
+.customPlayer-container .customPlayer-header * {
+  display: inline-block;
+  margin: 0px 10px;
+}
+
+.customPlayer-container .customPlayer-songImg {
   border-radius: 50%;
   width: 12.5rem;
   height: 12.5rem;
+}
+
+.customPlayer-container .customPlayer-controls {
+  margin: 20px;
+}
+
+.customPlayer-container .customPlayer-controls .main-controls {
+  margin: 0 2rem;
+}
+
+.customPlayer-container .customPlayer-controls .main-controls * {
+  margin: 0 0.3rem;
 }
 /*# sourceMappingURL=style.css.map */
