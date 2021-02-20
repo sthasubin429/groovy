@@ -56,4 +56,10 @@ ul {
   height: 100vh;
   padding: 2rem;
 }
+
+.customPlayer-songImg {
+  border-radius: 50%;
+  width: 12.5rem;
+  height: 12.5rem;
+}
 /*# sourceMappingURL=style.css.map */

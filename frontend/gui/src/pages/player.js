@@ -1,20 +1,20 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
-
-import CustomPlayer from '../components/customPlayer';
+import React, { useEffect, useState } from 'react';
 
 import { BASE_URL } from '../store/utility.js';
 
+import CustomPlayer from '../components/player/customPlayer';
+
 function Player() {
-	const [playlist, setPlaylist] = React.useState([]);
-	const [index, setIndex] = React.useState(0);
-	const [nowPlaying, setNowPlaying] = React.useState([]);
-	const [loading, setLoading] = React.useState(true);
+	const [playlist, setPlaylist] = useState([]);
+	const [index, setIndex] = useState(0);
+	const [nowPlaying, setNowPlaying] = useState([]);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		setLoading(true);
 		axios
-			.get(`http://127.0.0.1:8000/songs/playlistDetail/api/1/`)
+			.get(`${BASE_URL}/songs/playlistDetail/api/1/`)
 			.then((res) => {
 				setPlaylist(res.data);
 				setLoading(false);
@@ -34,7 +34,7 @@ function Player() {
 	const handleNowPlaying = () => {
 		const song_id = playlist[index].playlist_songs;
 		axios
-			.get(`http://127.0.0.1:8000/songs/api/${song_id}/`)
+			.get(`${BASE_URL}/songs/api/${song_id}/`)
 			.then((res) => {
 				setNowPlaying(res.data);
 			})
@@ -69,7 +69,6 @@ function Player() {
 
 	return (
 		<>
-			Player
 			<CustomPlayer song={nowPlaying} handleChange={handleChange}></CustomPlayer>
 		</>
 	);

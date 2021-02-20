@@ -37,7 +37,6 @@ class Sidebar extends Component {
 								Help
 							</Link>
 						</li>
-
 						<li className='nav-item' onClick={this.props.logout}>
 							<Link className='nav-link'> Logout </Link>
 						</li>
