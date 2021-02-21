@@ -66,7 +66,7 @@ ul {
 .landing_main {
   font-size: 5em;
   width: 100%;
-  margin: 20px;
+  margin: 1.125rem;
 }
 
 .sidebar-container {
@@ -75,20 +75,30 @@ ul {
   padding: 2rem;
 }
 
+.sidebar-container .sidebar-header {
+  margin: 0.875rem 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.sidebar-container .nav-item .nav-link .nav-icon {
+  margin: 0 1.5rem 0 0.5rem;
+}
+
 .customPlayer-container {
-  margin: 20px;
-  padding: 30px;
+  margin: 2rem;
+  padding: 1.875rem;
   background-color: #e8ecef;
   border-radius: 0.75rem;
 }
 
 .customPlayer-container .customPlayer-header {
-  margin: 20px 0;
+  margin: 1.125rem 0;
 }
 
 .customPlayer-container .customPlayer-header * {
   display: inline-block;
-  margin: 0px 10px;
+  margin: 0 0.625rem;
 }
 
 .customPlayer-container .customPlayer-songImg {
@@ -98,7 +108,7 @@ ul {
 }
 
 .customPlayer-container .customPlayer-controls {
-  margin: 20px;
+  margin: 1.125rem;
 }
 
 .customPlayer-container .customPlayer-controls .main-controls {

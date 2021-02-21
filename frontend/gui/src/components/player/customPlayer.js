@@ -35,7 +35,8 @@ function CustomPlayer(props) {
 	}, [isPlaying]);
 
 	const resetIsPlaying = () => {
-		setIsPlaying(true);
+		setIsPlaying(false);
+		// setIsPlaying(true);
 		playerRef.current.play();
 	};
 
@@ -58,27 +59,27 @@ function CustomPlayer(props) {
 					<h2> {props.song.song_name} </h2>
 				</div>
 				<div className='flex-container jc-center'>
-					<h4> {props.song.username} </h4>
+					<h4> {props.song.getUsername} </h4>
 				</div>
 
 				<div className='flex-container jc-center ai-center customPlayer-controls'>
-					<FontAwesomeIcon icon={faRedo} size='4x' />
+					<FontAwesomeIcon icon={faRedo} size='3x' />
 
 					<div className='main-controls'>
 						<FontAwesomeIcon
 							icon={faStepBackward}
-							size='4x'
+							size='3x'
 							onClick={() => {
 								props.handleChange('prev');
 								resetIsPlaying();
 							}}
 						/>
 
-						<FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size='4x' onClick={handlePausePlay} />
+						<FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size='3x' onClick={handlePausePlay} />
 
 						<FontAwesomeIcon
 							icon={faStepForward}
-							size='4x'
+							size='3x'
 							onClick={() => {
 								props.handleChange('next');
 								resetIsPlaying();
@@ -86,7 +87,7 @@ function CustomPlayer(props) {
 						/>
 					</div>
 
-					<FontAwesomeIcon icon={faRandom} size='4x' />
+					<FontAwesomeIcon icon={faRandom} size='3x' />
 				</div>
 			</div>
 		</>

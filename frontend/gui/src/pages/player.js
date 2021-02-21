@@ -11,7 +11,7 @@ function Player() {
 	const [nowPlaying, setNowPlaying] = useState([]);
 	const [loading, setLoading] = useState(true);
 
-	useEffect(() => {
+	const initPlaylist = () => {
 		setLoading(true);
 		axios
 			.get(`${BASE_URL}/songs/playlistDetail/api/1/`)
@@ -22,14 +22,7 @@ function Player() {
 			.catch((err) => {
 				console.log(err);
 			});
-	}, []);
-
-	useEffect(() => {
-		if (!loading) {
-			handleNowPlaying();
-			handleChange('next');
-		}
-	}, [loading]);
+	};
 
 	const handleNowPlaying = () => {
 		const song_id = playlist[index].playlist_songs;
@@ -41,23 +34,24 @@ function Player() {
 			.catch((err) => {
 				console.log(err);
 			});
+		console.log(nowPlaying.getUsername);
 	};
 
 	const handleChange = (changeValue) => {
+		console.log(changeValue);
 		console.log('old index ' + index);
 		if (changeValue === 'next') {
 			if (index + 1 < playlist.length) {
-				const newIndex = index + 1;
-				setIndex(newIndex);
 				console.log('inside if ' + index);
+				setIndex(index + 1);
 			} else {
 				setIndex(0);
 				console.log('inside else ' + index);
 			}
 		} else if (changeValue === 'prev') {
-			if (index !== 0 && index > 0) {
-				const newIndex = index - 1;
-				setIndex(newIndex);
+			if (index > 0) {
+				setIndex(index - 1);
+				console.log('inside if ' + index);
 			} else {
 				setIndex(playlist.length - 1);
 			}
@@ -66,6 +60,16 @@ function Player() {
 		console.log('new index ' + index);
 		handleNowPlaying();
 	};
+	useEffect(() => {
+		initPlaylist();
+	}, []);
+
+	useEffect(() => {
+		if (!loading) {
+			handleNowPlaying();
+			handleChange('next');
+		}
+	}, [loading]);
 
 	return (
 		<>

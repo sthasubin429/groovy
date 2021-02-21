@@ -1,15 +1,15 @@
 .customPlayer-container {
-	margin: 20px;
-	padding: 30px;
+	margin: 2rem;
+	padding: 1.875rem;
 	background-color: $sidebar-background;
 	border-radius: 0.75rem;
 
 	.customPlayer-header {
-		margin: 20px 0;
+		margin: 1.125rem 0;
 
 		* {
 			display: inline-block;
-			margin: 0px 10px;
+			margin: 0 0.625rem;
 		}
 	}
 
@@ -20,7 +20,7 @@
 	}
 
 	.customPlayer-controls {
-		margin: 20px;
+		margin: 1.125rem;
 
 		.main-controls {
 			margin: 0 2rem;
