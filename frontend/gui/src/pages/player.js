@@ -60,6 +60,7 @@ function Player() {
 		console.log('new index ' + index);
 		handleNowPlaying();
 	};
+
 	useEffect(() => {
 		initPlaylist();
 	}, []);
