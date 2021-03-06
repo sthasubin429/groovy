@@ -8,16 +8,6 @@ function CustomPlayer(props) {
 
 	const playerRef = useRef();
 
-	// const handlePlay = useCallback(() => {
-	// 	setIsPlaying(true);
-	// 	playerRef.current.play();
-	// }, []);
-
-	// const handlePause = useCallback(() => {
-	// 	setIsPlaying(false);
-	// 	playerRef.current.pause();
-	// }, []);
-
 	const handlePausePlay = () => {
 		if (isPlaying) {
 			setIsPlaying(false);
