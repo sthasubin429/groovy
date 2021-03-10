@@ -109,7 +109,7 @@ class Sidebar extends Component {
 					<p className='sidebar-header'>OTHERS</p>
 					<ul className='navbar-nav ml-auto'>
 						<li className='nav-item'>
-							<Link className='nav-link' to='/'>
+							<Link className='nav-link' to='/upload'>
 								<FontAwesomeIcon icon={faHeart} className='nav-icon' />
 								Upload
 							</Link>

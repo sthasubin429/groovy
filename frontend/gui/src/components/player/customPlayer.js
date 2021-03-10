@@ -25,16 +25,15 @@ function CustomPlayer(props) {
 	}, [isPlaying]);
 
 	const resetIsPlaying = () => {
-		setIsPlaying(false);
-		// setIsPlaying(true);
+		setIsPlaying(true);
 		playerRef.current.play();
 	};
 
 	return (
 		<>
-			<audio autoplay src={props.song.song_audio} ref={playerRef} />
+			<audio autoPlay src={props.song.song_audio} ref={playerRef} />
 
-			<div className='customPlayer-container'>
+			<div className='customPlayer-container left'>
 				<div className='flex-container jc-center customPlayer-header'>
 					<FontAwesomeIcon icon={faVolumeUp} size='2x' />
 					<h2>Now Playing</h2>

@@ -118,4 +118,11 @@ ul {
 .customPlayer-container .customPlayer-controls .main-controls * {
   margin: 0 0.3rem;
 }
+
+.playlist-container {
+  margin: 2rem;
+  padding: 1.875rem;
+  background-color: #e8ecef;
+  border-radius: 0.75rem;
+}
 /*# sourceMappingURL=style.css.map */
