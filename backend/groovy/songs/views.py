@@ -1,4 +1,4 @@
-from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView
 
 from .models import Songs, Playlist, PlaylistDetails
 from .serializers import SongsSerializer, PlaylistSerializer, PlaylistDetailsSerializer
@@ -11,6 +11,21 @@ class ArticlesListView(ListAPIView):
 
 
 class ArticlesDetailView(RetrieveAPIView):
+    queryset = Songs.objects.all()
+    serializer_class = SongsSerializer
+
+
+class ArticlesCreateView(CreateAPIView):
+    queryset = Songs.objects.all()
+    serializer_class = SongsSerializer
+
+
+class ArticlesUpdateView(UpdateAPIView):
+    queryset = Songs.objects.all()
+    serializer_class = SongsSerializer
+
+
+class ArticlesDeleteView(DestroyAPIView):
     queryset = Songs.objects.all()
     serializer_class = SongsSerializer
 

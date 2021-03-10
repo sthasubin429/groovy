@@ -1,5 +1,6 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
+import datetime
 
 
 # Create your models here.
@@ -7,7 +8,7 @@ from django.contrib.auth.models import User
 
 class Songs(models.Model):
     song_name = models.CharField(max_length=200)
-    song_date = models.DateTimeField()
+    song_date = models.DateTimeField(default=datetime.datetime.now())
     song_audio = models.FileField(upload_to="songs")
     song_photo = models.ImageField(default='songCover/default.jpg', upload_to="songCover")
     username = models.ForeignKey(User, on_delete=models.CASCADE)
