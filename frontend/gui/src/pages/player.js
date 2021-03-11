@@ -14,6 +14,8 @@ function Player() {
 	const [nowPlaying, setNowPlaying] = useState([]);
 	const [loading, setLoading] = useState(true);
 
+	const token = localStorage.getItem('token');
+
 	const handleChange = (changeValue) => {
 		// console.log(changeValue);
 		// console.log('old index ' + index);
@@ -43,7 +45,11 @@ function Player() {
 		setLoading(true);
 
 		axios
-			.get(`${BASE_URL}/songs/playlistDetail/api/1/`)
+			.get(`${BASE_URL}/songs/playlistDetail/api/1/`, {
+				headers: {
+					authorization: 'Token ' + token,
+				},
+			})
 			.then((res) => {
 				setPlaylist(res.data);
 				setLoading(false);
@@ -57,7 +63,11 @@ function Player() {
 		if (!loading) {
 			const song_id = playlist[index].playlist_songs;
 			axios
-				.get(`${BASE_URL}/songs/api/${song_id}/`)
+				.get(`${BASE_URL}/songs/api/${song_id}/`, {
+					headers: {
+						authorization: 'Token ' + token,
+					},
+				})
 				.then((res) => {
 					setNowPlaying(res.data);
 				})
@@ -74,7 +84,11 @@ function Player() {
 			console.log(element);
 			console.log(element.playlist_songs);
 			axios
-				.get(`${BASE_URL}/songs/api/${element.playlist_songs}/`)
+				.get(`${BASE_URL}/songs/api/${element.playlist_songs}/`, {
+					headers: {
+						authorization: 'Token ' + token,
+					},
+				})
 				.then((res) => {
 					tempList.push(res.data);
 				})
