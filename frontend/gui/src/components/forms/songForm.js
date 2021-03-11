@@ -1,10 +1,14 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BASE_URL, POST, PUT } from '../../store/utility.js';
+
+import { getUserDetails } from '../../store/actions/user.js';
 
 function SongForm(props) {
 	const [audioFile, setAudioFile] = useState();
 	const [imageFile, setImageFile] = useState();
+
+	let userData = getUserDetails();
 
 	const handleSubmit = (event, requestType) => {
 		event.preventDefault();
@@ -14,14 +18,24 @@ function SongForm(props) {
 		formData.append('song_name', event.target.elements.songTitle.value);
 		formData.append('song_audio', audioFile);
 		formData.append('song_photo', imageFile);
-		formData.append('username', '6');
+
+		console.log(userData.userInfo.pk);
+		formData.append('username', userData.userInfo.pk);
 
 		switch (requestType) {
 			case POST:
-				axios
-					.post(`${BASE_URL}/songs/api/create/`, formData)
-					.then((res) => console.log(res))
-					.catch((err) => console.log(err));
+				const token = localStorage.getItem('token');
+
+				if (token) {
+					axios
+						.post(`${BASE_URL}/songs/api/create/`, formData, {
+							headers: {
+								authorization: 'Token ' + token,
+							},
+						})
+						.then((res) => console.log(res))
+						.catch((err) => console.log(err));
+				}
 		}
 		// switch (requestType) {
 		// 	case POST:
