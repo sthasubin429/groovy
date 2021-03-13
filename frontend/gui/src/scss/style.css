@@ -125,4 +125,39 @@ ul {
   background-color: #e8ecef;
   border-radius: 0.75rem;
 }
+
+.playlist-container ul {
+  margin: 0;
+  padding: 0;
+}
+
+.playlist-container li {
+  margin: 1rem 0;
+}
+
+.playlist-container .playlist-songImg {
+  border-radius: 10%;
+  width: 5rem;
+  height: 5rem;
+}
+
+.playlist-container .playlist-songDetail {
+  margin: auto 1rem;
+}
+
+.playlist-container .playlist-songDetail div {
+  margin: 0.5rem 0;
+}
+
+.playlist-container .playlist-icon {
+  margin: auto 1rem;
+}
+
+.songForm-container {
+  margin: 3rem;
+}
+
+.songForm-container .songForm-name {
+  margin: 0;
+}
 /*# sourceMappingURL=style.css.map */

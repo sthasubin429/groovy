@@ -11,13 +11,22 @@ function Playlist(props) {
 	return (
 		<div className='playlist-container left'>
 			<h2 className='playlist-header'>Current Playlist</h2>
+			<ul>
+				{currentList.map((song) => (
+					<>
+						<li className='d-flex'>
+							<img src={song.song_photo} className='playlist-songImg' alt='Song' />
 
-			{currentList.map((song) => (
-				<>
-					<li>{song.song_name}</li>
-					{/* <img src={song.song_photo} className='customPlayer-songImg' alt='Song' /> */}
-				</>
-			))}
+							<div className='playlist-songDetail'>
+								<div className='text-capitalize'>{song.song_name}</div>
+								<div>{song.getUsername}</div>
+							</div>
+
+							<div className='playlist-icon ml-auto'>Icon</div>
+						</li>
+					</>
+				))}
+			</ul>
 		</div>
 	);
 }

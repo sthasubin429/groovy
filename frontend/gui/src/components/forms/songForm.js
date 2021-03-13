@@ -37,19 +37,6 @@ function SongForm(props) {
 						.catch((err) => console.log(err));
 				}
 		}
-		// switch (requestType) {
-		// 	case POST:
-		// 		axios
-		// 			.post(`${BASE_URL}/songs/api/create/`, {
-		// 				song_name: title,
-		// 				song_date: null,
-		// 				song_audio: audio,
-		// 				song_photo: songImage,
-		// 				// username: null,
-		// 			})
-		// 			.then((res) => console.log(res))
-		// 			.catch((err) => console.log(err));
-		// }
 	};
 
 	const handleAudioFile = (e) => {
@@ -63,35 +50,41 @@ function SongForm(props) {
 
 	return (
 		<>
-			<h2> Upload A Song</h2>
-			<form onSubmit={(event) => handleSubmit(event, props.requestType)}>
-				<label for='songTitle'>Song Title</label> <br />
-				<input type='text' id='title' name='songTitle' required /> <br />
-				<label for='audio'> Upload Audio </label> <br />
-				<input
-					type='file'
-					id='audio'
-					name='audio'
-					required
-					onChange={(e) => {
-						handleAudioFile(e);
-					}}
-				/>{' '}
-				<br />
-				<label for='image'> Song Image </label> <br />
-				<input
-					type='file'
-					id='image'
-					name='image'
-					accept='image/png, image/jpeg'
-					required
-					onChange={(e) => {
-						handleImageFile(e);
-					}}
-				/>{' '}
-				<br />
-				<input type='Submit' name='submit' />
-			</form>
+			<div className='songForm-container'>
+				<h2> Upload A Song</h2>
+				<form onSubmit={(event) => handleSubmit(event, props.requestType)}>
+					<div className='form-group songForm-name'>
+						<label for='songTitle'>Song Name</label>
+						<input type='text' className='form-control' id='title' name='songTitle' placeholder='Title' required /> <br />
+					</div>
+					<div className='form-group'>
+						<label for='audio'> Upload Audio </label> <br />
+						<input
+							type='file'
+							id='audio'
+							name='audio'
+							required
+							onChange={(e) => {
+								handleAudioFile(e);
+							}}
+						/>
+					</div>
+					<div className='form-group'>
+						<label for='image'> Song Image </label> <br />
+						<input
+							type='file'
+							id='image'
+							name='image'
+							accept='image/png, image/jpeg'
+							required
+							onChange={(e) => {
+								handleImageFile(e);
+							}}
+						/>
+					</div>
+					<input type='Submit' name='submit' className='btn btn-primary' />
+				</form>
+			</div>
 		</>
 	);
 }

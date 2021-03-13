@@ -5,7 +5,6 @@ import { POST } from '../store/utility.js';
 function UploadMusic() {
 	return (
 		<>
-			<p> Upload Music</p>
 			<SongForm requestType={POST} />
 		</>
 	);
