@@ -1,0 +1,17 @@
+.song-card {
+	margin: 3rem;
+
+	.songList-songImg {
+		border-radius: 50%;
+		width: 5rem;
+		height: 5rem;
+	}
+
+	.songList-songDetail {
+		margin: auto 1rem;
+
+		div {
+			margin: 0.5rem 0;
+		}
+	}
+}

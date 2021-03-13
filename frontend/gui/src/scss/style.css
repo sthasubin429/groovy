@@ -160,4 +160,22 @@ ul {
 .songForm-container .songForm-name {
   margin: 0;
 }
+
+.song-card {
+  margin: 3rem;
+}
+
+.song-card .songList-songImg {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+}
+
+.song-card .songList-songDetail {
+  margin: auto 1rem;
+}
+
+.song-card .songList-songDetail div {
+  margin: 0.5rem 0;
+}
 /*# sourceMappingURL=style.css.map */

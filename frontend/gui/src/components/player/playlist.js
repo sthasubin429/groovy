@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 function Playlist(props) {
-	// console.log(props.list);
 	const [currentList, setCurrentList] = useState(props.list);
 
 	useEffect(() => {

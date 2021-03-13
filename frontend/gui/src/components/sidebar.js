@@ -46,7 +46,7 @@ class Sidebar extends Component {
 							</Link>
 						</li>
 						<li className='nav-item'>
-							<Link className='nav-link' to='/'>
+							<Link className='nav-link' to='/allSongs'>
 								<FontAwesomeIcon icon={faPlay} className='nav-icon' />
 								Songs
 							</Link>

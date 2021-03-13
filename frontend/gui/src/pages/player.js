@@ -78,11 +78,11 @@ function Player() {
 	}, [index, loading]);
 
 	useEffect(() => {
-		console.log(playlist);
+		// console.log(playlist);
 		var tempList = [];
 		playlist.forEach((element) => {
-			console.log(element);
-			console.log(element.playlist_songs);
+			// console.log(element);
+			// console.log(element.playlist_songs);
 			axios
 				.get(`${BASE_URL}/songs/api/${element.playlist_songs}/`, {
 					headers: {
