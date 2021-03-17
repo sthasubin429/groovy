@@ -28,6 +28,10 @@ class Playlist(models.Model):
     def __str__(self):
         return self.playlist_name
 
+    @property
+    def getUsername(self):
+        return self.created_by.username
+
 
 class PlaylistDetails(models.Model):
     playlist_id = models.ForeignKey(Playlist, on_delete=models.CASCADE)

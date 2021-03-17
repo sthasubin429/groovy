@@ -28,7 +28,7 @@ class Sidebar extends Component {
 							</Link>
 						</li>
 						<li className='nav-item'>
-							<Link className='nav-link' to='/'>
+							<Link className='nav-link' to='/playlist'>
 								<FontAwesomeIcon icon={faListUl} className='nav-icon' />
 								Playlist
 							</Link>

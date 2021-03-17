@@ -19,7 +19,6 @@ function SongForm(props) {
 		formData.append('song_audio', audioFile);
 		formData.append('song_photo', imageFile);
 
-		console.log(userData.userInfo.pk);
 		formData.append('username', userData.userInfo.pk);
 
 		switch (requestType) {

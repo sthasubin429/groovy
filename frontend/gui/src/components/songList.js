@@ -9,7 +9,6 @@ function SongList(props) {
 	}, [props.songs]);
 	return (
 		<>
-			<h2> Song List</h2>
 			{songs.map((song) => (
 				<>
 					<div className='song-card d-flex'>
