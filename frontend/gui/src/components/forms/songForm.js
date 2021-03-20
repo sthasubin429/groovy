@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { BASE_URL, POST, PUT } from '../../store/utility.js';
+import React, { useState } from 'react';
+import { BASE_URL, POST } from '../../store/utility.js';
 
 import { getUserDetails } from '../../store/actions/user.js';
 

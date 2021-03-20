@@ -22,7 +22,7 @@ class Login extends Component {
 		}
 		return (
 			<>
-				<div>
+				<div className='container'>
 					{errorMessage}
 
 					{this.props.loading ? (
