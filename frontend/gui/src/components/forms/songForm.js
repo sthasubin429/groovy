@@ -11,7 +11,7 @@ function SongForm(props) {
 	let userData = getUserDetails();
 
 	const handleSubmit = (event, requestType) => {
-		event.preventDefault();
+		// event.preventDefault();
 
 		let formData = new FormData();
 
@@ -56,6 +56,7 @@ function SongForm(props) {
 						<label for='songTitle'>Song Name</label>
 						<input type='text' className='form-control' id='title' name='songTitle' placeholder='Title' required /> <br />
 					</div>
+
 					<div className='form-group'>
 						<label for='audio'> Upload Audio </label> <br />
 						<input
@@ -68,6 +69,7 @@ function SongForm(props) {
 							}}
 						/>
 					</div>
+
 					<div className='form-group'>
 						<label for='image'> Song Image </label> <br />
 						<input

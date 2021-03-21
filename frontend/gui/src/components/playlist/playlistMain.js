@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { Link } from 'react-router-dom';
 export default function PlaylistMain(props) {
 	console.log(props.playlist);
 	const [playlist, setPlaylist] = useState(props.playlist);
@@ -7,6 +7,7 @@ export default function PlaylistMain(props) {
 	useEffect(() => {
 		setPlaylist(props.playlist);
 	}, [props.playlist]);
+
 	return (
 		<>
 			{playlist.map((list) => (
@@ -16,6 +17,10 @@ export default function PlaylistMain(props) {
 					<hr />
 				</>
 			))}
+
+			<button>
+				<Link to='/playlistCreate'>CreatePlaylist</Link>
+			</button>
 		</>
 	);
 }

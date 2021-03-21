@@ -14,13 +14,13 @@ export const getUserDetails = () => {
 			})
 			.then((res) => {
 				userData['userInfo'] = { ...res.data };
-				console.log(userData);
+				// console.log(userData);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 
-		console.log(userData);
+		// console.log(userData);
 		return userData;
 	}
 };
