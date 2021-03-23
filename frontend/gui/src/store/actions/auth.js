@@ -89,8 +89,8 @@ export const authRegister = (username, email, password1, password2) => {
 				localStorage.setItem('token', token);
 				localStorage.setItem('expirationDate', expirationDate);
 				dispatch(authSuccess(token));
-				//window.location.replace("http://localhost:3000");
 				dispatch(checkAuthTimeout(3600));
+				window.location.replace('http://localhost:3000/registerDetails/');
 			})
 			.catch((err) => {
 				dispatch(authFail(err));

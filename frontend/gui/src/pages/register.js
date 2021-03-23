@@ -15,17 +15,17 @@ class Register extends Component {
 		const password1 = event.target.registerPassword1.value;
 		const password2 = event.target.registerPassword2.value;
 
-		let firstName = event.target.registerFirstName.value;
-		firstName = firstName.replace(/[^a-zA-Z]/g, '');
+		// let firstName = event.target.registerFirstName.value;
+		// firstName = firstName.replace(/[^a-zA-Z]/g, '');
 
-		let lastName = event.target.registerLastName.value;
-		lastName = lastName.replace(/[^a-zA-Z]/g, '');
+		// let lastName = event.target.registerLastName.value;
+		// lastName = lastName.replace(/[^a-zA-Z]/g, '');
 
-		console.log(firstName, lastName);
+		// console.log(firstName, lastName);
 
 		this.props.onAuth(username, email, password1, password2);
 		event.preventDefault();
-		this.props.history.push('/');
+		// this.props.history.push('/');
 	}
 
 	render() {
@@ -44,17 +44,6 @@ class Register extends Component {
 						</div>
 					) : (
 						<form onSubmit={this.handleSubmit}>
-							<div className=' form-group form-row'>
-								<div className='col'>
-									<label htmlFor='registerFirstName'>First Name</label>
-									<input type='text' className='form-control' placeholder='First name' name='registerFirstName' />
-								</div>
-								<div className='col'>
-									<label htmlFor='registerLastName'>Last Name</label>
-									<input type='text' className='form-control' placeholder='Last name' name='registerLastName' />
-								</div>
-							</div>
-
 							<div className='form-group'>
 								<label htmlFor='registerEmail'>Email Address</label>
 								<input type='text' className='form-control' name='registerEmail' placeholder='Enter Your Email Address here' />
