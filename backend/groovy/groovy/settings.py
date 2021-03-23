@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'rest_auth.registration',
 
-    'songs'
+    'songs',
+    'userProfile'
 
 
 ]
