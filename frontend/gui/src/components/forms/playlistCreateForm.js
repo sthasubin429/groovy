@@ -7,6 +7,7 @@ import { getUserDetails } from '../../store/actions/user.js';
 export default function PlaylistCreateForm(props) {
 	const [options, setOptions] = useState([]);
 	let userData = getUserDetails();
+
 	useEffect(() => {
 		// console.log(typeof props.songs);
 		const songs = [...props.songs];

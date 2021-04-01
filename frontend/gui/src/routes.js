@@ -10,6 +10,7 @@ import Playlist from './pages/playlist';
 import UploadMusic from './pages/uploadMusic';
 import PlaylistCreate from './pages/playlistCreate';
 import RegisterDetails from './pages/registerDetails';
+import Profie from './pages/profile';
 
 export const BaseRouter = () => (
 	<div>
@@ -28,5 +29,6 @@ export const LoggedInRoute = () => (
 		<Route exact path='/playlist/' component={Playlist} />
 		<Route exact path='/playlistCreate/' component={PlaylistCreate} />
 		<Route exact path='/registerDetails/' component={RegisterDetails} />
+		<Route exact path='/profile/' component={Profie} />
 	</div>
 );

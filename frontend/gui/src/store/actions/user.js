@@ -14,6 +14,20 @@ export const getUserDetails = () => {
 			})
 			.then((res) => {
 				userData['userInfo'] = { ...res.data };
+
+				axios
+					.get(`${BASE_URL}/userProfile/api/${userData.userInfo.pk}`, {
+						headers: {
+							authorization: 'Token ' + token,
+						},
+					})
+					.then((res) => {
+						userData['userDetails'] = { ...res.data[0] };
+						// console.log(userData);
+					})
+					.catch((err) => {
+						console.log(err);
+					});
 				// console.log(userData);
 			})
 			.catch((err) => {

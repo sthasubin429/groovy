@@ -6,6 +6,7 @@ import PlaylistMain from '../components/playlist/playlistMain.js';
 export default function Playlist() {
 	const [playlist, setPlaylst] = useState([]);
 	const token = localStorage.getItem('token');
+
 	useEffect(() => {
 		setPlaylst([]);
 		axios
@@ -21,6 +22,7 @@ export default function Playlist() {
 				console.log(err);
 			});
 	}, []);
+
 	return (
 		<>
 			<h2>All Playlist</h2>
