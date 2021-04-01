@@ -1,27 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react';
+
+import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+import store from './store/configureStore';
 
-import reducer from './store/reducers/auth';
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const store = createStore(reducer, composeEnhancers(
-    applyMiddleware(thunk)
-));
+import * as serviceWorker from './serviceWorker';
 
 const app = (
-    <Provider store={store}>
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
-    </Provider>
-)
+	<Provider store={store}>
+		<React.StrictMode>
+			<App />
+		</React.StrictMode>
+	</Provider>
+);
 
 ReactDOM.render(app, document.getElementById('root'));
 

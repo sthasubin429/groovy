@@ -12,7 +12,6 @@ class Login extends Component {
 	handleSubmit(event) {
 		event.preventDefault();
 		this.props.onAuth(event.target.loginUsername.value, event.target.loginPassword.value);
-		this.props.history.push('/');
 	}
 
 	render() {

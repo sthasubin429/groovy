@@ -3,7 +3,6 @@ import * as actionTypes from './actionTypes';
 
 import { BASE_URL } from '../utility.js';
 //action types are events
-
 export const authStart = () => {
 	return {
 		type: actionTypes.AUTH_START,
@@ -27,6 +26,8 @@ export const authFail = (error) => {
 export const logout = () => {
 	localStorage.removeItem('token');
 	localStorage.removeItem('expirationDate');
+	localStorage.removeItem('current_playlist');
+
 	axios
 		.get(`${BASE_URL}/rest-auth/logout/`)
 		.then((res) => {
@@ -64,7 +65,7 @@ export const authLogin = (username, password) => {
 				localStorage.setItem('token', token);
 				localStorage.setItem('expirationDate', expirationDate);
 				dispatch(authSuccess(token));
-				//window.location.replace("http://localhost:3000");
+				window.location.replace('http://localhost:3000');
 				dispatch(checkAuthTimeout(3600));
 			})
 			.catch((err) => {

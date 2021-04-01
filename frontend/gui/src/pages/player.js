@@ -2,9 +2,11 @@ import axios from 'axios';
 
 import React, { useEffect, useState } from 'react';
 import { BASE_URL } from '../store/utility.js';
+import { useDispatch, useSelector } from 'react-redux';
 
 import CustomPlayer from '../components/player/customPlayer';
 import Playlist from '../components/player/playlist';
+import { checkPlaylist, changeSong } from '../store/actions/player';
 
 function Player() {
 	const [playlist, setPlaylist] = useState([]);
@@ -16,6 +18,11 @@ function Player() {
 
 	const token = localStorage.getItem('token');
 
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(checkPlaylist());
+	}, []);
 	const handleChange = (changeValue) => {
 		// console.log(changeValue);
 		// console.log('old index ' + index);
