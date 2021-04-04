@@ -1,7 +1,7 @@
-import * as actionTypes from './actionTypes';
 import axios from 'axios';
-import { BASE_URL } from '../utility';
 import store from '../configureStore';
+import { BASE_URL } from '../utility';
+import * as actionTypes from './actionTypes';
 
 const token = localStorage.getItem('token');
 

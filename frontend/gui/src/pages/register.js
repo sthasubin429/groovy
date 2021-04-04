@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import React, { Component } from 'react';
 import * as actions from '../store/actions/auth';
 
 class Register extends Component {

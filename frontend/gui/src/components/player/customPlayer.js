@@ -1,9 +1,9 @@
+import { useSelector, useDispatch } from 'react-redux';
 import React, { useState, useRef, useEffect } from 'react';
 
+import * as playerActions from '../../store/actions/player.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faVolumeUp, faBars, faStepBackward, faStepForward, faRedo, faRandom } from '@fortawesome/free-solid-svg-icons';
-import { useSelector, useDispatch } from 'react-redux';
-import * as playerActions from '../../store/actions/player.js';
 
 function CustomPlayer() {
 	const [isPlaying, setIsPlaying] = useState(true);
