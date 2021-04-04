@@ -39,7 +39,6 @@ export const changeSong = (index) => {
 	// console.log(index);
 	let song_id = store.getState().player.playlist_details[index].playlist_songs;
 	return (dispatch) => {
-		dispatch(playerStart());
 		axios
 			.get(`${BASE_URL}/songs/api/${song_id}/`, {
 				headers: {
