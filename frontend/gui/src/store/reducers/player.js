@@ -7,7 +7,7 @@ const initialState = {
 	playlist_details: null,
 	current_song: null,
 	error: null,
-	loading: false,
+	loading: true,
 };
 
 const playerStart = (state, action) => {
@@ -23,7 +23,6 @@ const playerChangePlaylist = (state, action) => {
 		playlist_details: action.playlist_details,
 		index: action.index,
 		error: null,
-		loading: false,
 	});
 };
 

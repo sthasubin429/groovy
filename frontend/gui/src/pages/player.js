@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import CustomPlayer from '../components/player/customPlayer';
 import Playlist from '../components/player/playlist';
-import { checkPlaylist, changeSong } from '../store/actions/player';
+import { checkPlaylist } from '../store/actions/player';
 
 function Player() {
 	const [playlist, setPlaylist] = useState([]);
@@ -23,29 +23,6 @@ function Player() {
 	useEffect(() => {
 		dispatch(checkPlaylist());
 	}, []);
-	const handleChange = (changeValue) => {
-		// console.log(changeValue);
-		// console.log('old index ' + index);
-		if (changeValue === 'next') {
-			if (index + 1 < playlist.length) {
-				// console.log('inside if ' + index);
-				setIndex(index + 1);
-			} else {
-				setIndex(0);
-				// console.log('inside else ' + index);
-			}
-		} else if (changeValue === 'prev') {
-			if (index > 0) {
-				setIndex(index - 1);
-				// console.log('inside if ' + index);
-			} else {
-				setIndex(playlist.length - 1);
-			}
-		}
-
-		// console.log('new index ' + index);
-		// handleNowPlaying();
-	};
 
 	useEffect(() => {
 		setIndex(0);
@@ -108,7 +85,7 @@ function Player() {
 
 	return (
 		<>
-			<CustomPlayer song={nowPlaying} handleChange={handleChange}></CustomPlayer>
+			<CustomPlayer></CustomPlayer>
 			<Playlist list={currentPlaylist}></Playlist>
 		</>
 	);

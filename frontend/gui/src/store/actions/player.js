@@ -36,7 +36,7 @@ export const playerFail = (error) => {
 };
 
 export const changeSong = (index) => {
-	console.log(index);
+	// console.log(index);
 	let song_id = store.getState().player.playlist_details[index].playlist_songs;
 	return (dispatch) => {
 		dispatch(playerStart());
@@ -47,7 +47,6 @@ export const changeSong = (index) => {
 				},
 			})
 			.then((res) => {
-				console.log(res.data);
 				dispatch(playerChangeSong(index, res.data));
 			})
 			.catch((err) => {
