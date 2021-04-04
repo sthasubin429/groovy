@@ -11,6 +11,13 @@ export const playerStart = () => {
 	};
 };
 
+export const playerFail = (error) => {
+	return {
+		type: actionTypes.PLAYER_FAIL,
+		error: error,
+	};
+};
+
 export const playerChangePlaylist = (playlist_id, playlist_details) => {
 	return {
 		type: actionTypes.PLAYER_CHANGE_PLAYLIST,
@@ -28,10 +35,10 @@ export const playerChangeSong = (index, current_song) => {
 	};
 };
 
-export const playerFail = (error) => {
+export const playerPlaylistSongDetails = (playlist_song_details) => {
 	return {
-		type: actionTypes.PLAYER_FAIL,
-		error: error,
+		type: actionTypes.PLAYER_PLAYLIST_SONG_DETAILS,
+		playlist_song_details: playlist_song_details,
 	};
 };
 
@@ -67,9 +74,9 @@ export const changePlaylist = (playlist_id) => {
 			.then((res) => {
 				dispatch(playerChangePlaylist(playlist_id, res.data));
 				dispatch(changeSong(0));
+				dispatch(getPlaylistSongDetails(playlist_id));
 			})
 			.catch((err) => {
-				// console.log(err);
 				dispatch(playerFail(err));
 			});
 	};
@@ -85,5 +92,23 @@ export const checkPlaylist = () => {
 		} else {
 			dispatch(changePlaylist(playlist_id));
 		}
+	};
+};
+
+export const getPlaylistSongDetails = (playlist_id) => {
+	return (dispatch) => {
+		dispatch(playerStart());
+		axios
+			.get(`${BASE_URL}/songs/playlistDetail/api/songDetails/${playlist_id}/`, {
+				headers: {
+					authorization: 'Token ' + token,
+				},
+			})
+			.then((res) => {
+				dispatch(playerPlaylistSongDetails(res.data));
+			})
+			.catch((err) => {
+				dispatch(playerFail(err));
+			});
 	};
 };

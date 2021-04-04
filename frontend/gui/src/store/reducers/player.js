@@ -5,6 +5,7 @@ const initialState = {
 	playlist_id: null,
 	index: 0,
 	playlist_details: null,
+	playlist_song_details: null,
 	current_song: null,
 	error: null,
 	loading: true,
@@ -14,6 +15,13 @@ const playerStart = (state, action) => {
 	return updateObject(state, {
 		error: null,
 		loading: true,
+	});
+};
+
+const playerFail = (state, action) => {
+	return updateObject(state, {
+		error: action.error,
+		loading: false,
 	});
 };
 
@@ -35,10 +43,10 @@ const playerChangeSong = (state, action) => {
 	});
 };
 
-const playerFail = (state, action) => {
+const playerPlaylistSongDetails = (state, action) => {
 	return updateObject(state, {
-		error: action.error,
-		loading: false,
+		playlist_song_details: action.playlist_song_details,
+		error: null,
 	});
 };
 
@@ -55,6 +63,9 @@ const playerReducer = (state = initialState, action) => {
 
 		case actionTypes.PLAYER_CHANGE_SONG:
 			return playerChangeSong(state, action);
+
+		case actionTypes.PLAYER_PLAYLIST_SONG_DETAILS:
+			return playerPlaylistSongDetails(state, action);
 
 		default:
 			return state;
