@@ -66,12 +66,11 @@ ul {
 .landing_main {
   font-size: 5em;
   width: 100%;
-  margin: 1.125rem;
 }
 
 .sidebar-container {
   background-color: #e8ecef;
-  height: 100vh;
+  height: 100%;
   padding: 2rem;
 }
 
@@ -177,5 +176,13 @@ ul {
 
 .song-card .songList-songDetail div {
   margin: 0.5rem 0;
+}
+
+.profile-header .profile-name {
+  font-size: 2.1em;
+}
+
+.profile-header .profile-username {
+  font-size: 1.5em;
 }
 /*# sourceMappingURL=style.css.map */

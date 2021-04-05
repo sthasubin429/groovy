@@ -16,7 +16,7 @@ export default function PlaylistCreateForm(props) {
 			songs.forEach((song) => {
 				// console.log(song.song_name);
 				optionList.push(
-					<option className='text-capitalize' value={song.id}>
+					<option className='text-capitalize' key={song.id}>
 						{song.song_name}
 					</option>
 				);
@@ -37,7 +37,7 @@ export default function PlaylistCreateForm(props) {
 		// console.log(event.target.elements.songChoice.value);
 		// console.log(formData);
 
-		let songChoice = event.target.elements.songChoice.value;
+		let songChoice = parseInt(event.target.elements.songChoice.key);
 
 		switch (requestType) {
 			case POST:
@@ -92,7 +92,7 @@ export default function PlaylistCreateForm(props) {
 
 	return (
 		<>
-			<h2 className='col-12 m-4'>Create PLaylist</h2>
+			<h2 className='col-12 m-4'>Create Playlist</h2>
 			<form className='col-12 m-4' onSubmit={(event) => handleSubmit(event, props.requestType)}>
 				<div className='form-group row'>
 					<label for='playlistName' className='col-12 col-md-2 col-form-label'>
@@ -109,10 +109,14 @@ export default function PlaylistCreateForm(props) {
 				</div>
 
 				<div class='form-group col-md-10'>
-					<select id='songChoice' class='form-control'>
+					{/* <select id='songChoice' class='form-control'>
 						{options}
-					</select>
+					</select> */}
+
+					<input className='form-control' list='songList' id='songChoice' placeholder='Type to search...' />
+					<datalist id='songList'> {options} </datalist>
 				</div>
+
 				<input type='Submit' name='submit' className='btn btn-primary' />
 			</form>
 		</>

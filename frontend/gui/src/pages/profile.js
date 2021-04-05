@@ -4,8 +4,9 @@ import UserDetails from '../components/profile/userdetails.js';
 export default function Profile() {
 	return (
 		<>
-			Profile
-			<UserDetails />
+			<div className='continer-fluid'>
+				<UserDetails />
+			</div>
 		</>
 	);
 }

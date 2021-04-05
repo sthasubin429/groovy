@@ -16,12 +16,16 @@ function Main(props) {
 				</>
 			) : (
 				<>
-					<div className='left'>
-						<Sidebar />
-					</div>
+					<div className='container'>
+						<div className='row'>
+							<div className='d-none d-md-block col-md-4 col-lg-3'>
+								<Sidebar />
+							</div>
 
-					<div className='left'>
-						<LoggedInRoute />
+							<div className='col-12 col-sm-12 col-md-8 col-lg-9'>
+								<LoggedInRoute />
+							</div>
+						</div>
 					</div>
 				</>
 			)}
