@@ -29,7 +29,7 @@ export default function Sidebar() {
 								<div className='row'>
 									<div className='col-4'>
 										<div className='d-flex justify-content-center align-items-center'>
-											<img src={userInfo.profile_picture} class='rounded' alt='Profile Picture' width='100%' />
+											<img src={userInfo.profile_picture} className='rounded' alt='Profile Picture' width='100%' />
 										</div>
 									</div>
 									<div className='col-8'>
