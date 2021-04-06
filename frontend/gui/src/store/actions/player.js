@@ -65,6 +65,8 @@ export const changeSong = (index) => {
 export const changePlaylist = (playlist_id) => {
 	return (dispatch) => {
 		dispatch(playerStart());
+		console.log(playlist_id);
+		localStorage.setItem('current_playlist', playlist_id);
 		axios
 			.get(`${BASE_URL}/songs/playlistDetail/api/${playlist_id}/`, {
 				headers: {
@@ -84,8 +86,8 @@ export const changePlaylist = (playlist_id) => {
 
 export const checkPlaylist = () => {
 	return (dispatch) => {
+		dispatch(playerStart());
 		let playlist_id = localStorage.getItem('current_playlist');
-
 		if (playlist_id === null) {
 			localStorage.setItem('current_playlist', 1);
 			dispatch(changePlaylist(localStorage.getItem('current_playlist')));

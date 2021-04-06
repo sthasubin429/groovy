@@ -55,6 +55,8 @@ export default function PlaylistCreateForm(props) {
 				}
 			});
 		});
+
+		let songIdUnique = [...new Set(songIdArr)];
 		// console.log(songIdArr);
 
 		switch (requestType) {
@@ -69,7 +71,7 @@ export default function PlaylistCreateForm(props) {
 						.then((res) => {
 							let playlistDetail = res.data;
 
-							songIdArr.forEach((songId) => {
+							songIdUnique.forEach((songId) => {
 								addSongs(songId, playlistDetail, POST);
 							});
 						})
