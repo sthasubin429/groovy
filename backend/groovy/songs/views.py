@@ -31,6 +31,13 @@ class ArticlesDeleteView(DestroyAPIView):
     serializer_class = SongsSerializer
 
 
+class GetUserSongs(ListAPIView):
+    serializer_class = SongsSerializer
+
+    def get_queryset(self):
+        self.id = self.kwargs['userID']
+        return Songs.objects.filter(username=self.id)
+
 # Playlist
 class PlaylistListView(ListAPIView):
     queryset = Playlist.objects.all()
@@ -55,6 +62,15 @@ class PlaylistUpdateView(UpdateAPIView):
 class PlaylistDeleteView(DestroyAPIView):
     queryset = Playlist.objects.all()
     serializer_class = PlaylistSerializer
+
+
+class GetUserPlaylist(ListAPIView):
+ 
+    serializer_class = PlaylistSerializer
+
+    def get_queryset(self):
+        self.id = self.kwargs['userID']
+        return Playlist.objects.filter(created_by=self.id)
 
 
 # Playlist Details

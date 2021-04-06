@@ -2,6 +2,7 @@ import axios from 'axios';
 import { BASE_URL } from '../store/utility.js';
 import React, { useState, useEffect } from 'react';
 import PlaylistMain from '../components/playlist/playlistMain.js';
+import { Link } from 'react-router-dom';
 
 export default function Playlist() {
 	const [playlist, setPlaylst] = useState([]);
@@ -28,6 +29,10 @@ export default function Playlist() {
 			<h2>All Playlist</h2>
 
 			<PlaylistMain playlist={playlist} />
+
+			<Link to='/playlistCreate'>
+				<button className='btn btn-secondary'> CreatePlaylist</button>
+			</Link>
 		</>
 	);
 }

@@ -20,6 +20,8 @@ export const profileLogout = () => {
 		type: actionTypes.PROFILE_LOGOUT,
 		user_details: null,
 		user_info: null,
+		song_list: null,
+		playlist_list: null,
 		error: null,
 		loading: false,
 	};
@@ -33,12 +35,26 @@ export const profileUpdateDetails = (user_details, user_info) => {
 	};
 };
 
+export const profileUpdateSongs = (song_list) => {
+	return {
+		type: actionTypes.PROFILE_USER_SONGS,
+		song_list: song_list,
+	};
+};
+
+export const profleUpdatePlaylist = (playlist_list) => {
+	return {
+		type: actionTypes.PROFILE_USER_PLAYLIST,
+		playlist_list: playlist_list,
+	};
+};
+
 export const getUserDetails = (token) => {
 	return (dispatch) => {
 		dispatch(profileStart());
 
 		if (token === undefined) {
-			dispatch(profileFail('Token Not found'));
+			dispatch(profileFail('Token Not Found'));
 		} else {
 			axios
 				.get(`${BASE_URL}/rest-auth/user/`, {
@@ -57,13 +73,65 @@ export const getUserDetails = (token) => {
 						.then((res) => {
 							let user_info = { ...res.data[0] };
 							dispatch(profileUpdateDetails(user_details, user_info));
+							dispatch(getUserSongs(token, user_details.pk));
+							dispatch(getUserPlaylist(token, user_details.pk));
 						})
 						.catch((err) => {
 							dispatch(profileFail(err));
 						});
 				})
 				.catch((err) => {
-					console.log(err);
+					dispatch(profileFail(err));
+				});
+		}
+	};
+};
+
+export const getUserSongs = (token, userId) => {
+	return (dispatch) => {
+		dispatch(profileStart());
+
+		if (token === undefined) {
+			dispatch(profileFail('Token Not Found'));
+		} else {
+			axios
+				.get(`${BASE_URL}/songs/api/userSongs/${userId}/`, {
+					headers: {
+						authorization: 'Token ' + token,
+					},
+				})
+				.then((res) => {
+					// console.log(res.data);
+					dispatch(profileUpdateSongs(res.data));
+				})
+				.catch((err) => {
+					// console.log(err);
+					dispatch(profileFail(err));
+				});
+		}
+	};
+};
+
+export const getUserPlaylist = (token, userId) => {
+	return (dispatch) => {
+		dispatch(profileStart());
+
+		if (token === undefined) {
+			dispatch(profileFail('Token Not Found'));
+		} else {
+			axios
+				.get(`${BASE_URL}/songs/playlist/api/userPlaylist/${userId}/`, {
+					headers: {
+						authorization: 'Token ' + token,
+					},
+				})
+				.then((res) => {
+					// console.log(res.data);
+					dispatch(profleUpdatePlaylist(res.data));
+				})
+				.catch((err) => {
+					// console.log(err);
+					dispatch(profileFail(err));
 				});
 		}
 	};

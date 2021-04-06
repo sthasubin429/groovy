@@ -11,7 +11,7 @@ function SongForm(props) {
 	let userData = getUserDetails();
 
 	const handleSubmit = (event, requestType) => {
-		// event.preventDefault();
+		event.preventDefault();
 
 		let formData = new FormData();
 
@@ -32,7 +32,10 @@ function SongForm(props) {
 								authorization: 'Token ' + token,
 							},
 						})
-						.then((res) => console.log(res))
+						.then((res) => {
+							// console.log(res);
+							window.location.replace('http://localhost:3000/allSongs');
+						})
 						.catch((err) => console.log(err));
 				}
 		}
@@ -53,12 +56,12 @@ function SongForm(props) {
 				<h2> Upload A Song</h2>
 				<form onSubmit={(event) => handleSubmit(event, props.requestType)}>
 					<div className='form-group songForm-name'>
-						<label for='songTitle'>Song Name</label>
+						<label htmlFor='songTitle'>Song Name</label>
 						<input type='text' className='form-control' id='title' name='songTitle' placeholder='Title' required /> <br />
 					</div>
 
 					<div className='form-group'>
-						<label for='audio'> Upload Audio </label> <br />
+						<label htmlFor='audio'> Upload Audio </label> <br />
 						<input
 							type='file'
 							id='audio'
@@ -71,7 +74,7 @@ function SongForm(props) {
 					</div>
 
 					<div className='form-group'>
-						<label for='image'> Song Image </label> <br />
+						<label htmlFor='image'> Song Image </label> <br />
 						<input
 							type='file'
 							id='image'
