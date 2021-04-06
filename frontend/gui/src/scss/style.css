@@ -85,7 +85,7 @@ ul {
 }
 
 .customPlayer-container {
-  margin: 2rem;
+  margin-top: 2rem;
   padding: 1.875rem;
   background-color: #e8ecef;
   border-radius: 0.75rem;
@@ -119,7 +119,7 @@ ul {
 }
 
 .playlist-container {
-  margin: 2rem;
+  margin-top: 2rem;
   padding: 1.875rem;
   background-color: #e8ecef;
   border-radius: 0.75rem;

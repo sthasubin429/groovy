@@ -67,7 +67,7 @@ function CustomPlayer() {
 			) : (
 				<>
 					<audio autoPlay src={song.song_audio} ref={playerRef} />
-					<div className='customPlayer-container left'>
+					<div className='container-fluid customPlayer-container'>
 						<div className='flex-container jc-center customPlayer-header'>
 							<FontAwesomeIcon icon={faVolumeUp} size='2x' />
 							<h2>Now Playing</h2>

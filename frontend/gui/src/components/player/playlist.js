@@ -19,8 +19,8 @@ function Playlist() {
 					<span className='sr-only'>Loading...</span>
 				</div>
 			) : (
-				<div className='playlist-container left'>
-					<h2 className='playlist-header'>Current Playlist</h2>
+				<div className='container-fluid playlist-container'>
+					<h4 className='playlist-header'>Current Playlist</h4>
 					<ul>
 						{playlist.map((song) => (
 							<>
