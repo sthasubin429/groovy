@@ -109,21 +109,27 @@ export default function PlaylistCreateForm(props) {
 
 		choiceKeys.forEach((keys) =>
 			temp.push(
-				<div className='form-group col-md-10' key={keys}>
-					<input className='form-control' list='songList' id='songChoice' placeholder='Type to search...' ref={choiceRef} />
-					<button
-						onClick={(event) => {
-							event.preventDefault();
-							if (choiceKeys.length > 2) {
-								let tempChoice = [...choiceKeys];
-								tempChoice.splice(tempChoice.indexOf(keys), 1);
-								setChoiceKeys(tempChoice);
-							}
-						}}
-					>
-						Remove
-					</button>
-					<datalist id='songList'> {options} </datalist>
+				<div className='form-group row' key={keys}>
+					<div className='col-12 col-sm-8'>
+						<input className='form-control' list='songList' id='songChoice' placeholder='Type to search...' ref={choiceRef} />
+						<datalist id='songList'> {options} </datalist>
+					</div>
+
+					<div className='col-12 col-sm-4'>
+						<button
+							onClick={(event) => {
+								event.preventDefault();
+								if (choiceKeys.length > 2) {
+									let tempChoice = [...choiceKeys];
+									tempChoice.splice(tempChoice.indexOf(keys), 1);
+									setChoiceKeys(tempChoice);
+								}
+							}}
+							className='btn btn-danger'
+						>
+							Remove
+						</button>
+					</div>
 				</div>
 			)
 		);
@@ -150,14 +156,17 @@ export default function PlaylistCreateForm(props) {
 
 				{songChoiceArray}
 
-				<button
-					onClick={(event) => {
-						event.preventDefault();
-						setChoiceKeys(choiceKeys.concat(choiceKeys[choiceKeys.length - 1] + 1));
-					}}
-				>
-					Add
-				</button>
+				<div className='form-group row col-12'>
+					<button
+						onClick={(event) => {
+							event.preventDefault();
+							setChoiceKeys(choiceKeys.concat(choiceKeys[choiceKeys.length - 1] + 1));
+						}}
+						className='btn btn-secondary'
+					>
+						Add Songs
+					</button>
+				</div>
 
 				{loading ? (
 					<div className='spinner-border text-primary' role='status'>
