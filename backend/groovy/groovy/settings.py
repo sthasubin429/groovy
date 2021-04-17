@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'rest_auth.registration',
 
     'songs',
-    'userProfile'
+    'userProfile',
+    'interaction'
 
 
 ]

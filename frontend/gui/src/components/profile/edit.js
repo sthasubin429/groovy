@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
-import { BASE_URL, POST } from '../../store/utility';
+import { POST } from '../../store/utility';
 import { updateUserProfile } from '../../store/actions/profile';
 import { useDispatch } from 'react-redux';
 
