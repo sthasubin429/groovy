@@ -6,6 +6,6 @@ urlpatterns = [
     path('api/create/', UserProfileCreateView.as_view()),
     path('api/<int:userID>/', UserProfileDetailView.as_view()),
     # path('api/<pk>/', UserProfileDetailView.as_view()),
-    path('api/<pk>/update', UserProfileUpdateView.as_view()),
-    path('api/<pk>/delete', UserProfileDeleteView.as_view())
+    path('api/<pk>/update/', UserProfileUpdateView.as_view()),
+    path('api/<pk>/delete/', UserProfileDeleteView.as_view())
 ]

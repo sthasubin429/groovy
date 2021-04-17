@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export default function UserDetails() {
 	const userDetails = useSelector((state) => state.profile.user_details);
@@ -42,9 +43,15 @@ export default function UserDetails() {
 								</div>
 
 								<div className='row my-3'>
-									<div className='col'>526 Followers</div>
-									<div className='col'>562 Following</div>
-									<div className='col'>15 Tracks</div>
+									<div className='col pt-2'>526 Followers</div>
+									<div className='col pt-2'>562 Following</div>
+									<div className='col pt-2'>15 Tracks</div>
+
+									<div className='col'>
+										<Link to='/profileEdit'>
+											<button className='btn btn-secondary'> Edit </button>
+										</Link>
+									</div>
 								</div>
 
 								<div className='row my-4'>

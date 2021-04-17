@@ -15,6 +15,27 @@ export const profileFail = (error) => {
 	};
 };
 
+export const profileSucess = () => {
+	window.location.replace('http://localhost:3000/profile');
+	return {
+		type: actionTypes.PROFILE_SUCESS,
+	};
+};
+
+export const profileSucessReset = () => {
+	return {
+		type: actionTypes.PROFILE_SUCESS_RESET,
+	};
+};
+
+export const profileSucessTimeout = () => {
+	return (dispatch) => {
+		setTimeout(() => {
+			dispatch(profileSucessReset());
+		}, 1000);
+	};
+};
+
 export const profileLogout = () => {
 	return {
 		type: actionTypes.PROFILE_LOGOUT,
@@ -131,6 +152,29 @@ export const getUserPlaylist = (token, userId) => {
 				})
 				.catch((err) => {
 					// console.log(err);
+					dispatch(profileFail(err));
+				});
+		}
+	};
+};
+
+export const updateUserProfile = (token, id, formData) => {
+	return (dispatch) => {
+		dispatch(profileStart());
+		if (token === undefined) {
+			dispatch(profileFail('Token Not Found'));
+		} else {
+			axios
+				.put(`${BASE_URL}/userProfile/api/${id}/update/`, formData, {
+					headers: {
+						authorization: 'Token ' + token,
+					},
+				})
+				.then((res) => {
+					dispatch(profileSucess());
+					dispatch(profileSucessTimeout());
+				})
+				.catch((err) => {
 					dispatch(profileFail(err));
 				});
 		}

@@ -8,6 +8,7 @@ const initialState = {
 	playlist_list: null,
 	error: null,
 	loading: true,
+	sucess: false,
 };
 
 const profileStart = (state, action) => {
@@ -21,6 +22,22 @@ const profileFail = (state, action) => {
 	return updateObject(state, {
 		error: action.error,
 		loading: false,
+	});
+};
+
+const profileSucess = (state, action) => {
+	return updateObject(state, {
+		error: null,
+		loading: false,
+		sucess: true,
+	});
+};
+
+const profileRestSucess = (state, action) => {
+	return updateObject(state, {
+		error: null,
+		loading: false,
+		sucess: false,
 	});
 };
 
@@ -65,6 +82,12 @@ const profileReducer = (state = initialState, action) => {
 
 		case actionTypes.PROFILE_USER_PLAYLIST:
 			return profileUpdatePlaylist(state, action);
+
+		case actionTypes.PROFILE_SUCESS:
+			return profileSucess(state, action);
+
+		case actionTypes.PROFILE_SUCESS_RESET:
+			return profileRestSucess(state, action);
 
 		default:
 			return state;
