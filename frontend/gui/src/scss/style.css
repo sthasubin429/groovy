@@ -185,4 +185,22 @@ ul {
 .profile-header .profile-username {
   font-size: 1.5em;
 }
+
+.artist-card {
+  margin: 3rem;
+}
+
+.artist-card .artistCard-Img {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+}
+
+.artist-card .artistCard-details {
+  margin: auto 1rem;
+}
+
+.artist-card .artistCard-details div {
+  margin: 0.5rem 0;
+}
 /*# sourceMappingURL=style.css.map */

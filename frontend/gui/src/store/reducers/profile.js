@@ -9,12 +9,14 @@ const initialState = {
 	error: null,
 	loading: true,
 	sucess: false,
+	profileView: null,
 };
 
 const profileStart = (state, action) => {
 	return updateObject(state, {
 		error: null,
 		loading: true,
+		profileView: null,
 	});
 };
 
@@ -66,6 +68,12 @@ const profileUpdatePlaylist = (state, action) => {
 	});
 };
 
+const profileUpdateProfileView = (state, action) => {
+	return updateObject(state, {
+		profileView: action.profileView,
+	});
+};
+
 const profileReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case actionTypes.PROFILE_START:
@@ -88,6 +96,9 @@ const profileReducer = (state = initialState, action) => {
 
 		case actionTypes.PROFILE_SUCESS_RESET:
 			return profileRestSucess(state, action);
+
+		case actionTypes.PROFILE_VIEW:
+			return profileUpdateProfileView(state, action);
 
 		default:
 			return state;

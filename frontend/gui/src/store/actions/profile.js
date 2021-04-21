@@ -70,6 +70,13 @@ export const profleUpdatePlaylist = (playlist_list) => {
 	};
 };
 
+export const profileUpdateProfileView = (id) => {
+	return {
+		type: actionTypes.PROFILE_VIEW,
+		profileView: id,
+	};
+};
+
 export const getUserDetails = (token) => {
 	return (dispatch) => {
 		dispatch(profileStart());

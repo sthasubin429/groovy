@@ -1,0 +1,17 @@
+.artist-card {
+	margin: 3rem;
+
+	.artistCard-Img {
+		border-radius: 50%;
+		width: 5rem;
+		height: 5rem;
+	}
+
+	.artistCard-details {
+		margin: auto 1rem;
+
+		div {
+			margin: 0.5rem 0;
+		}
+	}
+}

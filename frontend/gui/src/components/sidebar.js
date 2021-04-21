@@ -61,7 +61,7 @@ export default function Sidebar() {
 								</Link>
 							</li>
 							<li className='nav-item'>
-								<Link className='nav-link' to='/'>
+								<Link className='nav-link' to='/artists'>
 									<FontAwesomeIcon icon={faUser} className='nav-icon' />
 									Artists
 								</Link>

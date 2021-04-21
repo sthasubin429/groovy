@@ -12,6 +12,8 @@ import PlaylistCreate from './pages/playlistCreate';
 import RegisterDetails from './pages/registerDetails';
 import Profile from './pages/profile';
 import ProfileEdit from './pages/profileEdit';
+import Artists from './pages/artists';
+import ArtistPage from './pages/artistPage';
 
 export const BaseRouter = () => (
 	<div>
@@ -32,5 +34,7 @@ export const LoggedInRoute = () => (
 		<Route exact path='/registerDetails/' component={RegisterDetails} />
 		<Route exact path='/profile/' component={Profile} />
 		<Route exact path='/profileEdit/' component={ProfileEdit} />
+		<Route exact path='/artists/' component={Artists} />
+		<Route exact path='/artistDetail/' component={ArtistPage} />
 	</div>
 );
