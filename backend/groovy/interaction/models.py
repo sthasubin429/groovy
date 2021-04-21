@@ -19,7 +19,6 @@ class Comment(models.Model):
     comment = models.TextField(max_length=1000)
     date = models.DateTimeField(auto_now_add=True)
 
-
     @property
     def getUsername(self):
         return self.username.username
@@ -34,3 +33,7 @@ class Follow(models.Model):
     def getUsername(self):
         return self.user.username
 
+    def getFollowingUsername(self):
+        return self.following.username
+
+        

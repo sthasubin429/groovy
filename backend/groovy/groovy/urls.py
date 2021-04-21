@@ -28,6 +28,8 @@ urlpatterns = [
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
     path('songs/', include('songs.urls')),
     path('userProfile/', include('userProfile.urls')),
+    path('interaction/', include('interaction.urls')),
+
 
 
 ]

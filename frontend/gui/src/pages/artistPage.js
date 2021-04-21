@@ -18,7 +18,7 @@ export default function ArtistPage(props) {
 					},
 				})
 				.then((res) => {
-					console.log(res.data);
+					// console.log(res.data);
 					setArtist(res.data);
 					setLoading(false);
 				})

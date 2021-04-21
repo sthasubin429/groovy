@@ -15,7 +15,7 @@ export default function Artist() {
 				},
 			})
 			.then((res) => {
-				console.log(res.data);
+				// console.log(res.data);
 				setArtists(res.data);
 				setLoading(false);
 			})
