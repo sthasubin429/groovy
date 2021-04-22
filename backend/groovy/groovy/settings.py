@@ -151,24 +151,18 @@ MEDIA_URL = '/media/'
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ],
-
-    # 'DEFAULT_PERMISSION_CLASSES': [
-    #     'rest_framework.authentication.TokenAuthentication',
-    #     # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-            # 'rest_framework.permissions.AllowAny',
-    #     # 'rest_framework.authentication.TokenAuthentication',
-    #     # 'rest_framework.authentication.BasicAuthentication',
-    # ],
-        
-    'DEFAULT_PERMISSION_CLASSES': [
+    
+    'DEFAULT_PERMISSION_CLASSES': (
         # 'rest_framework.permissions.IsAdminUser'
         # 'rest_framework.permissions.AllowAny',
         'rest_framework.permissions.IsAuthenticated',
-    ],
+    ),
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+   
 
 }
 

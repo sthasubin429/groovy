@@ -9,6 +9,10 @@ const initialState = {
 	current_song: null,
 	error: null,
 	loading: true,
+	like: false,
+	likeCount: 0,
+	likeData: null,
+	commets: null,
 };
 
 const playerStart = (state, action) => {
@@ -50,6 +54,14 @@ const playerPlaylistSongDetails = (state, action) => {
 	});
 };
 
+const playerUpdateLike = (state, action) => {
+	return updateObject(state, {
+		like: action.like,
+		likeCount: action.likeCount,
+		likeData: action.likeData,
+	});
+};
+
 const playerReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case actionTypes.PLAYER_START:
@@ -66,6 +78,9 @@ const playerReducer = (state = initialState, action) => {
 
 		case actionTypes.PLAYER_PLAYLIST_SONG_DETAILS:
 			return playerPlaylistSongDetails(state, action);
+
+		case actionTypes.PLAYER_GET_LIKE:
+			return playerUpdateLike(state, action);
 
 		default:
 			return state;

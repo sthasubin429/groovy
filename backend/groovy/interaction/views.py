@@ -13,10 +13,27 @@ class LikesListView(ListAPIView):
     serializer_class = LikeSerializer
 
 
+class GetSongLikes(ListAPIView):
+    # queryset = Like.objects.all()
+    serializer_class = LikeSerializer
+
+    def get_queryset(self):
+        self.id = self.kwargs['songID']
+        return Like.objects.filter(song=self.id)
+
+
+class CheckUserSongLike(ListAPIView):
+    serializer_class = LikeSerializer
+
+    def get_queryset(self):
+        self.song = self.kwargs['songID']
+        self.user = self.kwargs['userID']
+        return Like.objects.filter(song__exact=self.song).filter(username__exact=self.user)
+
+
 class LikesDetailView(RetrieveAPIView):
     queryset = Like.objects.all()
     serializer_class = LikeSerializer
-
 
 
 class LikesCreateView(CreateAPIView):
@@ -33,6 +50,7 @@ class LikesUpdateView(UpdateAPIView):
 class LikesDeleteView(DestroyAPIView):
     queryset = Like.objects.all()
     serializer_class = LikeSerializer
+
 
 
 #Comments
@@ -83,8 +101,6 @@ class FollowCreateView(CreateAPIView):
 class FollowUpdateView(UpdateAPIView):
     queryset = Follow.objects.all()
     serializer_class = FollowSerializer
-
-
 
 class FollowsDeleteView(DestroyAPIView):
     queryset = Follow.objects.all()
