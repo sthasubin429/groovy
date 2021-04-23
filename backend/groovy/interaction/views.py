@@ -99,6 +99,14 @@ class FollowDetailView(RetrieveAPIView):
     serializer_class = FollowSerializer
 
 
+class CheckUserFollow(ListAPIView):
+    serializer_class = FollowSerializer
+
+    def get_queryset(self):
+        self.user = self.kwargs['userID']
+        self.following = self.kwargs['followingID']
+        return Follow.objects.filter(user__exact=self.user).filter(following__exact=self.following)
+
 
 class FollowCreateView(CreateAPIView):
     queryset = Follow.objects.all()

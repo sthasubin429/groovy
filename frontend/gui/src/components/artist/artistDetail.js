@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { profileUpdateProfileView } from '../../store/actions/profile';
-import { useDispatch } from 'react-redux';
+// import { profileUpdateProfileView } from '../../store/actions/profile';
+// import { useDispatch } from 'react-redux';
 
 export default function ArtistDetail(props) {
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 
 	return (
 		<>
@@ -16,7 +16,8 @@ export default function ArtistDetail(props) {
 						className='navbar-brand'
 						to='/artistDetail/'
 						onClick={() => {
-							dispatch(profileUpdateProfileView(props.artist.user));
+							localStorage.setItem('profile_view', props.artist.user);
+							// dispatch(profileUpdateProfileView(props.artist.user));
 						}}
 					>
 						<div className='text-capitalize'>

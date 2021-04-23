@@ -25,8 +25,8 @@ class Comment(models.Model):
     
 
 class Follow(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="following")
-    following = models.ForeignKey(User, on_delete=models.CASCADE, related_name="followers")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="following") #one who is following / follower
+    following = models.ForeignKey(User, on_delete=models.CASCADE, related_name="followers") #one being followed
     date = models.DateTimeField(auto_now_add=True)
 
     @property

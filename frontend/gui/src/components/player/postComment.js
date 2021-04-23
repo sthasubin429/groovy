@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { BASE_URL, POST, TOKEN } from '../../store/utility.js';
+import { BASE_URL, DELETE, POST, TOKEN } from '../../store/utility.js';
 import axios from 'axios';
 import { getComments } from '../../store/actions/player';
 
@@ -28,9 +28,9 @@ export default function PostComment() {
 		formData.append('song', song.id);
 		formData.append('username', user.user);
 
-		for (var value of formData.values()) {
-			console.log(value);
-		}
+		// for (var value of formData.values()) {
+		// 	console.log(value);
+		// }
 
 		switch (requestType) {
 			case POST:

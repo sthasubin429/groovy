@@ -5,9 +5,11 @@ import { BASE_URL, TOKEN } from '../store/utility';
 import ArtistProfile from '../components/artist/artistProfile';
 
 export default function ArtistPage(props) {
-	const artistId = useSelector((state) => state.profile.profileView);
+	const artistId = localStorage.getItem('profile_view');
 	const [artist, setArtist] = useState([]);
 	const [loading, setLoading] = useState(true);
+
+	// console.log(artistId);
 
 	useEffect(() => {
 		if (artistId) {
@@ -26,10 +28,6 @@ export default function ArtistPage(props) {
 					console.log(err);
 				});
 		}
-
-		return () => {
-			setLoading(true);
-		};
 	}, [artistId]);
 	return (
 		<>

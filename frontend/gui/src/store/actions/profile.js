@@ -71,12 +71,12 @@ export const profleUpdatePlaylist = (playlist_list) => {
 	};
 };
 
-export const profileUpdateProfileView = (id) => {
-	return {
-		type: actionTypes.PROFILE_VIEW,
-		profileView: id,
-	};
-};
+// export const profileUpdateProfileView = (id) => {
+// 	return {
+// 		type: actionTypes.PROFILE_VIEW,
+// 		profileView: id,
+// 	};
+// };
 
 export const getUserDetails = (token) => {
 	return (dispatch) => {
@@ -118,7 +118,7 @@ export const getUserDetails = (token) => {
 
 export const getUserSongs = (token, userId) => {
 	return (dispatch) => {
-		dispatch(profileStart());
+		// dispatch(profileStart());
 
 		if (token === undefined) {
 			dispatch(profileFail('Token Not Found'));
@@ -144,7 +144,7 @@ export const getUserSongs = (token, userId) => {
 
 export const getUserPlaylist = (token, userId) => {
 	return (dispatch) => {
-		dispatch(profileStart());
+		// dispatch(profileStart());
 
 		if (token === undefined) {
 			dispatch(profileFail('Token Not Found'));
