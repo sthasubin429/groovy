@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { BASE_URL } from '../utility';
 import * as actionTypes from './actionTypes';
+import { changeSong } from './player';
 
 export const profileStart = () => {
 	return {
@@ -131,6 +132,7 @@ export const getUserSongs = (token, userId) => {
 				.then((res) => {
 					// console.log(res.data);
 					dispatch(profileUpdateSongs(res.data));
+					dispatch(changeSong(0));
 				})
 				.catch((err) => {
 					// console.log(err);

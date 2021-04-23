@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import LikesListView, LikesDetailView, LikesCreateView, LikesUpdateView, LikesDeleteView, GetSongLikes,CheckUserSongLike,  CommentsListView, CommentsDetailView, CommentsCreateView, CommentsUpdateView, CommentsDeleteView, FollowListView, FollowDetailView, FollowCreateView, FollowUpdateView, FollowsDeleteView 
+from .views import LikesListView, LikesDetailView, LikesCreateView, LikesUpdateView, LikesDeleteView, GetSongLikes,CheckUserSongLike,  CommentsListView, CommentsDetailView, CommentsCreateView, CommentsUpdateView, CommentsDeleteView,GetSongComments, FollowListView, FollowDetailView, FollowCreateView, FollowUpdateView, FollowsDeleteView 
 
 urlpatterns = [
     path('likes/api/', LikesListView.as_view()),
@@ -11,6 +11,7 @@ urlpatterns = [
     path('likes/api/<pk>/delete/', LikesDeleteView.as_view()),
 
     path('comments/api/', CommentsListView.as_view()),
+    path('comments/api/song/<int:songID>/', GetSongComments.as_view()),
     path('comments/api/create/', CommentsCreateView.as_view()),
     path('comments/api/<pk>/', CommentsDetailView.as_view()),
     path('comments/api/<pk>/update/', CommentsUpdateView.as_view()),

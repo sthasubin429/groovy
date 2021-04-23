@@ -51,7 +51,15 @@ export const playerUpdateLikeCount = (like, likeCount, likeData) => {
 	};
 };
 
+export const playerGetComments = (comments) => {
+	return {
+		type: actionTypes.PLAYER_GET_COMMENT,
+		comments: comments,
+	};
+};
+
 export const changeSong = (index) => {
+	console.log('changesong');
 	let song_id = store.getState().player.playlist_details[index].playlist_songs;
 	return (dispatch) => {
 		axios
@@ -63,6 +71,7 @@ export const changeSong = (index) => {
 			.then((res) => {
 				dispatch(playerChangeSong(index, res.data));
 				dispatch(getLikes(song_id));
+				dispatch(getComments(song_id));
 			})
 			.catch((err) => {
 				// console.log(err);
@@ -209,5 +218,23 @@ export const toggleLike = () => {
 					dispatch(playerFail(err));
 				});
 		}
+	};
+};
+
+export const getComments = (song_id) => {
+	return (dispatch) => {
+		axios
+			.get(`${BASE_URL}/interaction/comments/api/song/${song_id}/`, {
+				headers: {
+					authorization: 'Token ' + TOKEN,
+				},
+			})
+			.then((res) => {
+				// console.log(res.data);
+				dispatch(playerGetComments(res.data));
+			})
+			.catch((err) => {
+				dispatch(playerFail(err));
+			});
 	};
 };

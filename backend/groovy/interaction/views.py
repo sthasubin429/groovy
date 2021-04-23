@@ -59,10 +59,18 @@ class CommentsListView(ListAPIView):
     serializer_class = CommentSerializer
 
 
+class GetSongComments(ListAPIView):
+    serializer_class = CommentSerializer
+
+    def get_queryset(self):
+        self.id = self.kwargs['songID']
+        return Comment.objects.filter(song=self.id)\
+
+            
+
 class CommentsDetailView(RetrieveAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-
 
 
 class CommentsCreateView(CreateAPIView):
@@ -73,7 +81,6 @@ class CommentsCreateView(CreateAPIView):
 class CommentsUpdateView(UpdateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-
 
 
 class CommentsDeleteView(DestroyAPIView):

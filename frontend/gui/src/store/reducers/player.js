@@ -12,7 +12,7 @@ const initialState = {
 	like: false,
 	likeCount: 0,
 	likeData: null,
-	commets: null,
+	comments: null,
 };
 
 const playerStart = (state, action) => {
@@ -62,6 +62,12 @@ const playerUpdateLike = (state, action) => {
 	});
 };
 
+const playerUpdateComment = (state, action) => {
+	return updateObject(state, {
+		comments: action.comments,
+	});
+};
+
 const playerReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case actionTypes.PLAYER_START:
@@ -81,6 +87,9 @@ const playerReducer = (state = initialState, action) => {
 
 		case actionTypes.PLAYER_GET_LIKE:
 			return playerUpdateLike(state, action);
+
+		case actionTypes.PLAYER_GET_COMMENT:
+			return playerUpdateComment(state, action);
 
 		default:
 			return state;

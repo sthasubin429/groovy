@@ -1,9 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 export default function PostComment() {
 	return (
 		<>
-			<h2> Post Comments</h2>
+			<div className='col-8'>
+				<h4> Write a Comment</h4>
+
+				<form></form>
+			</div>
 		</>
 	);
 }
