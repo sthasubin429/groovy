@@ -108,6 +108,22 @@ class CheckUserFollow(ListAPIView):
         return Follow.objects.filter(user__exact=self.user).filter(following__exact=self.following)
 
 
+class GetUserFollowers(ListAPIView):
+    serializer_class = FollowSerializer
+
+    def get_queryset(self):
+        self.user = self.kwargs['userID']
+        return Follow.objects.filter(following=self.user)
+        
+
+class GetUserFollowing(ListAPIView):
+    serializer_class = FollowSerializer
+
+    def get_queryset(self):
+        self.user = self.kwargs['userID']
+        return Follow.objects.filter(user=self.user)
+
+
 class FollowCreateView(CreateAPIView):
     queryset = Follow.objects.all()
     serializer_class = FollowSerializer
