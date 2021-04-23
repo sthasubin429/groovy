@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BASE_URL, TOKEN } from '../../store/utility';
 export default function Comment(props) {
-	console.log(props.comment);
+	// console.log(props.comment);
 
 	const [profile, setProfile] = useState(null);
 	useEffect(() => {

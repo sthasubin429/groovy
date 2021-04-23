@@ -18,6 +18,7 @@ export default function SongComments() {
 	return (
 		<>
 			<div className='col-8'>
+				<h5> Comments</h5>
 				{commentState ? (
 					<>
 						{commentsList.map((comment) => (

@@ -59,7 +59,6 @@ export const playerGetComments = (comments) => {
 };
 
 export const changeSong = (index) => {
-	console.log('changesong');
 	let song_id = store.getState().player.playlist_details[index].playlist_songs;
 	return (dispatch) => {
 		axios

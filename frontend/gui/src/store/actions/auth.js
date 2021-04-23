@@ -111,6 +111,7 @@ export const authCheckState = () => {
 			const expirationDate = new Date(localStorage.getItem('expirationDate'));
 			if (expirationDate <= new Date()) {
 				dispatch(logout());
+				dispatch(profileLogout());
 			} else {
 				dispatch(authSuccess(token));
 				dispatch(getUserDetails(token));
