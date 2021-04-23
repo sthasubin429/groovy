@@ -1,12 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+import { BASE_URL, TOKEN } from '../../store/utility';
 
 export default function UserDetails() {
 	const userDetails = useSelector((state) => state.profile.user_details);
 	const userInfo = useSelector((state) => state.profile.user_info);
 	const loading = useSelector((state) => state.profile.loading);
+	const [followerLoading, setFollowerLoading] = useState(true);
+	const [follower, setFollower] = useState(0);
+	const [following, setFollowing] = useState(0);
 
+	useEffect(() => {
+		if (loading && userInfo) {
+			axios
+				.get(`${BASE_URL}/interaction/follow/api/getFollowers/${userInfo.user}/`, {
+					headers: {
+						authorization: 'Token ' + TOKEN,
+					},
+				})
+				.then((res) => {
+					// console.log(res.data);
+					setFollower(res.data.length);
+					getFollowingCount(userInfo.user);
+				})
+				.catch((err) => {
+					// console.log(err);
+					setFollower(0);
+				});
+		}
+	}, [loading, userInfo]);
+
+	const getFollowingCount = (user_id) => {
+		axios
+			.get(`${BASE_URL}/interaction/follow/api/getFollowing/${user_id}/`, {
+				headers: {
+					authorization: 'Token ' + TOKEN,
+				},
+			})
+			.then((res) => {
+				// console.log(res.data);
+				setFollowing(res.data.length);
+				setFollowerLoading(false);
+			})
+			.catch((err) => {
+				console.log(err);
+				setFollowing(0);
+			});
+	};
 	return (
 		<>
 			{loading ? (
@@ -29,11 +72,6 @@ export default function UserDetails() {
 											{userInfo.first_name} {userInfo.last_name}
 										</h3>
 									</div>
-
-									<div className='col-sm-5'>
-										<button className='btn btn-secondary mx-2'> Follow </button>
-										<button className='btn btn-secondary mx-2'> Share </button>
-									</div>
 								</div>
 
 								<div className='row'>
@@ -43,8 +81,16 @@ export default function UserDetails() {
 								</div>
 
 								<div className='row my-3'>
-									<div className='col pt-2'>526 Followers</div>
-									<div className='col pt-2'>562 Following</div>
+									{followerLoading ? (
+										<div className='pt-5 spinner-border text-primary' role='status'>
+											<span className='sr-only'>Loading...</span>
+										</div>
+									) : (
+										<>
+											<div className='col pt-2'>{follower} Followers</div>
+											<div className='col pt-2'>{following} Following</div>
+										</>
+									)}
 									<div className='col pt-2'>15 Tracks</div>
 
 									<div className='col'>

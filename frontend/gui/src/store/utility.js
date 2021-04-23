@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const updateObject = (oldObject, updatedProperties) => {
 	return { ...oldObject, ...updatedProperties };
 };
@@ -8,7 +10,3 @@ export const PUT = 'put';
 export const POST = 'post';
 export const DELETE = 'delete';
 export const TOKEN = localStorage.getItem('token');
-
-// export const getFollowerCount = (user_id)=>{
-
-// }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function SongList(props) {
-	console.log(props.songs);
+	// console.log(props.songs);
 	const [songs, setSongs] = useState(props.songs);
 
 	useEffect(() => {
