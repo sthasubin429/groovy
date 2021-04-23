@@ -6,7 +6,6 @@ from .models import Like, Comment, Follow
 from .serializers import LikeSerializer, CommentSerializer, FollowSerializer
 from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView
 
-
 # Like
 class LikesListView(ListAPIView):
     queryset = Like.objects.all()
@@ -132,6 +131,7 @@ class FollowCreateView(CreateAPIView):
 class FollowUpdateView(UpdateAPIView):
     queryset = Follow.objects.all()
     serializer_class = FollowSerializer
+
 
 class FollowsDeleteView(DestroyAPIView):
     queryset = Follow.objects.all()

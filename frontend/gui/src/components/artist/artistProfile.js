@@ -6,9 +6,18 @@ import axios from 'axios';
 
 export default function ArtistProfile(props) {
 	const follow = useSelector((state) => state.profile.user_info);
+	// const loading = useSelector((state) => state.profile.loading);
+
 	const following = props.artist[0].user;
 	const [followState, setFollowState] = useState(false);
 	const [followData, setFollowData] = useState([]);
+
+	const [countLoading, setCountLoading] = useState(true);
+	const [followerCount, setFollowerCount] = useState(0);
+	const [followingCount, setFollowingCount] = useState(0);
+
+	// console.log(follow);
+
 	// console.log(props.artist);
 	useEffect(() => {
 		if (follow && following) {
@@ -24,6 +33,46 @@ export default function ArtistProfile(props) {
 		}
 	}, [followData]);
 
+	useEffect(() => {
+		if (follow) {
+			axios
+				.get(`${BASE_URL}/interaction/follow/api/getFollowers/${follow.user}/`, {
+					headers: {
+						authorization: 'Token ' + TOKEN,
+					},
+				})
+				.then((res) => {
+					// console.log(res.data);
+					setFollowerCount(res.data.length);
+					getFollowingCount(follow.user);
+				})
+				.catch((err) => {
+					// console.log(err);
+					getFollowingCount(follow.user);
+					setFollowerCount(0);
+				});
+		}
+	}, [follow]);
+
+	const getFollowingCount = (user_id) => {
+		axios
+			.get(`${BASE_URL}/interaction/follow/api/getFollowing/${user_id}/`, {
+				headers: {
+					authorization: 'Token ' + TOKEN,
+				},
+			})
+			.then((res) => {
+				// console.log(res.data);
+				setFollowingCount(res.data.length);
+				setCountLoading(false);
+			})
+			.catch((err) => {
+				console.log(err);
+				setFollowingCount(0);
+				setCountLoading(false);
+			});
+	};
+
 	// console.log(followData);
 	const handleOnClick = (event, requestType) => {
 		event.preventDefault();
@@ -32,9 +81,9 @@ export default function ArtistProfile(props) {
 
 		formData.append('user', follow.user);
 		formData.append('following', following);
-		// for (var value of formData.values()) {
-		// 	console.log(value);
-		// }
+		for (var value of formData.values()) {
+			console.log(value);
+		}
 		switch (requestType) {
 			case POST:
 				if (TOKEN) {
@@ -132,8 +181,16 @@ export default function ArtistProfile(props) {
 							</div>
 
 							<div className='row my-3'>
-								<div className='col pt-2'>526 Followers</div>
-								<div className='col pt-2'>562 Following</div>
+								{countLoading ? (
+									<div className='pt-5 spinner-border text-primary' role='status'>
+										<span className='sr-only'>Loading...</span>
+									</div>
+								) : (
+									<>
+										<div className='col pt-2'>{followerCount} Followers</div>
+										<div className='col pt-2'>{followingCount} Following</div>
+									</>
+								)}
 								<div className='col pt-2'>15 Tracks</div>
 
 								<div className='col'>

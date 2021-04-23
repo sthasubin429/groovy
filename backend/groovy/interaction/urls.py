@@ -18,8 +18,8 @@ urlpatterns = [
     path('comments/api/<pk>/delete/', CommentsDeleteView.as_view()),
 
     path('follow/api/', FollowListView.as_view()),
-    path('follow/api/<pk>/', FollowDetailView.as_view()),
     path('follow/api/create/', FollowCreateView.as_view()),
+    path('follow/api/<pk>/', FollowDetailView.as_view()),
     path('follow/api/<pk>/update/', FollowUpdateView.as_view()),
     path('follow/api/<pk>/delete/', FollowsDeleteView.as_view()),
     path('follow/api/checkFollow/<int:userID>/<int:followingID>/', CheckUserFollow.as_view()),

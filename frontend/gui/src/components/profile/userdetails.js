@@ -14,7 +14,7 @@ export default function UserDetails() {
 	const [following, setFollowing] = useState(0);
 
 	useEffect(() => {
-		if (loading && userInfo) {
+		if (userInfo) {
 			axios
 				.get(`${BASE_URL}/interaction/follow/api/getFollowers/${userInfo.user}/`, {
 					headers: {
@@ -32,7 +32,7 @@ export default function UserDetails() {
 					setFollower(0);
 				});
 		}
-	}, [loading, userInfo]);
+	}, [userInfo]);
 
 	const getFollowingCount = (user_id) => {
 		axios
