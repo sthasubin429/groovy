@@ -2,27 +2,31 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL, TOKEN } from '../../store/utility';
 import ArtistDetail from './artistDetail';
+import { useSelector } from 'react-redux';
 
 export default function Artist() {
 	const [artists, setArtists] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const userInfo = useSelector((state) => state.profile.user_info);
 
 	useEffect(() => {
-		axios
-			.get(`${BASE_URL}/userProfile/api/`, {
-				headers: {
-					authorization: 'Token ' + TOKEN,
-				},
-			})
-			.then((res) => {
-				// console.log(res.data);
-				setArtists(res.data);
-				setLoading(false);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	}, []);
+		if (userInfo) {
+			axios
+				.get(`${BASE_URL}/userProfile/api/`, {
+					headers: {
+						authorization: 'Token ' + TOKEN,
+					},
+				})
+				.then((res) => {
+					// console.log(res.data);
+					setArtists(res.data);
+					setLoading(false);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
+	}, [userInfo]);
 
 	return (
 		<>
@@ -33,7 +37,7 @@ export default function Artist() {
 			) : (
 				<>
 					{artists.map((artist) => (
-						<ArtistDetail key={artist.id} artist={artist} />
+						<ArtistDetail key={artist.id} artist={artist} user_id={userInfo.id} />
 					))}
 				</>
 			)}
