@@ -118,7 +118,7 @@ export const getUserDetails = (token) => {
 
 export const getUserSongs = (token, userId) => {
 	return (dispatch) => {
-		// dispatch(profileStart());
+		dispatch(profileStart());
 
 		if (token === undefined) {
 			dispatch(profileFail('Token Not Found'));
@@ -133,6 +133,7 @@ export const getUserSongs = (token, userId) => {
 					// console.log(res.data);
 					dispatch(profileUpdateSongs(res.data));
 					dispatch(changeSong(0));
+					dispatch(profileSucessTimeout());
 				})
 				.catch((err) => {
 					// console.log(err);
@@ -144,7 +145,7 @@ export const getUserSongs = (token, userId) => {
 
 export const getUserPlaylist = (token, userId) => {
 	return (dispatch) => {
-		// dispatch(profileStart());
+		dispatch(profileStart());
 
 		if (token === undefined) {
 			dispatch(profileFail('Token Not Found'));
@@ -158,6 +159,7 @@ export const getUserPlaylist = (token, userId) => {
 				.then((res) => {
 					// console.log(res.data);
 					dispatch(profleUpdatePlaylist(res.data));
+					dispatch(profileSucessTimeout());
 				})
 				.catch((err) => {
 					// console.log(err);

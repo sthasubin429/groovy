@@ -28,6 +28,7 @@ export default function UserDetails() {
 				})
 				.catch((err) => {
 					// console.log(err);
+					getFollowingCount(userInfo.user);
 					setFollower(0);
 				});
 		}
@@ -47,6 +48,7 @@ export default function UserDetails() {
 			})
 			.catch((err) => {
 				console.log(err);
+				setFollowerLoading(false);
 				setFollowing(0);
 			});
 	};
@@ -57,11 +59,11 @@ export default function UserDetails() {
 					<span className='sr-only'>Loading...</span>
 				</div>
 			) : (
-				<div class='container-fluid profile-header pt-5 '>
+				<div className='container-fluid profile-header pt-5 '>
 					<div className='row'>
 						<div className='col-12 col-sm-4'>
 							<div className='d-flex  justify-content-center align-items-center'>
-								<img src={userInfo.profile_picture} class='rounded p-2' alt='Profile Picture' width='100%' />
+								<img src={userInfo.profile_picture} className='rounded p-2' alt='Profile Picture' width='100%' />
 							</div>
 						</div>
 						<div className='col-12 col-sm-8'>
