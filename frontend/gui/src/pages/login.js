@@ -20,31 +20,37 @@ export default function Login() {
 	};
 
 	return (
-		<>
-			<div className='container'>
-				{loading ? (
-					<div className='spinner-border text-primary' role='status'>
-						<span className='sr-only'>Loading...</span>
-					</div>
-				) : (
+		<div className='container'>
+			<>
+				{error ? (
 					<>
-						<form onSubmit={(event) => handleSubmit(event)}>
-							<div className='form-group'>
-								<label for='loginUsername'>Username</label>
-								<input type='text' className='form-control' name='loginUsername' placeholder='Username' />
-							</div>
-							<div className='form-group'>
-								<label for='loginPassword'>Password</label>
-								<input type='password' className='form-control' name='loginPassword' placeholder='Password' />
-							</div>
-
-							<button type='submit' className='btn btn-primary'>
-								Submit
-							</button>
-						</form>
+						<div class='alert alert-danger' role='alert'>
+							Username or Password did not Match
+						</div>
 					</>
+				) : (
+					<></>
 				)}
-			</div>
-		</>
+				<form onSubmit={(event) => handleSubmit(event)}>
+					<div className='form-group'>
+						<label for='loginUsername'>Username</label>
+						<input type='text' className='form-control' name='loginUsername' placeholder='Username' />
+					</div>
+					<div className='form-group'>
+						<label for='loginPassword'>Password</label>
+						<input type='password' className='form-control' name='loginPassword' placeholder='Password' />
+					</div>
+					{loading ? (
+						<div className='spinner-border text-primary' role='status'>
+							<span className='sr-only'>Loading...</span>
+						</div>
+					) : (
+						<button type='submit' className='btn btn-primary'>
+							Submit
+						</button>
+					)}
+				</form>
+			</>
+		</div>
 	);
 }
