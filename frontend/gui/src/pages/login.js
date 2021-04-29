@@ -1,35 +1,34 @@
-import { connect } from 'react-redux';
-import React, { Component } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import * as actions from '../store/actions/auth';
 
-class Login extends Component {
-	constructor(props) {
-		super(props);
+export default function Login() {
+	const loading = useSelector((state) => state.auth.loading);
+	const error = useSelector((state) => state.auth.error);
 
-		this.handleSubmit = this.handleSubmit.bind(this);
-	}
+	console.log(error, loading);
 
-	handleSubmit(event) {
+	const dispatch = useDispatch();
+
+	const handleSubmit = (event) => {
 		event.preventDefault();
-		this.props.onAuth(event.target.loginUsername.value, event.target.loginPassword.value);
-	}
+		let username = event.target.elements.loginUsername.value;
+		let password = event.target.elements.loginPassword.value;
 
-	render() {
-		let errorMessage = null;
-		if (this.props.error) {
-			errorMessage = <p>{this.props.error.message}</p>;
-		}
-		return (
-			<>
-				<div className='container'>
-					{errorMessage}
+		console.log(username, password);
+		dispatch(actions.authLogin(username, password));
+	};
 
-					{this.props.loading ? (
-						<div className='spinner-border text-primary' role='status'>
-							<span className='sr-only'>Loading...</span>
-						</div>
-					) : (
-						<form onSubmit={this.handleSubmit}>
+	return (
+		<>
+			<div className='container'>
+				{loading ? (
+					<div className='spinner-border text-primary' role='status'>
+						<span className='sr-only'>Loading...</span>
+					</div>
+				) : (
+					<>
+						<form onSubmit={(event) => handleSubmit(event)}>
 							<div className='form-group'>
 								<label for='loginUsername'>Username</label>
 								<input type='text' className='form-control' name='loginUsername' placeholder='Username' />
@@ -43,24 +42,9 @@ class Login extends Component {
 								Submit
 							</button>
 						</form>
-					)}
-				</div>
-			</>
-		);
-	}
+					</>
+				)}
+			</div>
+		</>
+	);
 }
-
-const mapStateToProps = (state) => {
-	return {
-		loading: state.loading,
-		error: state.error,
-	};
-};
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		onAuth: (username, password) => dispatch(actions.authLogin(username, password)),
-	};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
