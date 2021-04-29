@@ -9,7 +9,7 @@ export default function Login() {
 	const loading = useSelector((state) => state.auth.loading);
 	const error = useSelector((state) => state.auth.error);
 
-	console.log(error, loading);
+	// console.log(error, loading);
 
 	const dispatch = useDispatch();
 
