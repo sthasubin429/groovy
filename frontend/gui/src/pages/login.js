@@ -2,6 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import * as actions from '../store/actions/auth';
 
+import Loading from '../components/other/loading';
+import { UserPassNotMatch } from '../components/other/message';
+
 export default function Login() {
 	const loading = useSelector((state) => state.auth.loading);
 	const error = useSelector((state) => state.auth.error);
@@ -24,9 +27,7 @@ export default function Login() {
 			<>
 				{error ? (
 					<>
-						<div class='alert alert-danger' role='alert'>
-							Username or Password did not Match
-						</div>
+						<UserPassNotMatch />
 					</>
 				) : (
 					<></>
@@ -41,9 +42,7 @@ export default function Login() {
 						<input type='password' className='form-control' name='loginPassword' placeholder='Password' />
 					</div>
 					{loading ? (
-						<div className='spinner-border text-primary' role='status'>
-							<span className='sr-only'>Loading...</span>
-						</div>
+						<Loading />
 					) : (
 						<button type='submit' className='btn btn-primary'>
 							Submit
