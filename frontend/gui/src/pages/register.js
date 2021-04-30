@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import * as actions from '../store/actions/auth';
 import Loading from '../components/other/loading';
-import { DangerMessage, PasswordDidNotMatch } from '../components/other/message';
+import { DangerMessage } from '../components/other/message';
 import { useForm } from 'react-hook-form';
 
 export default function Register() {
