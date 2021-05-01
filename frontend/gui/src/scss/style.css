@@ -20,7 +20,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #25252d;
+  color: #323244;
 }
 
 ul {
@@ -143,6 +143,32 @@ ul {
 
 .customPlayer-container .playlist-container .playlist-icon {
   margin: auto 1rem;
+}
+
+.rhap_container {
+  background-color: #e8ecef !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.rhap_play-pause-button {
+  color: #3738e8 !important;
+}
+
+.rhap_progress-indicator {
+  background: #3738e8 !important;
+}
+
+.rhap_progress-filled {
+  background-color: #3738e8 !important;
+}
+
+.rhap_volume-indicator:hover {
+  background-color: #3738e8 !important;
+}
+
+.rhap_volume-button:hover {
+  color: #3738e8;
 }
 
 .songForm-container {

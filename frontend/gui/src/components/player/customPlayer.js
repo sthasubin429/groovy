@@ -8,6 +8,9 @@ import Playlist from './playlist';
 
 import { faPlay, faPause, faVolumeUp, faBars, faStepBackward, faStepForward, faRedo, faRandom } from '@fortawesome/free-solid-svg-icons';
 
+import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
+
 function CustomPlayer() {
 	const [isPlaying, setIsPlaying] = useState(true);
 	const [playlistCount, setPlaylistCount] = useState(0);
@@ -71,33 +74,58 @@ function CustomPlayer() {
 				</div>
 			) : (
 				<>
-					<audio autoPlay src={song.song_audio} ref={playerRef} />
+					{/* <audio autoPlay src={song.song_audio} ref={playerRef} /> */}
+
 					<div className='container-fluid customPlayer-container d-flex flex-column flex-lg-row justify-content-evenly'>
 						<div className='flex-fill'>
-							<div className='flex-container jc-center customPlayer-header'>
-								<FontAwesomeIcon icon={faVolumeUp} size='2x' />
-								<h2>Now Playing</h2>
-								<FontAwesomeIcon
+							<div className='customPlayer-header'>
+								{/* <FontAwesomeIcon
 									icon={faBars}
 									size='2x'
+									className='col-2'
 									onClick={() => {
 										setDisplayPlaylist(!displayPlaylist);
 									}}
-								/>
+								/> */}
+								<h2 className='d-flex justify-content-center'>Now Playing</h2>
 							</div>
-
 							<div className='flex-container jc-center'>
 								<img src={song.song_photo} className='customPlayer-songImg' alt='Song' />
 							</div>
-
 							<div className='flex-container jc-center'>
 								<h2> {song.song_name} </h2>
 							</div>
 							<div className='flex-container jc-center'>
 								<h4> {song.getUsername} </h4>
 							</div>
-
-							<div className='flex-container jc-center ai-center customPlayer-controls'>
+							<AudioPlayer
+								autoPlay
+								src={song.song_audio}
+								showSkipControls={true}
+								showJumpControls={false}
+								customAdditionalControls={[
+									RHAP_UI.LOOP,
+									<FontAwesomeIcon
+										icon={faBars}
+										size='1x'
+										className='mx-2'
+										onClick={() => {
+											setDisplayPlaylist(!displayPlaylist);
+										}}
+									/>,
+								]}
+								onClickPrevious={(e) => {
+									handleChange('prev');
+								}}
+								onClickNext={(e) => {
+									handleChange('next');
+								}}
+								onEnded={(e) => {
+									handleChange('next');
+								}}
+								// other props here
+							/>
+							{/* <div className='flex-container jc-center ai-center customPlayer-controls'>
 								<FontAwesomeIcon icon={faRedo} size='3x' />
 
 								<div className='main-controls'>
@@ -123,7 +151,7 @@ function CustomPlayer() {
 								</div>
 
 								<FontAwesomeIcon icon={faRandom} size='3x' />
-							</div>
+							</div> */}
 						</div>
 						{displayPlaylist ? (
 							<>

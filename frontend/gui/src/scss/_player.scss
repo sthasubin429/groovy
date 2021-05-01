@@ -57,3 +57,37 @@
 		}
 	}
 }
+
+.rhap_container {
+	background-color: $sidebar-background !important;
+	box-shadow: none !important;
+}
+
+.rhap_play-pause-button {
+	color: $primary-colour !important;
+}
+
+// .rhap_progress-bar {
+// 	color: $primary-colour !important;
+// }
+
+.rhap_progress-indicator {
+	background: $primary-colour !important;
+}
+
+.rhap_progress-filled {
+	background-color: $primary-colour !important;
+}
+
+.rhap_volume-indicator {
+	// background: $primary-colour !important;
+
+	&:hover {
+		background-color: $primary-colour !important;
+	}
+}
+.rhap_volume-button {
+	&:hover {
+		color: $primary-colour;
+	}
+}
