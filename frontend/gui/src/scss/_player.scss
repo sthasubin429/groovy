@@ -1,5 +1,5 @@
 .customPlayer-container {
-	margin-top: 2rem;
+	margin-top: 1rem;
 	padding: 1.875rem;
 	background-color: $sidebar-background;
 	border-radius: 0.75rem;
@@ -54,6 +54,46 @@
 
 		.playlist-icon {
 			margin: auto 1rem;
+		}
+	}
+}
+
+.interaction-bar {
+	margin: 0.5rem 0;
+	padding: 0.5rem;
+	background-color: $sidebar-background;
+	border-radius: 0.5rem;
+
+	.interaction-bar-like {
+		background-color: $sidebar-background;
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: $like-colour;
+		padding: 0.75rem;
+		border: none;
+		outline: none;
+	}
+
+	.interaction-bar-likeCount {
+		font-size: 1.5em;
+		font-weight: bold;
+		margin: 0 1rem 0 0;
+	}
+
+	.intraction-bar-btn {
+		background-color: $secondary-colour;
+		color: #fff;
+		padding: 0.6rem;
+		margin: 0.75rem 1rem;
+		border: none;
+		outline: none;
+		// font-size: 1.5rem;
+		border-radius: 0.5rem;
+
+		span {
+			margin-left: 0.8rem;
+			color: #fff;
+			font-weight: 600;
 		}
 	}
 }

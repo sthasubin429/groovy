@@ -7,6 +7,24 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { toggleLike } from '../../store/actions/player';
 
+const HeartFilled = () => {
+	return (
+		<>
+			<FontAwesomeIcon size='1x' icon={faHeart} />
+			{/* <span> Liked </span> */}
+		</>
+	);
+};
+
+const HeartNotFilled = () => {
+	return (
+		<>
+			<FontAwesomeIcon size='1x' icon={frHeart} />
+			{/* <span> Liked </span> */}
+		</>
+	);
+};
+
 export default function InteractionBar() {
 	const likeCount = useSelector((state) => state.player.likeCount);
 	const like = useSelector((state) => state.player.like);
@@ -14,28 +32,30 @@ export default function InteractionBar() {
 
 	return (
 		<>
-			<div className='col-8'>
-				<button
-					className='float-left'
-					onClick={(event) => {
-						event.preventDefault();
-						dispatch(toggleLike());
-					}}
-				>
-					<FontAwesomeIcon icon={like ? faHeart : frHeart} />
-					<span>Favourite </span>
-				</button>
-				<button className='float-left'>
-					<FontAwesomeIcon icon={faShare} />
-					<span>Share</span>
-				</button>
-				<button className='float-left'>
-					<FontAwesomeIcon icon={faPlus} />
-					<span>Add To</span>
-				</button>
+			<div className='d-flex justify-content-center col-12 px-0'>
+				<div className='interaction-bar flex-fill'>
+					<div className='d-inline'>
+						<button
+							onClick={(event) => {
+								event.preventDefault();
+								dispatch(toggleLike());
+							}}
+							className='interaction-bar-like '
+						>
+							{like ? <HeartFilled /> : <HeartNotFilled />}
+						</button>
+						<span className='interaction-bar-likeCount '> {likeCount} </span>
+					</div>
 
-				<div className='float-right'>
-					{likeCount} <span> Favourites </span>
+					<button className='intraction-bar-btn float-right'>
+						<FontAwesomeIcon className='icon' icon={faShare} />
+						<span>Share</span>
+					</button>
+					<button className='intraction-bar-btn float-right'>
+						<FontAwesomeIcon icon={faPlus} />
+						<span>Add To</span>
+					</button>
+					<div className='float-right'></div>
 				</div>
 			</div>
 		</>
