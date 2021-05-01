@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import * as actions from '../store/actions/auth';
 import Loading from '../components/other/loading';
 import { DangerMessage } from '../components/other/message';
