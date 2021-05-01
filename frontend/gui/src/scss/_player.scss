@@ -29,36 +29,31 @@
 			}
 		}
 	}
-}
 
-.playlist-container {
-	margin-top: 2rem;
-	padding: 1.875rem;
-	background-color: $sidebar-background;
-	border-radius: 0.75rem;
-
-	ul {
-		margin: 0;
-		padding: 0;
-	}
-
-	li {
-		margin: 1rem 0;
-	}
-	.playlist-songImg {
-		border-radius: 10%;
-		width: 5rem;
-		height: 5rem;
-	}
-	.playlist-songDetail {
-		margin: auto 1rem;
-
-		div {
-			margin: 0.5rem 0;
+	.playlist-container {
+		ul {
+			margin: 0;
+			padding: 0;
 		}
-	}
 
-	.playlist-icon {
-		margin: auto 1rem;
+		li {
+			margin: 1rem 0;
+		}
+		.playlist-songImg {
+			border-radius: 10%;
+			width: 5rem;
+			height: 5rem;
+		}
+		.playlist-songDetail {
+			margin: auto 1rem;
+
+			div {
+				margin: 0.5rem 0;
+			}
+		}
+
+		.playlist-icon {
+			margin: auto 1rem;
+		}
 	}
 }

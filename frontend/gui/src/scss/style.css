@@ -118,37 +118,30 @@ ul {
   margin: 0 0.3rem;
 }
 
-.playlist-container {
-  margin-top: 2rem;
-  padding: 1.875rem;
-  background-color: #e8ecef;
-  border-radius: 0.75rem;
-}
-
-.playlist-container ul {
+.customPlayer-container .playlist-container ul {
   margin: 0;
   padding: 0;
 }
 
-.playlist-container li {
+.customPlayer-container .playlist-container li {
   margin: 1rem 0;
 }
 
-.playlist-container .playlist-songImg {
+.customPlayer-container .playlist-container .playlist-songImg {
   border-radius: 10%;
   width: 5rem;
   height: 5rem;
 }
 
-.playlist-container .playlist-songDetail {
+.customPlayer-container .playlist-container .playlist-songDetail {
   margin: auto 1rem;
 }
 
-.playlist-container .playlist-songDetail div {
+.customPlayer-container .playlist-container .playlist-songDetail div {
   margin: 0.5rem 0;
 }
 
-.playlist-container .playlist-icon {
+.customPlayer-container .playlist-container .playlist-icon {
   margin: auto 1rem;
 }
 

@@ -3,6 +3,9 @@ import React, { useState, useRef, useEffect } from 'react';
 
 import * as playerActions from '../../store/actions/player.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import Playlist from './playlist';
+
 import { faPlay, faPause, faVolumeUp, faBars, faStepBackward, faStepForward, faRedo, faRandom } from '@fortawesome/free-solid-svg-icons';
 
 function CustomPlayer() {
@@ -25,6 +28,8 @@ function CustomPlayer() {
 	const loading = useSelector((state) => state.player.loading);
 	const playlist = useSelector((state) => state.player.playlist_details);
 	const index = useSelector((state) => state.player.index);
+
+	const [displayPlaylist, setDisplayPlaylist] = useState(true);
 
 	useEffect(() => {
 		if (playlist) {
@@ -67,51 +72,68 @@ function CustomPlayer() {
 			) : (
 				<>
 					<audio autoPlay src={song.song_audio} ref={playerRef} />
-					<div className='container-fluid customPlayer-container'>
-						<div className='flex-container jc-center customPlayer-header'>
-							<FontAwesomeIcon icon={faVolumeUp} size='2x' />
-							<h2>Now Playing</h2>
-							<FontAwesomeIcon icon={faBars} size='2x' />
-						</div>
-
-						<div className='flex-container jc-center'>
-							<img src={song.song_photo} className='customPlayer-songImg' alt='Song' />
-						</div>
-
-						<div className='flex-container jc-center'>
-							<h2> {song.song_name} </h2>
-						</div>
-						<div className='flex-container jc-center'>
-							<h4> {song.getUsername} </h4>
-						</div>
-
-						<div className='flex-container jc-center ai-center customPlayer-controls'>
-							<FontAwesomeIcon icon={faRedo} size='3x' />
-
-							<div className='main-controls'>
+					<div className='container-fluid customPlayer-container d-flex flex-column flex-lg-row justify-content-evenly'>
+						<div className='flex-fill'>
+							<div className='flex-container jc-center customPlayer-header'>
+								<FontAwesomeIcon icon={faVolumeUp} size='2x' />
+								<h2>Now Playing</h2>
 								<FontAwesomeIcon
-									icon={faStepBackward}
-									size='3x'
+									icon={faBars}
+									size='2x'
 									onClick={() => {
-										handleChange('prev');
-										resetIsPlaying();
-									}}
-								/>
-
-								<FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size='3x' onClick={handlePausePlay} />
-
-								<FontAwesomeIcon
-									icon={faStepForward}
-									size='3x'
-									onClick={() => {
-										handleChange('next');
-										resetIsPlaying();
+										setDisplayPlaylist(!displayPlaylist);
 									}}
 								/>
 							</div>
 
-							<FontAwesomeIcon icon={faRandom} size='3x' />
+							<div className='flex-container jc-center'>
+								<img src={song.song_photo} className='customPlayer-songImg' alt='Song' />
+							</div>
+
+							<div className='flex-container jc-center'>
+								<h2> {song.song_name} </h2>
+							</div>
+							<div className='flex-container jc-center'>
+								<h4> {song.getUsername} </h4>
+							</div>
+
+							<div className='flex-container jc-center ai-center customPlayer-controls'>
+								<FontAwesomeIcon icon={faRedo} size='3x' />
+
+								<div className='main-controls'>
+									<FontAwesomeIcon
+										icon={faStepBackward}
+										size='3x'
+										onClick={() => {
+											handleChange('prev');
+											resetIsPlaying();
+										}}
+									/>
+
+									<FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size='3x' onClick={handlePausePlay} />
+
+									<FontAwesomeIcon
+										icon={faStepForward}
+										size='3x'
+										onClick={() => {
+											handleChange('next');
+											resetIsPlaying();
+										}}
+									/>
+								</div>
+
+								<FontAwesomeIcon icon={faRandom} size='3x' />
+							</div>
 						</div>
+						{displayPlaylist ? (
+							<>
+								<div className=''>
+									<Playlist />
+								</div>
+							</>
+						) : (
+							<></>
+						)}
 					</div>
 				</>
 			)}
