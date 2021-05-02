@@ -24,6 +24,7 @@ class Songs(models.Model):
 class Playlist(models.Model):
     playlist_name = models.CharField(max_length=200)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    playlist_cover = models.ImageField(default='playlistCover/default.jpg', upload_to="playlistCover")
 
     def __str__(self):
         return self.playlist_name

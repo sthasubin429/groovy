@@ -10,6 +10,15 @@ export default function PlaylistCreateForm(props) {
 	const [loading, setLoading] = useState(false);
 	let userData = getUserDetails();
 
+	const songCover = useRef();
+	const [imageFile, setImageFile] = useState();
+
+	const handleImageFile = (e) => {
+		let image = e.target.files[0];
+		songCover.current.src = URL.createObjectURL(image);
+		setImageFile(image);
+	};
+
 	useEffect(() => {
 		// console.log(typeof props.songs);
 		const songs = [...props.songs];
@@ -40,6 +49,10 @@ export default function PlaylistCreateForm(props) {
 		let formData = new FormData();
 		formData.append('playlist_name', event.target.elements.playlistName.value);
 		formData.append('created_by', userData.userInfo.pk);
+
+		if (imageFile) {
+			formData.append('playlist_cover', imageFile);
+		}
 
 		const token = localStorage.getItem('token');
 
@@ -140,44 +153,76 @@ export default function PlaylistCreateForm(props) {
 
 	return (
 		<>
-			<h2 className='col-12 m-4'>Create Playlist</h2>
-			<form className='col-12 m-4' onSubmit={(event) => handleSubmit(event, props.requestType)}>
-				<div className='form-group row'>
-					<label htmlFor='playlistName' className='col-12 col-md-2 col-form-label'>
-						Name
-					</label>
+			<div className='col-12'>
+				<h2 className='col-12 m-4'>Create Playlist</h2>
+				<form className='col-12 m-4' onSubmit={(event) => handleSubmit(event, props.requestType)}>
+					<div className='form-group row'>
+						<label htmlFor='playlistName' className='col-12 col-md-2 col-form-label'>
+							Name
+						</label>
 
-					<div className='col-12 col-md-10'>
-						<input type='text' className='form-control' id='playlistName' placeholder='MyPlaylist1' required />
+						<div className='col-12 col-md-10'>
+							<input type='text' className='form-control' id='playlistName' placeholder='MyPlaylist1' required />
+						</div>
 					</div>
-				</div>
 
-				<div className='form-group row col-12'>
-					<h3> Add Songs</h3>
-				</div>
-
-				{songChoiceArray}
-
-				<div className='form-group row col-12'>
-					<button
-						onClick={(event) => {
-							event.preventDefault();
-							setChoiceKeys(choiceKeys.concat(choiceKeys[choiceKeys.length - 1] + 1));
-						}}
-						className='btn btn-secondary'
-					>
-						Add Songs
-					</button>
-				</div>
-
-				{loading ? (
-					<div className='spinner-border text-primary' role='status'>
-						<span className='sr-only'>Loading...</span>
+					<div className='form-group row col-12'>
+						<h3> Add Songs</h3>
 					</div>
-				) : (
-					<input type='Submit' name='submit' className='btn btn-primary' />
-				)}
-			</form>
+
+					{songChoiceArray}
+
+					<div className='form-group row col-12'>
+						<button
+							onClick={(event) => {
+								event.preventDefault();
+								setChoiceKeys(choiceKeys.concat(choiceKeys[choiceKeys.length - 1] + 1));
+							}}
+							className='btn btn-secondary'
+						>
+							Add Songs
+						</button>
+					</div>
+
+					<div className='form-group row col-12'>
+						<div className='d-flex justify-content-start aligin-items-center flex-column flex-lg-row'>
+							<img
+								src='http://127.0.0.1:8000/media/playlistCover/default.jpg'
+								className='rounded mx-auto d-block'
+								alt='Playlist Cover'
+								width='240px'
+								className='m-4'
+								ref={songCover}
+							/>
+							<div className='custom-file m-4'>
+								<input
+									type='file'
+									className='custom-file-input'
+									name='profile-picture'
+									id='profile-picture'
+									accept='image/png, image/jpeg'
+									onChange={(e) => {
+										handleImageFile(e);
+									}}
+								/>
+
+								<label className='custom-file-label' htmlFor='profile-picture'>
+									Choose file...
+								</label>
+								<div className='invalid-feedback'>Example invalid custom file feedback</div>
+							</div>
+						</div>
+					</div>
+
+					{loading ? (
+						<div className='spinner-border text-primary' role='status'>
+							<span className='sr-only'>Loading...</span>
+						</div>
+					) : (
+						<input type='Submit' name='submit' className='btn btn-primary' />
+					)}
+				</form>
+			</div>
 		</>
 	);
 }

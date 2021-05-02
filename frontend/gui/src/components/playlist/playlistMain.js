@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 export default function PlaylistMain(props) {
 	const [playlist, setPlaylist] = useState(props.playlist);
 	const dispatch = useDispatch();
-	// console.log(playlist);
+	console.log(playlist);
 
 	useEffect(() => {
 		setPlaylist(props.playlist);

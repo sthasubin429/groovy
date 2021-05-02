@@ -12,7 +12,8 @@
         "_form-song.scss",
         "_song-list.scss",
         "_profile.scss",
-        "_artist.scss"
+        "_artist.scss",
+        "_playlist.scss"
     ],
     "names": [],
     "file": "style.css"
