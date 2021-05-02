@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import UserDetails from '../components/profile/userdetails.js';
-import PlaylistMain from '../components/playlist/playlistMain.js';
-import SongList, { SongCard } from '../components/songList.js';
+import { PlaylistCard } from '../components/playlist/playlistMain.js';
+import { SongCard } from '../components/songList.js';
 import { useSelector } from 'react-redux';
 
 export default function Profile() {
@@ -30,8 +30,8 @@ export default function Profile() {
 						) : (
 							<>
 								<h3> Playlist </h3>
-								<div className='d-flex'>
-									<PlaylistMain playlist={playlist} />
+								<div className='playlist-main-container d-flex align-content-between justify-content-start flex-wrap'>
+									<PlaylistCard playlist={playlist} />
 								</div>
 							</>
 						)}
