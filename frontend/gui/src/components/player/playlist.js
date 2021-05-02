@@ -1,7 +1,34 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 
-function Playlist() {
+import { changeSong } from '../../store/actions/player';
+
+export const PlaylistDetails = (props) => {
+	// console.log(props.index);
+
+	const dispatch = useDispatch();
+	return (
+		<>
+			<li
+				className='d-flex'
+				onClick={(e) => {
+					console.log(dispatch(changeSong(props.index)));
+				}}
+			>
+				<img src={props.song.song_photo} className='playlist-songImg' alt='Song' />
+
+				<div className='playlist-songDetail'>
+					<div className='text-capitalize'>{props.song.song_name}</div>
+					<div>{props.song.getUsername}</div>
+				</div>
+
+				<div className='playlist-icon ml-auto'>Icon</div>
+			</li>
+		</>
+	);
+};
+
+export default function Playlist() {
 	const [loading, setLoading] = useState(true);
 	const playlist = useSelector((state) => state.player.playlist_song_details);
 
@@ -22,19 +49,8 @@ function Playlist() {
 				<div className='playlist-container'>
 					<h4 className='playlist-header'>Current Playlist</h4>
 					<ul>
-						{playlist.map((song) => (
-							<>
-								<li className='d-flex'>
-									<img src={song.song_photo} className='playlist-songImg' alt='Song' />
-
-									<div className='playlist-songDetail'>
-										<div className='text-capitalize'>{song.song_name}</div>
-										<div>{song.getUsername}</div>
-									</div>
-
-									<div className='playlist-icon ml-auto'>Icon</div>
-								</li>
-							</>
+						{playlist.map((song, index) => (
+							<PlaylistDetails song={song} index={index} key={index} />
 						))}
 					</ul>
 				</div>
@@ -42,5 +58,3 @@ function Playlist() {
 		</>
 	);
 }
-
-export default Playlist;
