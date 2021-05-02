@@ -3,7 +3,7 @@ import Loading from '../components/other/loading';
 import axios from 'axios';
 import { BASE_URL, TOKEN } from '../store/utility';
 
-const SongCard = (props) => {
+export const SongCard = (props) => {
 	return (
 		<>
 			<div className='song-card'>

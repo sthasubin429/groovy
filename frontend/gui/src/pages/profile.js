@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import UserDetails from '../components/profile/userdetails.js';
 import PlaylistMain from '../components/playlist/playlistMain.js';
-import SongList from '../components/songList.js';
+import SongList, { SongCard } from '../components/songList.js';
 import { useSelector } from 'react-redux';
 
 export default function Profile() {
@@ -47,8 +47,11 @@ export default function Profile() {
 						) : (
 							<>
 								<h3> Songs </h3>
-								<br />
-								<SongList songs={songs} />
+								<div className='d-flex flex-wrap'>
+									{songs.map((song) => (
+										<SongCard key={song.id} song={song} />
+									))}
+								</div>
 							</>
 						)}
 					</div>
