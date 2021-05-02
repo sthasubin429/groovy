@@ -7,15 +7,18 @@ import tensorflow as tf
 from keras.models import Sequential, load_model
 from keras.layers import LSTM, Dropout, TimeDistributed, Dense, Activation, Embedding
 
+
 MODEL_DIR = './weights'
 def save_weights(epoch, model):
     if not os.path.exists(MODEL_DIR):
         os.makedirs(MODEL_DIR)
     model.save_weights(os.path.join(MODEL_DIR, 'weights.{}.h5'.format(epoch)))
 
+
 #load the weights
 def load_weights(epoch, model):
     model.load_weights(os.path.join(MODEL_DIR, 'weights.{}.h5'.format(epoch)))
+
 
 def build_sample_model(vocab_size):
     model = Sequential()
@@ -56,10 +59,11 @@ def sample(epoch, header, num_chars):
 
     return ''.join(idx_to_char[c] for c in sampled)
 
+
 def generate_music():
     epoch=199 #'epoch checkpoint to sample from'
     seed='' #'initial character to start for the generated text'
-    length=800   #'number of characters to sample'
+    length=600   #'number of characters to sample'
     x = sample(epoch,seed,length)
     f= open("song.txt","w+")
     f.write(x)

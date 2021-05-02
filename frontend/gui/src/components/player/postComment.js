@@ -57,21 +57,21 @@ export default function PostComment() {
 				</div>
 			) : (
 				<>
-					<div className='col-8'>
-						<form onSubmit={(event) => handleSubmit(event, POST)} id='post_comment_form'>
+					<div className='col-12 d-flex justify-content-center align-items-center post-comment'>
+						<div className='post-comment-img'>
+							<img src={user.profile_picture} height='50px' width='50px' className='float-left' />
+						</div>
+						<form onSubmit={(event) => handleSubmit(event, POST)} id='post_comment_form' className='flex-fill post-comment-form'>
 							<div className='form-row'>
-								<div className='col-3'>
-									<img src={user.profile_picture} height='50px' width='50px' className='float-left' />
-								</div>
-								<div className='col-9'>
-									<textarea className='form-control' id='comment' name='comment' placeholder='Write a Comment' rows='2'></textarea>
-								</div>
-							</div>
-
-							<div className='form-row'>
-								<input type='Submit' name='submit' className='btn btn-primary' />
+								<textarea className='form-control ' id='comment' name='comment' placeholder='Write a Comment' rows='2'></textarea>
 							</div>
 						</form>
+
+						<button className='post-comment-btn col-2' type='submit' name='submit' form='post_comment_form'>
+							<span> Submit </span>
+						</button>
+
+						{/* <input type='Submit' name='submit' className='btn btn-primary' /> */}
 					</div>
 				</>
 			)}

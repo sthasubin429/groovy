@@ -184,6 +184,24 @@ ul {
   font-weight: 600;
 }
 
+.post-comment * {
+  margin: 0.5rem;
+}
+
+.post-comment .post-comment-btn {
+  background-color: #ef9a82;
+  color: #fff;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+}
+
+.post-comment .post-comment-btn span {
+  color: #fff;
+  font-weight: 400;
+}
+
 .rhap_container {
   background-color: #fff !important;
   -webkit-box-shadow: none !important;

@@ -1,27 +1,24 @@
-*++	*+++q5_^## ^c=e:d/2e/4 f=e)|fdBc dcdf|ge^de =fedc|
-d2 (gf) gbag|fedc BAGB|ABcA BGFD|G^FGA BGAF|D2 GD D2 z2||
 
-
-X:1514
-T:Sirater's Hornpipe
-M:C|
-L:1/8
-N:"collected by McFadden"
-B:O'Neill's 1402
+ 193
+Z:The Forden the Lours
+R:deulp orn with erping 1" "collected by Stack"
+B:O'Neill's 1744
+R:Hornpipe
 Z:"Transcribed by Bob Safranek, rjs@gsp.org"
-K:Bphr
-(Gc) | AEFD (BG)AG | FGAF (DEFD) | EFGA BGAF | D2BA FDAF |
-           D2EF  D2FA | d2Fc F2DE | FEFG ABcA | dcBA G2    ||
-   (de) | f2e2 {e}d2cA | B2G2 B2d2 | cAFA =cBAc | B2G2 G2G2 |
-         B2G2  GBd2 | f2d2 edce | f2d2 efge | d2d2 d2   :|
-|:  c2 | A2GF E2EF | G2F2 E2E2 | D2D2  D2E2 | F2E2 E2FG |
-A2B2 c2d2 | (e2c2) e2d2 | c2A2  FAFG | A2D2 D2  :|
-|:   D2  | (GABc) d2d2 | =fedc  B2GB  | A2F2  A2 (Bc) | dcdB  A2Bc            |:  d2=d2 dBGA  | B2d2 gfge | dcBA G2 :|
+K:A
+   ((3EFG) | A3 B Ac ((3efg) | a2 (ab) aece | feff  edBA | dfed cAAB |
+c2  Ac  ecde | fdfa  gfef | dcdf     ecAc | d2 a2 g2    ||
+(ef) | gfga gfeg | fefd cAGF | EAAB       Acdc     | BcBc A2 (AB) |
+c2 (cc) A2 (ef) | gfed cdef | gefd cABG | E2 A2 A2      :|
 
 
-X:1738
-T:THE TARGON BOY
+X:1702
+T:Her Blancton
 M:2/4
 L:1/16
-B:O'NEILL'S 1735
-N:"collected by F. O'Neil
+N:"collected by J. O'Neill"
+B:O'Neill's 1740
+R:Hornpipe
+Z:"Transcribed by Bob Safranek, rjs@gsp.org"
+K:G
+   E>F | G>AG>E D>DE>F | G>FE>D E2   d>c | B>GB

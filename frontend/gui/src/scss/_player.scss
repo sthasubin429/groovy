@@ -98,6 +98,34 @@
 	}
 }
 
+.post-comment {
+	* {
+		margin: 0.5rem;
+	}
+	// // .post-comment-img {
+	// // 	margin: 1rem;
+	// // }
+
+	.post-comment-form {
+	}
+
+	.post-comment-btn {
+		background-color: $secondary-colour;
+		color: #fff;
+		padding: 0.5rem;
+		// margin: 0.75rem 1rem;
+		border: none;
+		outline: none;
+		border-radius: 0.5rem;
+
+		span {
+			// padding: 0.8rem;
+			color: #fff;
+			font-weight: 400;
+		}
+	}
+}
+
 .rhap_container {
 	background-color: $sidebar-background !important;
 	box-shadow: none !important;
