@@ -317,4 +317,22 @@ ul {
 .artist-card .artistCard-details div {
   margin: 0.5rem 0;
 }
+
+.playlist-container {
+  background-color: #fff;
+  border-radius: 0.5rem;
+}
+
+.playlist-container .playlist-header {
+  padding: 1rem;
+}
+
+.playlist-container .playlist-main-container {
+  padding: 1rem;
+}
+
+.playlist-container .playlist-main-container .playlist-card {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
 /*# sourceMappingURL=style.css.map */

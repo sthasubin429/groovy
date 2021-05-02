@@ -1,2 +1,17 @@
-gi.playlist-create-img {
+.playlist-container {
+	background-color: #fff;
+	border-radius: 0.5rem;
+
+	.playlist-header {
+		padding: 1rem;
+	}
+
+	.playlist-main-container {
+		padding: 1rem;
+
+		.playlist-card {
+			margin: 0.5rem;
+			padding: 0.5rem;
+		}
+	}
 }

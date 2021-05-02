@@ -33,6 +33,12 @@ class Playlist(models.Model):
     def getUsername(self):
         return self.created_by.username
 
+    @property
+    def getSongCount(self):
+        songs = PlaylistDetails.objects.filter(playlist_id=self.id)
+        return len(songs)
+
+
 
 class PlaylistDetails(models.Model):
     playlist_id = models.ForeignKey(Playlist, on_delete=models.CASCADE)

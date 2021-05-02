@@ -26,13 +26,16 @@ export default function Playlist() {
 
 	return (
 		<>
-			<h2>All Playlist</h2>
+			<div className='w-100 m-2 p-3 playlist-container'>
+				<div className='clearfix playlist-header'>
+					<h2 className='float-left playlist-title'>All Playlist</h2>
 
-			<PlaylistMain playlist={playlist} />
-
-			<Link to='/playlistCreate'>
-				<button className='btn btn-secondary'> CreatePlaylist</button>
-			</Link>
+					<Link to='/playlistCreate' className='float-right'>
+						<button className='btn btn-secondary'> CreatePlaylist</button>
+					</Link>
+				</div>
+				<PlaylistMain playlist={playlist} />
+			</div>
 		</>
 	);
 }
