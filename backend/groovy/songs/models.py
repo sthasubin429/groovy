@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 import datetime
-
+# from interaction.models import Like, Comment
 
 # Create your models here.
 
@@ -19,6 +19,7 @@ class Songs(models.Model):
     @property
     def getUsername(self):
         return self.username.username
+
 
 
 class Playlist(models.Model):

@@ -1,15 +1,23 @@
+.songlist-container {
+	background-color: #fff;
+	margin: 2rem 0.5rem;
+	padding: 1rem;
+	border-radius: 0.5rem;
+
+	.songlist-title {
+		padding: 1rem 1.5rem;
+	}
+}
 .song-card {
-	margin: 3rem;
+	margin: 2rem 1rem;
 
 	.songList-songImg {
 		border-radius: 50%;
-		width: 5rem;
-		height: 5rem;
+		width: 6rem;
+		height: 6rem;
 	}
 
 	.songList-songDetail {
-		margin: auto 1rem;
-
 		div {
 			margin: 0.5rem 0;
 		}
