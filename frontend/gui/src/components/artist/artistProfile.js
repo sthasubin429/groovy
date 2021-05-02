@@ -138,7 +138,6 @@ export default function ArtistProfile(props) {
 	};
 	return (
 		<>
-			<h2> Artist Profile</h2>
 			<div className='container-fluid profile-header pt-5 '>
 				<div className='row'>
 					<div className='col-12 col-sm-4'>
@@ -148,14 +147,14 @@ export default function ArtistProfile(props) {
 					</div>
 					<div className='col-12 col-sm-8'>
 						<div className='container-fluid'>
-							<div className='row'>
-								<div className='col-sm-7'>
+							<div className='row d-flex justify-content-between'>
+								<div className=''>
 									<h3 className='profile-name text-capitalize'>
 										{props.artist[0].first_name} {props.artist[0].last_name}
 									</h3>
 								</div>
 
-								<div className='col-sm-5'>
+								<div className='justify-content-center align-items-center'>
 									{followState ? (
 										<>
 											<button className='btn btn-secondary mx-2' onClick={(event) => handleOnClick(event, DELETE)}>
@@ -170,41 +169,34 @@ export default function ArtistProfile(props) {
 										</>
 									)}
 
-									<button className='btn btn-secondary mx-2'> Share </button>
+									{/* <button className='btn btn-secondary mx-2'> Share </button> */}
 								</div>
 							</div>
 
 							<div className='row'>
-								<div className='col-12'>
-									<p className='profile-username'>{props.artist[0].getUsername}</p>
-								</div>
+								<p className='profile-username'>{props.artist[0].getUsername}</p>
 							</div>
 
-							<div className='row my-3'>
+							<div className='row d-flex justify-content-between'>
 								{countLoading ? (
-									<div className='pt-5 spinner-border text-primary' role='status'>
+									<div className='spinner-border text-primary' role='status'>
 										<span className='sr-only'>Loading...</span>
 									</div>
 								) : (
 									<>
-										<div className='col pt-2'>{followerCount} Followers</div>
-										<div className='col pt-2'>{followingCount} Following</div>
+										<div>{followerCount} Followers</div>
+										<div>{followingCount} Following</div>
+										<div>15 Tracks</div>
 									</>
 								)}
-								<div className='col pt-2'>15 Tracks</div>
-
-								<div className='col'>
-									<Link to='/profileEdit'>
-										<button className='btn btn-secondary'> Edit </button>
-									</Link>
-								</div>
 							</div>
 
-							<div className='row my-4'>
-								<div className='col-12'>
-									<h4>Bio </h4>
-									<p> {props.artist[0].bio}</p>
-								</div>
+							<div className='row my-3'>
+								<h4>Bio </h4>
+							</div>
+
+							<div className='row my-3'>
+								<p> {props.artist[0].bio}</p>
 							</div>
 						</div>
 					</div>
