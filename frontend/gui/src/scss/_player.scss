@@ -99,14 +99,15 @@
 }
 
 .post-comment {
+	background-color: #fff;
+	border-radius: 0.5rem;
 	* {
 		margin: 0.5rem;
 	}
-	// // .post-comment-img {
-	// // 	margin: 1rem;
-	// // }
-
-	.post-comment-form {
+	.post-comment-img {
+		img {
+			border-radius: 0.5rem;
+		}
 	}
 
 	.post-comment-btn {
