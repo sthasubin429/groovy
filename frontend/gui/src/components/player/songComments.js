@@ -17,8 +17,8 @@ export default function SongComments() {
 
 	return (
 		<>
-			<div className='col-8'>
-				<h5> Comments</h5>
+			<div className='col-12 song-comments'>
+				<h4 className='song-comments-title'> Comments</h4>
 				{commentState ? (
 					<>
 						{commentsList.map((comment) => (
@@ -26,7 +26,7 @@ export default function SongComments() {
 						))}
 					</>
 				) : (
-					<div>
+					<div className='song-no-comments'>
 						<h5> No Comments on this Song</h5>
 					</div>
 				)}

@@ -27,6 +27,7 @@ function Player() {
 				<div className='row'>
 					<PostComment />
 				</div>
+
 				<div className='row'>
 					<SongComments />
 				</div>

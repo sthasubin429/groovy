@@ -24,9 +24,14 @@ export default function Comment(props) {
 
 	return (
 		<>
-			<img src={profile} height='50px' width='50px' className='float-left' />
-			<h4> {props.comment.getUsername}</h4>
-			<p> {props.comment.comment}</p>
+			<div className='song-comment d-flex'>
+				<img src={profile} height='50px' width='50px' className='song-comment-img' />
+
+				<div className='song-comment-details '>
+					<h5> {props.comment.getUsername}</h5>
+					<p> {props.comment.comment}</p>
+				</div>
+			</div>
 		</>
 	);
 }

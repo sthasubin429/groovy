@@ -60,7 +60,7 @@
 
 .interaction-bar {
 	margin: 0.5rem 0;
-	padding: 0.5rem;
+	padding: 0.5rem 0.5rem 0.5rem 1rem;
 	background-color: $sidebar-background;
 	border-radius: 0.5rem;
 
@@ -124,6 +124,35 @@
 			color: #fff;
 			font-weight: 400;
 		}
+	}
+}
+
+.song-comments {
+	background-color: #fff;
+	margin: 0.5rem 0;
+	padding: 1rem;
+	border-radius: 0.5rem;
+
+	.song-comments-title {
+		padding: 1rem;
+		color: $text-colour;
+	}
+
+	.song-comment {
+		padding: 0.5rem 1rem;
+
+		.song-comment-img {
+			border-radius: 0.5rem;
+			margin: 0.5rem 0.5rem 0 0;
+		}
+
+		.song-comment-details {
+			margin: 0 0 0 1rem;
+		}
+	}
+
+	.song-no-comments {
+		padding: 1rem;
 	}
 }
 

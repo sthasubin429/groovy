@@ -147,7 +147,7 @@ ul {
 
 .interaction-bar {
   margin: 0.5rem 0;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
   background-color: #fff;
   border-radius: 0.5rem;
 }
@@ -209,6 +209,35 @@ ul {
 .post-comment .post-comment-btn span {
   color: #fff;
   font-weight: 400;
+}
+
+.song-comments {
+  background-color: #fff;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.song-comments .song-comments-title {
+  padding: 1rem;
+  color: #323244;
+}
+
+.song-comments .song-comment {
+  padding: 0.5rem 1rem;
+}
+
+.song-comments .song-comment .song-comment-img {
+  border-radius: 0.5rem;
+  margin: 0.5rem 0.5rem 0 0;
+}
+
+.song-comments .song-comment .song-comment-details {
+  margin: 0 0 0 1rem;
+}
+
+.song-comments .song-no-comments {
+  padding: 1rem;
 }
 
 .rhap_container {
