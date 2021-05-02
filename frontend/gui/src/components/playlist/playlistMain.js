@@ -87,7 +87,7 @@ export default function PlaylistMain(props) {
 							changePlaylist('prev');
 						}}
 					>
-						Previous
+						<span aria-hidden='true'>&laquo;</span>
 					</button>
 				</li>
 				{[...Array(noOfPages)].map((e, i) => {
@@ -114,7 +114,7 @@ export default function PlaylistMain(props) {
 							changePlaylist('next');
 						}}
 					>
-						Previous
+						<span aria-hidden='true'>&raquo;</span>
 					</button>
 				</li>
 			</ul>
