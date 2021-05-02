@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404
 from .models import Songs, Playlist, PlaylistDetails
 from .serializers import SongsSerializer, PlaylistSerializer, PlaylistDetailsSerializer
 from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView
+from django.db.models import Q
 
 
 # Songs
@@ -30,6 +31,16 @@ class ArticlesDeleteView(DestroyAPIView):
     queryset = Songs.objects.all()
     serializer_class = SongsSerializer
 
+
+class SongSearchView(ListAPIView):
+    serializer_class = SongsSerializer
+
+    def get_queryset(self):
+        self.query = self.kwargs['query']
+        lookup = Q(song_name__icontains = self.query)      
+        return Songs.objects.filter(lookup).distinct()
+
+    
 
 class GetUserSongs(ListAPIView):
     serializer_class = SongsSerializer

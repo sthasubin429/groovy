@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ArticlesListView, ArticlesDetailView, ArticlesCreateView, ArticlesUpdateView, ArticlesDeleteView, GetUserSongs, PlaylistListView, PlaylistDetailView,PlaylistCreateView, PlaylistUpdateView, PlaylistDeleteView,  GetUserPlaylist, PlaylistDetailsListView, PlaylistDetailsCreateView, PlaylistDetailsDeleteView, PlaylistSongDetailsListView
+from .views import ArticlesListView, ArticlesDetailView, ArticlesCreateView, ArticlesUpdateView, ArticlesDeleteView, GetUserSongs,SongSearchView, PlaylistListView, PlaylistDetailView,PlaylistCreateView, PlaylistUpdateView, PlaylistDeleteView,  GetUserPlaylist, PlaylistDetailsListView, PlaylistDetailsCreateView, PlaylistDetailsDeleteView, PlaylistSongDetailsListView
 
 urlpatterns = [
     path('api/', ArticlesListView.as_view()),
@@ -8,6 +8,7 @@ urlpatterns = [
     path('api/<pk>/', ArticlesDetailView.as_view()),
     path('api/<pk>/update/', ArticlesUpdateView.as_view()),
     path('api/<pk>/delete/', ArticlesDeleteView.as_view()),
+    path('api/search/<str:query>/', SongSearchView.as_view()),
 
     path('playlist/api/', PlaylistListView.as_view()),
     path('playlist/api/create/', PlaylistCreateView.as_view()),
