@@ -59,6 +59,40 @@ function SongList(props) {
 			setSearchSongs([]);
 		}
 	};
+	const [songsPaginated, setSongsPaginated] = useState([]);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [noOfPages, setNoOfPages] = useState(1);
+	let noOfItem = 4;
+
+	useEffect(() => {
+		if (search) {
+			let filterd = searchSongs.slice((currentPage - 1) * noOfItem, currentPage * noOfItem);
+			setNoOfPages(parseInt(Math.floor(searchSongs.length / noOfItem) + 1));
+			console.log(currentPage);
+			setSongsPaginated(filterd);
+		} else {
+			let filterd = allSongs.slice((currentPage - 1) * noOfItem, currentPage * noOfItem);
+			setNoOfPages(parseInt(Math.floor(allSongs.length / noOfItem) + 1));
+			console.log(currentPage);
+			setSongsPaginated(filterd);
+		}
+	}, [currentPage, allSongs, searchSongs, search]);
+
+	const changePlaylist = (direction) => {
+		if (direction === 'prev') {
+			if (currentPage !== 1) {
+				setCurrentPage(currentPage - 1);
+			} else {
+				setCurrentPage(currentPage);
+			}
+		} else if (direction === 'next') {
+			if (currentPage !== noOfPages) {
+				setCurrentPage(currentPage + 1);
+			} else {
+				setCurrentPage(currentPage);
+			}
+		}
+	};
 
 	return (
 		<>
@@ -77,19 +111,62 @@ function SongList(props) {
 					</button>
 				)}
 			</form>
-			{search ? (
+			{/* {search ? (
 				<div className='d-flex flex-wrap'>
 					{searchSongs.map((song) => (
 						<SongCard key={song.id} song={song} />
 					))}
 				</div>
 			) : (
-				<div className='d-flex flex-wrap'>
-					{allSongs.map((song) => (
-						<SongCard key={song.id} song={song} />
-					))}
-				</div>
-			)}
+				<> */}
+			<div className='d-flex flex-wrap'>
+				{songsPaginated.map((song) => (
+					<SongCard key={song.id} song={song} />
+				))}
+			</div>
+
+			<ul className='pagination d-flex justify-content-center'>
+				<li className='page-item'>
+					<button
+						className='page-link'
+						onClick={(e) => {
+							e.preventDefault();
+							changePlaylist('prev');
+						}}
+					>
+						<span aria-hidden='true'>&laquo;</span>
+					</button>
+				</li>
+				{[...Array(noOfPages)].map((e, i) => {
+					return (
+						<li className={i + 1 == currentPage ? 'page-item active' : 'page-item'} key={i}>
+							<button
+								className='page-link'
+								onClick={(e) => {
+									e.preventDefault();
+									setCurrentPage(i + 1);
+								}}
+							>
+								{i + 1}
+							</button>
+						</li>
+					);
+				})}
+
+				<li className='page-item'>
+					<button
+						className='page-link'
+						onClick={(e) => {
+							e.preventDefault();
+							changePlaylist('next');
+						}}
+					>
+						<span aria-hidden='true'>&raquo;</span>
+					</button>
+				</li>
+			</ul>
+			{/* </>
+			)} */}
 			{/* <div className='d-flex flex-wrap'>
 				{allSongs.map((song) => (
 					<SongCard key={song.id} song={song} />

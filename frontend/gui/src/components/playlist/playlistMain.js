@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { changePlaylist, playerUpdateLikeCount } from '../../store/actions/player';
 import { useDispatch } from 'react-redux';
 
-const PlaylistCard = (props) => {
+export const PlaylistCard = (props) => {
 	const dispatch = useDispatch();
 	return (
 		<>
