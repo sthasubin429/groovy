@@ -5,13 +5,17 @@
 	.playlist-header {
 		padding: 1rem;
 	}
+}
 
-	.playlist-main-container {
-		padding: 1rem;
+.playlist-main-container {
+	padding: 1rem;
 
-		.playlist-card {
-			margin: 0.5rem;
-			padding: 0.5rem;
+	.playlist-card {
+		margin: 0.5rem;
+		padding: 0.5rem;
+
+		img {
+			border-radius: 0.5rem;
 		}
 	}
 }

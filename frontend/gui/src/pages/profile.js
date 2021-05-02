@@ -30,8 +30,9 @@ export default function Profile() {
 						) : (
 							<>
 								<h3> Playlist </h3>
-								<br />
-								<PlaylistMain playlist={playlist} />
+								<div className='d-flex'>
+									<PlaylistMain playlist={playlist} />
+								</div>
 							</>
 						)}
 					</div>

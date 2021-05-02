@@ -327,12 +327,16 @@ ul {
   padding: 1rem;
 }
 
-.playlist-container .playlist-main-container {
+.playlist-main-container {
   padding: 1rem;
 }
 
-.playlist-container .playlist-main-container .playlist-card {
+.playlist-main-container .playlist-card {
   margin: 0.5rem;
   padding: 0.5rem;
+}
+
+.playlist-main-container .playlist-card img {
+  border-radius: 0.5rem;
 }
 /*# sourceMappingURL=style.css.map */
