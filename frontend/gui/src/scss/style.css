@@ -360,6 +360,20 @@ ul {
   margin: 0.5rem 1rem;
 }
 
+.artistProfile-container .artistProfile-playlist {
+  padding: 1.4rem;
+  background: #fff;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.artistProfile-container .artistProfile-songs {
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
 .playlist-container {
   background-color: #fff;
   border-radius: 0.5rem;
@@ -378,7 +392,9 @@ ul {
   padding: 0.5rem;
 }
 
-.playlist-main-container .playlist-card img {
+.playlist-main-container .playlist-card .playlist-card-img {
   border-radius: 0.5rem;
+  width: 9.6875rem;
+  height: 8.75rem;
 }
 /*# sourceMappingURL=style.css.map */

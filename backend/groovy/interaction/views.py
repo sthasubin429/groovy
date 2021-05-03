@@ -112,7 +112,7 @@ class GetUserFollowers(ListAPIView):
 
     def get_queryset(self):
         self.user = self.kwargs['userID']
-        return Follow.objects.filter(following=self.user)
+        return Follow.objects.filter(user=self.user)
         
 
 class GetUserFollowing(ListAPIView):
@@ -120,7 +120,7 @@ class GetUserFollowing(ListAPIView):
 
     def get_queryset(self):
         self.user = self.kwargs['userID']
-        return Follow.objects.filter(user=self.user)
+        return Follow.objects.filter(following=self.user)
 
 
 class FollowCreateView(CreateAPIView):

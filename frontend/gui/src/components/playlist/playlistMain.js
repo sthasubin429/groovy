@@ -7,24 +7,20 @@ export const PlaylistCard = (props) => {
 	const dispatch = useDispatch();
 	return (
 		<>
-			{props.playlist.map((list) => (
-				<>
-					<div className='playlist-card'>
-						<img src={list.playlist_cover} width='155' height='140' />
+			<div className='playlist-card'>
+				<img src={props.playlist.playlist_cover} className='playlist-card-img' />
 
-						<Link
-							to='/player'
-							onClick={() => {
-								dispatch(changePlaylist(list.id));
-							}}
-						>
-							<h4 className='text-center'>{list.playlist_name}</h4>
-						</Link>
+				<Link
+					to='/player'
+					onClick={() => {
+						dispatch(changePlaylist(props.playlist.id));
+					}}
+				>
+					<h4 className='text-center'>{props.playlist.playlist_name}</h4>
+				</Link>
 
-						<h6 className='text-center'> {list.getUsername}</h6>
-					</div>
-				</>
-			))}
+				<h6 className='text-center'> {props.playlist.getUsername}</h6>
+			</div>
 		</>
 	);
 };
@@ -74,7 +70,10 @@ export default function PlaylistMain(props) {
 	return (
 		<>
 			<div className='playlist-main-container d-flex align-content-between justify-content-start flex-wrap'>
-				<PlaylistCard playlist={playlistPaginated} />
+				{playlistPaginated.map((playlist) => (
+					<PlaylistCard key={playlist.id} playlist={playlist} />
+				))}
+				{/* <PlaylistCard playlist={playlistPaginated} /> */}
 			</div>
 
 			{/* <RenderPaginaiton numPages={noOfPages} /> */}

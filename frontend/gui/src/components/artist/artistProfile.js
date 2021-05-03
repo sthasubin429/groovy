@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import { POST, TOKEN, BASE_URL, DELETE } from '../../store/utility';
 import axios from 'axios';
 
+import { PlaylistCard } from '../playlist/playlistMain.js';
+import { SongCard } from '../songList.js';
+
 export default function ArtistProfile(props) {
 	const follow = useSelector((state) => state.profile.user_info);
-	// const loading = useSelector((state) => state.profile.loading);
 
 	const following = props.artist[0].user;
 	const [followState, setFollowState] = useState(false);
@@ -16,9 +18,42 @@ export default function ArtistProfile(props) {
 	const [followerCount, setFollowerCount] = useState(0);
 	const [followingCount, setFollowingCount] = useState(0);
 
-	// console.log(follow);
-
 	// console.log(props.artist);
+	const [loading, setLoading] = useState(true);
+
+	const [playlist, setPlaylist] = useState([]);
+	const [songs, setSongs] = useState([]);
+
+	useEffect(() => {
+		if (following) {
+			axios
+				.get(`${BASE_URL}/songs/playlist/api/userPlaylist/${following}/`, {
+					headers: {
+						authorization: 'Token ' + TOKEN,
+					},
+				})
+				.then((res) => {
+					setPlaylist(res.data);
+					axios
+						.get(`${BASE_URL}/songs/api/userSongs/${following}/`, {
+							headers: {
+								authorization: 'Token ' + TOKEN,
+							},
+						})
+						.then((res) => {
+							setSongs(res.data);
+							setLoading(false);
+						})
+						.catch((err) => {
+							setLoading(false);
+						});
+				})
+				.catch((err) => {
+					setLoading(false);
+				});
+		}
+	}, [following]);
+
 	useEffect(() => {
 		if (follow && following) {
 			checkFollowState(follow.user, following);
@@ -136,6 +171,13 @@ export default function ArtistProfile(props) {
 			})
 			.catch((err) => console.log(err));
 	};
+
+	// useEffect(() => {
+	// 	if (playlist && songs) {
+	// 		setLoading(false);
+	// 	}
+	// }, [playlist, songs]);
+
 	return (
 		<>
 			<div className='artistProfile-container'>
@@ -190,6 +232,40 @@ export default function ArtistProfile(props) {
 
 						{/* <img src={props.artist[0].profile_picture} className='rounded p-2 ' alt='Profile Picture' width='100%' /> */}
 					</div>
+				</div>
+
+				<div className='artistProfile-playlist'>
+					{loading ? (
+						<div className='spinner-border text-primary' role='status'>
+							<span className='sr-only'>Loading...</span>
+						</div>
+					) : (
+						<>
+							<h3> Playlist </h3>
+							<div className='playlist-main-container d-flex align-content-between justify-content-start flex-wrap'>
+								{playlist.map((list) => (
+									<PlaylistCard key={list.id} playlist={list} />
+								))}
+							</div>
+						</>
+					)}
+				</div>
+
+				<div className='artistProfile-songs'>
+					{loading ? (
+						<div className='spinner-border text-primary' role='status'>
+							<span className='sr-only'>Loading...</span>
+						</div>
+					) : (
+						<>
+							<h3> Songs </h3>
+							<div className='d-flex flex-wrap'>
+								{songs.map((song) => (
+									<SongCard key={song.id} song={song} />
+								))}
+							</div>
+						</>
+					)}
 				</div>
 			</div>
 		</>

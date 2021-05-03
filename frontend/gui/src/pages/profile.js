@@ -31,7 +31,9 @@ export default function Profile() {
 							<>
 								<h3> Playlist </h3>
 								<div className='playlist-main-container d-flex align-content-between justify-content-start flex-wrap'>
-									<PlaylistCard playlist={playlist} />
+									{playlist.map((list) => (
+										<PlaylistCard key={list.id} playlist={list} />
+									))}
 								</div>
 							</>
 						)}
