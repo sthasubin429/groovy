@@ -16,47 +16,40 @@ export default function Profile() {
 	}, [playlist, songs]);
 	return (
 		<>
-			<div className='continer-fluid'>
-				<div className='row'>
-					<UserDetails />
+			<div className='artistProfile-container'>
+				<UserDetails />
+				<div className='artistProfile-playlist'>
+					{loading ? (
+						<div className='spinner-border text-primary' role='status'>
+							<span className='sr-only'>Loading...</span>
+						</div>
+					) : (
+						<>
+							<h3> Playlist </h3>
+							<div className='playlist-main-container d-flex align-content-between justify-content-start flex-wrap'>
+								{playlist.map((list) => (
+									<PlaylistCard key={list.id} playlist={list} />
+								))}
+							</div>
+						</>
+					)}
 				</div>
 
-				<div className='row'>
-					<div className='col-12'>
-						{loading ? (
-							<div className='spinner-border text-primary' role='status'>
-								<span className='sr-only'>Loading...</span>
+				<div className='artistProfile-songs'>
+					{loading ? (
+						<div className='spinner-border text-primary' role='status'>
+							<span className='sr-only'>Loading...</span>
+						</div>
+					) : (
+						<>
+							<h3> Songs </h3>
+							<div className='d-flex flex-wrap'>
+								{songs.map((song) => (
+									<SongCard key={song.id} song={song} />
+								))}
 							</div>
-						) : (
-							<>
-								<h3> Playlist </h3>
-								<div className='playlist-main-container d-flex align-content-between justify-content-start flex-wrap'>
-									{playlist.map((list) => (
-										<PlaylistCard key={list.id} playlist={list} />
-									))}
-								</div>
-							</>
-						)}
-					</div>
-				</div>
-
-				<div className='row'>
-					<div className='col-12'>
-						{loading ? (
-							<div className='spinner-border text-primary' role='status'>
-								<span className='sr-only'>Loading...</span>
-							</div>
-						) : (
-							<>
-								<h3> Songs </h3>
-								<div className='d-flex flex-wrap'>
-									{songs.map((song) => (
-										<SongCard key={song.id} song={song} />
-									))}
-								</div>
-							</>
-						)}
-					</div>
+						</>
+					)}
 				</div>
 			</div>
 		</>
