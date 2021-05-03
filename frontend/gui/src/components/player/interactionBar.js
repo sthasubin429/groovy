@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { faHeart, faShare, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { faHeart as frHeart } from '@fortawesome/free-regular-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { toggleLike } from '../../store/actions/player';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faHeart as frHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart, faShare, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export const HeartFilled = () => {
 	return (

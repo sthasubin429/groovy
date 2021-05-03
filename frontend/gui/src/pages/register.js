@@ -1,9 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+
 import * as actions from '../store/actions/auth';
 import Loading from '../components/other/loading';
+
+import { useDispatch, useSelector } from 'react-redux';
 import { DangerMessage } from '../components/other/message';
-import { useForm } from 'react-hook-form';
 
 export default function Register() {
 	const loading = useSelector((state) => state.auth.loading);

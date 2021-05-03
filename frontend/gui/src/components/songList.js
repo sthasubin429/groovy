@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Loading from '../components/other/loading';
 import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+
+import Loading from '../components/other/loading';
 import { BASE_URL, TOKEN } from '../store/utility';
 
 export const SongCard = (props) => {

@@ -1,8 +1,10 @@
+import { useSelector } from 'react-redux';
+
 import React, { useState, useEffect } from 'react';
+import { SongCard } from '../components/songList.js';
+
 import UserDetails from '../components/profile/userdetails.js';
 import { PlaylistCard } from '../components/playlist/playlistMain.js';
-import { SongCard } from '../components/songList.js';
-import { useSelector } from 'react-redux';
 
 export default function Profile() {
 	const [loading, setLoading] = useState(true);

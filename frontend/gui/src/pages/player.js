@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+
 import { checkPlaylist } from '../store/actions/player';
-import CustomPlayer from '../components/player/customPlayer';
-import InteractionBar from '../components/player/interactionBar';
+
 import PostComment from '../components/player/postComment';
 import SongComments from '../components/player/songComments';
+
+import CustomPlayer from '../components/player/customPlayer';
+import InteractionBar from '../components/player/interactionBar';
 
 function Player() {
 	const dispatch = useDispatch();

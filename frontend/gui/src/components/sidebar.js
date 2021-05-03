@@ -1,9 +1,12 @@
-import { Link } from 'react-router-dom';
 import React from 'react';
+
+import { Link } from 'react-router-dom';
+import { logout } from '../store/actions/auth';
+
 import { useSelector, useDispatch } from 'react-redux';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faHome, faHeadphonesAlt, faListUl, faUser, faMusic, faPlay, faUserFriends } from '@fortawesome/free-solid-svg-icons';
-import { logout } from '../store/actions/auth';
 
 export default function Sidebar() {
 	const dispatch = useDispatch();

@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
-import { BASE_URL, TOKEN, POST } from '../store/utility';
 import axios from 'axios';
-import { HeartFilled, HeartNotFilled } from '../components/player/interactionBar';
+
 import { useSelector } from 'react-redux';
-import { faShare, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import AudioPlayer from 'react-h5-audio-player';
+
 import Comment from '../components/player/comment';
+import React, { useEffect, useState } from 'react';
+
+import { BASE_URL, TOKEN, POST } from '../store/utility';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShare, faPlus } from '@fortawesome/free-solid-svg-icons';
+
+import { HeartFilled, HeartNotFilled } from '../components/player/interactionBar';
 
 export default function SinglePlayer() {
 	let song_id = localStorage.getItem('listen');

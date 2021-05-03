@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { POST, TOKEN, BASE_URL, DELETE } from '../../store/utility';
 import axios from 'axios';
 
-import { PlaylistCard } from '../playlist/playlistMain.js';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { SongCard } from '../songList.js';
+import React, { useEffect, useState } from 'react';
+
+import { PlaylistCard } from '../playlist/playlistMain.js';
+import { POST, TOKEN, BASE_URL, DELETE } from '../../store/utility';
 
 export default function ArtistProfile(props) {
 	const follow = useSelector((state) => state.profile.user_info);

@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import axios from 'axios';
+
+import { useSelector } from 'react-redux';
 import { BASE_URL, TOKEN } from '../store/utility';
+
+import React, { useEffect, useState } from 'react';
 import ArtistProfile from '../components/artist/artistProfile';
 
 export default function ArtistPage(props) {

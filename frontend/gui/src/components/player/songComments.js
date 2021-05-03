@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import Comment from './comment';
+
+import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 
 export default function SongComments() {
 	const commentsList = useSelector((state) => state.player.comments);

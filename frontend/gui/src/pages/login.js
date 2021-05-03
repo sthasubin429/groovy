@@ -1,8 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
-import * as actions from '../store/actions/auth';
 
+import * as actions from '../store/actions/auth';
 import Loading from '../components/other/loading';
+
+import { useDispatch, useSelector } from 'react-redux';
 import { UserPassNotMatch } from '../components/other/message';
 
 export default function Login() {

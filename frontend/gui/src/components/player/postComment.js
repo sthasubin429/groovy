@@ -1,8 +1,10 @@
+import axios from 'axios';
+
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { BASE_URL, DELETE, POST, TOKEN } from '../../store/utility.js';
-import axios from 'axios';
+
 import { getComments } from '../../store/actions/player';
+import { BASE_URL, DELETE, POST, TOKEN } from '../../store/utility.js';
 
 export default function PostComment() {
 	const user = useSelector((state) => state.profile.user_info);

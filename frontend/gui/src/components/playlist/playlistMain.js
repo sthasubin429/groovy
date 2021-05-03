@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { changePlaylist, playerUpdateLikeCount } from '../../store/actions/player';
 import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { changePlaylist, playerUpdateLikeCount } from '../../store/actions/player';
 
 export const PlaylistCard = (props) => {
 	const dispatch = useDispatch();

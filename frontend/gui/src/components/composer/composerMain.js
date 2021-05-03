@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import Loading from '../other/loading';
+import React, { useState } from 'react';
 
 export default function ComposerMain() {
 	const [generated, setGenerated] = useState(false);

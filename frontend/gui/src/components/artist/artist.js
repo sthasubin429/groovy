@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { BASE_URL, TOKEN } from '../../store/utility';
-import ArtistDetail from './artistDetail';
+
 import { useSelector } from 'react-redux';
+import ArtistDetail from './artistDetail';
+
+import React, { useEffect, useState } from 'react';
+import { BASE_URL, TOKEN } from '../../store/utility';
 
 export default function Artist() {
 	const [artists, setArtists] = useState([]);

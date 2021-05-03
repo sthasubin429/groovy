@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import { BASE_URL, TOKEN } from '../../store/utility';
+
 export default function Comment(props) {
 	// console.log(props.comment);
 
 	const [profile, setProfile] = useState(null);
+	const [edit, setEdit] = useState(false);
 	useEffect(() => {
 		axios
 			.get(`${BASE_URL}/userProfile/api/${props.comment.username}/`, {
