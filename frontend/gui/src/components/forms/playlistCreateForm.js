@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
 
-import { BASE_URL, POST } from '../../store/utility.js';
+import { BASE_URL, POST, TOKEN } from '../../store/utility.js';
 import { getUserDetails } from '../../store/actions/user.js';
+import { DangerMessage } from '../other/message';
 
 export default function PlaylistCreateForm(props) {
 	const [options, setOptions] = useState([]);
@@ -12,6 +13,8 @@ export default function PlaylistCreateForm(props) {
 
 	const songCover = useRef();
 	const [imageFile, setImageFile] = useState();
+
+	const [error, setError] = useState(false);
 
 	const handleImageFile = (e) => {
 		let image = e.target.files[0];
@@ -54,8 +57,6 @@ export default function PlaylistCreateForm(props) {
 			formData.append('playlist_cover', imageFile);
 		}
 
-		const token = localStorage.getItem('token');
-
 		let songChoice = event.target.elements.songChoice;
 		// console.log(songChoice);
 		let songIdArr = [];
@@ -70,28 +71,41 @@ export default function PlaylistCreateForm(props) {
 		});
 
 		let songIdUnique = [...new Set(songIdArr)];
-		// console.log(songIdArr);
+		// console.log(songIdUnique);
+		// console.log(songIdUnique.length);
+		if (songIdUnique.length >= 2) {
+			console.log('hello');
+			switch (requestType) {
+				case POST:
+					if (TOKEN) {
+						axios
+							.post(`${BASE_URL}/songs/playlist/api/create/`, formData, {
+								headers: {
+									authorization: 'Token ' + TOKEN,
+								},
+							})
+							.then((res) => {
+								let playlistDetail = res.data;
 
-		switch (requestType) {
-			case POST:
-				if (token) {
-					axios
-						.post(`${BASE_URL}/songs/playlist/api/create/`, formData, {
-							headers: {
-								authorization: 'Token ' + token,
-							},
-						})
-						.then((res) => {
-							let playlistDetail = res.data;
-
-							songIdUnique.forEach((songId) => {
-								addSongs(songId, playlistDetail, POST);
+								songIdUnique.forEach((songId) => {
+									addSongs(songId, playlistDetail, POST);
+								});
+							})
+							.catch((err) => {
+								console.log(err);
+								setError(true);
+								setLoading(false);
 							});
-						})
-						.catch((err) => console.log(err));
-				}
+					}
+			}
+		} else {
+			console.log('hi');
+			setError(true);
+			setLoading(false);
 		}
 	};
+
+	console.log(error, loading);
 
 	const addSongs = (songChoice, playlistDetail, requestType) => {
 		let formData = new FormData();
@@ -100,19 +114,22 @@ export default function PlaylistCreateForm(props) {
 
 		switch (requestType) {
 			case POST:
-				const token = localStorage.getItem('token');
-				if (token) {
+				if (TOKEN) {
 					axios
 						.post(`${BASE_URL}/songs/playlistDetail/api/create/`, formData, {
 							headers: {
-								authorization: 'Token ' + token,
+								authorization: 'Token ' + TOKEN,
 							},
 						})
 						.then((res) => {
 							setLoading(true);
 							window.location.replace('http://localhost:3000/playlist');
 						})
-						.catch((err) => console.log(err));
+						.catch((err) => {
+							console.log(err);
+							setError(true);
+							setLoading(false);
+						});
 				}
 		}
 	};
@@ -156,6 +173,7 @@ export default function PlaylistCreateForm(props) {
 			<div className='col-12'>
 				<h2 className='col-12 m-4'>Create Playlist</h2>
 				<form className='col-12 m-4' onSubmit={(event) => handleSubmit(event, props.requestType)}>
+					{error ? <DangerMessage message={'Songs Not Found'} /> : <></>}
 					<div className='form-group row'>
 						<label htmlFor='playlistName' className='col-12 col-md-2 col-form-label'>
 							Name
