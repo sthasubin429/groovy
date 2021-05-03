@@ -67,12 +67,12 @@ function SongList(props) {
 	useEffect(() => {
 		if (search) {
 			let filterd = searchSongs.slice((currentPage - 1) * noOfItem, currentPage * noOfItem);
-			setNoOfPages(parseInt(Math.floor(searchSongs.length / noOfItem) + 1));
+			setNoOfPages(Math.ceil(searchSongs.length / noOfItem));
 			console.log(currentPage);
 			setSongsPaginated(filterd);
 		} else {
 			let filterd = allSongs.slice((currentPage - 1) * noOfItem, currentPage * noOfItem);
-			setNoOfPages(parseInt(Math.floor(allSongs.length / noOfItem) + 1));
+			setNoOfPages(Math.ceil(allSongs.length / noOfItem));
 			console.log(currentPage);
 			setSongsPaginated(filterd);
 		}

@@ -63,7 +63,7 @@ def sample(epoch, header, num_chars):
 def generate_music():
     epoch=199 #'epoch checkpoint to sample from'
     seed='' #'initial character to start for the generated text'
-    length=600   #'number of characters to sample'
+    length=1000   #'number of characters to sample'
     x = sample(epoch,seed,length)
     f= open("song.txt","w+")
     f.write(x)

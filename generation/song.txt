@@ -1,24 +1,37 @@
-
- 193
-Z:The Forden the Lours
-R:deulp orn with erping 1" "collected by Stack"
-B:O'Neill's 1744
-R:Hornpipe
-Z:"Transcribed by Bob Safranek, rjs@gsp.org"
-K:A
-   ((3EFG) | A3 B Ac ((3efg) | a2 (ab) aece | feff  edBA | dfed cAAB |
-c2  Ac  ecde | fdfa  gfef | dcdf     ecAc | d2 a2 g2    ||
-(ef) | gfga gfeg | fefd cAGF | EAAB       Acdc     | BcBc A2 (AB) |
-c2 (cc) A2 (ef) | gfed cdef | gefd cABG | E2 A2 A2      :|
+ gb | .a.g(f/g/) afdc | B2 A>G G2 :|
+|| (3GBd \
+| g2 e{fe}dBd gf | e2 a e(f/2g/2) fd B2 | efed cdef |
+| {a}gfge def-g | a(b/a/) g(de/f/) gdBG | cdeg f2 ed | cAFD GA B c/d/ |
+| edcB AG F2 | GABc d2 ef | gfge d2 BG | AGFG ABcA |
+| dBde g2 ab | c'bag f2 (fe) | dBgf edcB | AGFG E2 (EF) |
+G2 (GA) B2 (ef) | gfed e2 (ef) | (gf)(ag) (ee)(ed) | B2 TB2 A2 (B/A/) |
+G2 (AB) G2 (ef) | (gfga) b2 (ef) | gfed (eg)(fg) | a2 (ba) geef |
+ge (3fga gedB | ed (3def gfge | ((~gf)ef gedB | ((3ABc) AF E4 :|
 
 
-X:1702
-T:Her Blancton
-M:2/4
-L:1/16
-N:"collected by J. O'Neill"
-B:O'Neill's 1740
-R:Hornpipe
-Z:"Transcribed by Bob Safranek, rjs@gsp.org"
+X:1588
+T:Prite Paddy Bartor
+M:C|
+L:1/8
+N:"collected by Gillan"
+N:Irish title: an macai.de frain
+B:O'Neill's 407
+Z:Transcribed by henrik.norbeck@mailbox.swipnet.se
+M:C
+L:1/8
 K:G
-   E>F | G>AG>E D>DE>F | G>FE>D E2   d>c | B>GB
+D|GAGG G2 GG|BAGA B2 dB|A2 GA G2 GF|GBAG F2 GF|
+GABG A2FG|A2 G2 G2 (cB)|A2 AG F2 GF|D3 D D2||
+
+
+X:179
+T:The Green Love
+N:"Moderate" "collected by J.O'Neill"
+N:Irish title: na moi.te na .baile.
+Z:transcribed by John B. Walsh (walsh@math.ubc.ca)
+M:6/8
+L:1/8
+%Q:80
+K:D
+(f/e/)|d2 {d}c A2 G|(FGF) (G2 F)|(E2 F) (G2 F)|
+(D2 G) (B2 d)|(c2 A

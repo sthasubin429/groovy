@@ -142,7 +142,7 @@ export default function Sidebar() {
 								</Link>
 							</li>
 							<li className='nav-item'>
-								<Link className='nav-link' to='/'>
+								<Link className='nav-link' to='/composer'>
 									<FontAwesomeIcon icon={faHeart} className='nav-icon' />
 									Composer
 								</Link>

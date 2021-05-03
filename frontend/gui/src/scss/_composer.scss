@@ -1,0 +1,52 @@
+.composer-container {
+	margin: 1rem;
+	padding: 1rem;
+	background-color: #fff;
+	border-radius: 0.5rem;
+
+	.composer-title {
+		margin: 1rem 0;
+	}
+
+	.composer-info {
+		font-size: 1.2rem;
+	}
+
+	.composer-loading {
+		margin: 1rem;
+	}
+
+	.composer-loading-msg {
+		font-size: 1.2rem;
+		margin: 1rem;
+	}
+
+	.generate-btn {
+		background-color: $secondary-colour;
+		border: none;
+		margin: 2rem 0;
+		padding: 1rem 2.3rem;
+		font-size: 1.5rem;
+	}
+
+	.composer-download {
+		background-color: $secondary-colour;
+		border: none;
+		margin: 2rem 0;
+		padding: 1rem 2.3rem;
+		font-size: 1.5rem;
+		color: #fff;
+		border-radius: 0.2rem;
+		transition: 0.4s;
+	}
+	.generate-btn:hover,
+	.composer-download:hover {
+		text-decoration: none;
+		font-size: 1.6rem;
+	}
+
+	.composer-download-msg {
+		font-size: 1.2rem;
+		margin: 1rem;
+	}
+}

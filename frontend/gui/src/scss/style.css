@@ -397,4 +397,59 @@ ul {
   width: 9.6875rem;
   height: 8.75rem;
 }
+
+.composer-container {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+}
+
+.composer-container .composer-title {
+  margin: 1rem 0;
+}
+
+.composer-container .composer-info {
+  font-size: 1.2rem;
+}
+
+.composer-container .composer-loading {
+  margin: 1rem;
+}
+
+.composer-container .composer-loading-msg {
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+
+.composer-container .generate-btn {
+  background-color: #ef9a82;
+  border: none;
+  margin: 2rem 0;
+  padding: 1rem 2.3rem;
+  font-size: 1.5rem;
+}
+
+.composer-container .composer-download {
+  background-color: #ef9a82;
+  border: none;
+  margin: 2rem 0;
+  padding: 1rem 2.3rem;
+  font-size: 1.5rem;
+  color: #fff;
+  border-radius: 0.2rem;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.composer-container .generate-btn:hover,
+.composer-container .composer-download:hover {
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+
+.composer-container .composer-download-msg {
+  font-size: 1.2rem;
+  margin: 1rem;
+}
 /*# sourceMappingURL=style.css.map */
