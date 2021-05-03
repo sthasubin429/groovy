@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { toggleLike } from '../../store/actions/player';
 
-const HeartFilled = () => {
+export const HeartFilled = () => {
 	return (
 		<>
 			<FontAwesomeIcon size='1x' icon={faHeart} />
@@ -16,7 +16,7 @@ const HeartFilled = () => {
 	);
 };
 
-const HeartNotFilled = () => {
+export const HeartNotFilled = () => {
 	return (
 		<>
 			<FontAwesomeIcon size='1x' icon={frHeart} />

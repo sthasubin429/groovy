@@ -6,7 +6,13 @@ import { BASE_URL, TOKEN } from '../store/utility';
 export const SongCard = (props) => {
 	return (
 		<>
-			<div className='song-card'>
+			<div
+				className='song-card'
+				onClick={() => {
+					window.location.replace('http://localhost:3000/listen');
+					localStorage.setItem('listen', props.song.id);
+				}}
+			>
 				<img src={props.song.song_photo} className='songList-songImg text-center' alt='Song' />
 
 				<div className='songList-songDetail'>

@@ -15,6 +15,7 @@ import ProfileEdit from './pages/profileEdit';
 import Artists from './pages/artists';
 import ArtistPage from './pages/artistPage';
 import Composer from './pages/composer';
+import SinglePlayer from './pages/singlePlayer';
 
 export const BaseRouter = () => (
 	<div>
@@ -38,5 +39,6 @@ export const LoggedInRoute = () => (
 		<Route exact path='/artists/' component={Artists} />
 		<Route exact path='/artistDetail/' component={ArtistPage} />
 		<Route exact path='/composer/' component={Composer} />
+		<Route exact path='/listen/' component={SinglePlayer} />
 	</div>
 );

@@ -287,6 +287,7 @@ ul {
 
 .song-card {
   margin: 2rem 1rem;
+  cursor: pointer;
 }
 
 .song-card .songList-songImg {
