@@ -325,6 +325,41 @@ ul {
   margin: 0.5rem 0;
 }
 
+.artistProfile-container {
+  margin: 1rem 0;
+}
+
+.artistProfile-container .artistProfile-container-header {
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 0.5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(150px, 30%) auto;
+      grid-template-columns: minmax(150px, 30%) auto;
+}
+
+.artistProfile-container .artistProfile-container-header .artistProfile-container-right .artist-name {
+  margin: 0.5rem 1rem;
+}
+
+.artistProfile-container .artistProfile-container-header .artistProfile-container-right .artist-follow {
+  margin: 0.5rem 1rem;
+}
+
+.artistProfile-container .artistProfile-container-header .artistProfile-container-right .artist-username {
+  margin: 0.5rem 1rem;
+  font-size: 1.5rem;
+}
+
+.artistProfile-container .artistProfile-container-header .artistProfile-container-right .artist-numbers {
+  margin: 0.5rem 1rem;
+}
+
+.artistProfile-container .artistProfile-container-header .artistProfile-container-right .artist-bio {
+  margin: 0.5rem 1rem;
+}
+
 .playlist-container {
   background-color: #fff;
   border-radius: 0.5rem;

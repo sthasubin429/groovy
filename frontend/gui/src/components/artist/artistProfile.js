@@ -138,67 +138,57 @@ export default function ArtistProfile(props) {
 	};
 	return (
 		<>
-			<div className='container-fluid profile-header pt-5 '>
-				<div className='row'>
-					<div className='col-12 col-sm-4'>
-						<div className='d-flex  justify-content-center align-items-center'>
-							<img src={props.artist[0].profile_picture} className='rounded p-2' alt='Profile Picture' width='100%' />
-						</div>
+			<div className='artistProfile-container'>
+				<div className='artistProfile-container-header'>
+					<div className='artistProfile-container-left'>
+						<img src={props.artist[0].profile_picture} alt='Profile Picture' width='100%' />
 					</div>
-					<div className='col-12 col-sm-8'>
-						<div className='container-fluid'>
-							<div className='row d-flex justify-content-between'>
-								<div className=''>
-									<h3 className='profile-name text-capitalize'>
-										{props.artist[0].first_name} {props.artist[0].last_name}
-									</h3>
-								</div>
 
-								<div className='justify-content-center align-items-center'>
-									{followState ? (
-										<>
-											<button className='btn btn-secondary mx-2' onClick={(event) => handleOnClick(event, DELETE)}>
-												Following
-											</button>
-										</>
-									) : (
-										<>
-											<button className='btn btn-secondary mx-2' onClick={(event) => handleOnClick(event, POST)}>
-												Follow
-											</button>
-										</>
-									)}
-
-									{/* <button className='btn btn-secondary mx-2'> Share </button> */}
-								</div>
-							</div>
-
-							<div className='row'>
-								<p className='profile-username'>{props.artist[0].getUsername}</p>
-							</div>
-
-							<div className='row d-flex justify-content-between'>
-								{countLoading ? (
-									<div className='spinner-border text-primary' role='status'>
-										<span className='sr-only'>Loading...</span>
-									</div>
+					<div className='artistProfile-container-right'>
+						<div className='d-flex flex-column flex-md-row justify-content-evenly justify-content-between'>
+							<h4 className='artist-name text-capitalize'>
+								{props.artist[0].first_name} {props.artist[0].last_name}
+							</h4>
+							<div className='artist-follow'>
+								{followState ? (
+									<>
+										<button className='btn btn-secondary' onClick={(event) => handleOnClick(event, DELETE)}>
+											Following
+										</button>
+									</>
 								) : (
 									<>
-										<div>{followerCount} Followers</div>
-										<div>{followingCount} Following</div>
-										<div>15 Tracks</div>
+										<button className='btn btn-secondary' onClick={(event) => handleOnClick(event, POST)}>
+											Follow
+										</button>
 									</>
 								)}
 							</div>
-
-							<div className='row my-3'>
-								<h4>Bio </h4>
-							</div>
-
-							<div className='row my-3'>
-								<p> {props.artist[0].bio}</p>
-							</div>
 						</div>
+						<div className='artist-username'>
+							<p>{props.artist[0].getUsername}</p>
+						</div>
+
+						<div className='artist-numbers d-flex justify-content-between'>
+							{countLoading ? (
+								<div className='spinner-border text-primary' role='status'>
+									<span className='sr-only'>Loading...</span>
+								</div>
+							) : (
+								<>
+									<div>{followerCount} Followers</div>
+									<div>{followingCount} Following</div>
+									<div>15 Tracks</div>
+								</>
+							)}
+						</div>
+
+						<div className='artist-bio'>
+							<h4>Bio </h4>
+							<p> {props.artist[0].bio}</p>
+						</div>
+
+						{/* <img src={props.artist[0].profile_picture} className='rounded p-2 ' alt='Profile Picture' width='100%' /> */}
 					</div>
 				</div>
 			</div>

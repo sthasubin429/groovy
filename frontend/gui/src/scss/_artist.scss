@@ -15,3 +15,36 @@
 		}
 	}
 }
+
+.artistProfile-container {
+	margin: 1rem 0;
+	.artistProfile-container-header {
+		padding: 1.5rem;
+		background: #fff;
+		border-radius: 0.5rem;
+		display: grid;
+		grid-template-columns: minmax(150px, 30%) auto;
+
+		.artistProfile-container-right {
+			.artist-name {
+				margin: 0.5rem 1rem;
+			}
+			.artist-follow {
+				margin: 0.5rem 1rem;
+			}
+
+			.artist-username {
+				margin: 0.5rem 1rem;
+				font-size: 1.5rem;
+			}
+
+			.artist-numbers {
+				margin: 0.5rem 1rem;
+			}
+
+			.artist-bio {
+				margin: 0.5rem 1rem;
+			}
+		}
+	}
+}

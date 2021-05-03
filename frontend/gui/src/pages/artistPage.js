@@ -31,7 +31,6 @@ export default function ArtistPage(props) {
 	}, [artistId]);
 	return (
 		<>
-			<h2> Artist Page</h2>
 			{loading ? (
 				<div className='pt-5 spinner-border text-primary' role='status'>
 					<span className='sr-only'>Loading...</span>
