@@ -1,8 +1,12 @@
+import axios from 'axios';
 import React, { useState, useRef } from 'react';
-import { useSelector } from 'react-redux';
-import { POST } from '../../store/utility';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { POST, TOKEN, BASE_URL } from '../../store/utility';
+
 import { updateUserProfile } from '../../store/actions/profile';
-import { useDispatch } from 'react-redux';
+
+import { logout } from '../../store/actions/auth';
 
 export default function Edit(props) {
 	const userDetails = useSelector((state) => state.profile.user_details);
@@ -158,7 +162,23 @@ export default function Edit(props) {
 											className='btn btn-danger'
 											onClick={(event) => {
 												event.preventDefault();
-												if (window.confirm('Are you sure you wish to delete Your Profile? \n You cannot undo this action.')) console.log('hello');
+												if (window.confirm('Are you sure you wish to delete Your Profile? \nYou cannot undo this action.')) {
+													if (TOKEN) {
+														axios
+															.delete(`${BASE_URL}/userProfile/api/${userDetails.pk}/delete/`, {
+																headers: {
+																	authorization: 'Token ' + TOKEN,
+																},
+															})
+															.then((res) => {
+																console.log(res.data);
+																dispatch(logout());
+															})
+															.catch((err) => {
+																console.log(err);
+															});
+													}
+												}
 											}}
 										>
 											Delete

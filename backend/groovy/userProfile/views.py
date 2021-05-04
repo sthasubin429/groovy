@@ -1,6 +1,7 @@
 from .models import UserProfile
-from .serializers import UserProfileSerializer
-from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView
+from .serializers import UserProfileSerializer, UserSerializer
+from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView, RetrieveDestroyAPIView
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -31,8 +32,8 @@ class UserProfileUpdateView(UpdateAPIView):
     serializer_class = UserProfileSerializer
 
 
-class UserProfileDeleteView(DestroyAPIView):
-    queryset = UserProfile.objects.all()
-    serializer_class = UserProfileSerializer
+class UserProfileDeleteView(RetrieveDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
     
