@@ -344,6 +344,10 @@ ul {
   margin: 0.5rem 1rem;
 }
 
+.artistProfile-container .artistProfile-container-header .artistProfile-container-right .artist-edit {
+  margin: 0.5rem 1rem;
+}
+
 .artistProfile-container .artistProfile-container-header .artistProfile-container-right .artist-follow {
   margin: 0.5rem 1rem;
 }

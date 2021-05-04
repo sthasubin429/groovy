@@ -70,6 +70,10 @@ export default function UserDetails() {
 								<h4 className='artist-name text-capitalize'>
 									{userInfo.first_name} {userInfo.last_name}
 								</h4>
+
+								<Link to='/profileEdit' className='artist-edit'>
+									<button className='btn btn-secondary'> Edit </button>
+								</Link>
 							</div>
 							<div className='artist-username'>
 								<p>{userDetails.username}</p>
