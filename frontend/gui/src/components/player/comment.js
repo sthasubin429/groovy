@@ -7,6 +7,7 @@ export default function Comment(props) {
 
 	const [profile, setProfile] = useState(null);
 	const [edit, setEdit] = useState(false);
+
 	useEffect(() => {
 		axios
 			.get(`${BASE_URL}/userProfile/api/${props.comment.username}/`, {

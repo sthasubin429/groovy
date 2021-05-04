@@ -70,8 +70,3 @@ def generate_music():
     f.close()
     return {"status": True, "message":"File Generated"}
 
-# epoch=199 #'epoch checkpoint to sample from'
-# seed='' #'initial character to start for the generated text'
-# length=512 #'number of characters to sample'
-# x = sample(epoch,seed,length)
-# print(x)
