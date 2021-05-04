@@ -149,9 +149,19 @@ export default function Edit(props) {
 								</div>
 
 								<div className='row form-group my-4'>
-									<div className='col d-flex justify-content-center'>
-										<button type='submit' className='btn btn-primary col-4 '>
+									<div className='col d-flex justify-content-around'>
+										<button type='submit' className='btn btn-primary'>
 											Update
+										</button>
+
+										<button
+											className='btn btn-danger'
+											onClick={(event) => {
+												event.preventDefault();
+												if (window.confirm('Are you sure you wish to delete Your Profile? \n You cannot undo this action.')) console.log('hello');
+											}}
+										>
+											Delete
 										</button>
 									</div>
 								</div>
