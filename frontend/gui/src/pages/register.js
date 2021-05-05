@@ -31,7 +31,6 @@ export default function Register() {
 
 		console.log(email, username, password1, password2);
 		if (password1 === password2) {
-			console.log('hello');
 			setPasswordMatch(true);
 			dispatch(actions.authRegister(username, email, password1, password2));
 		} else {

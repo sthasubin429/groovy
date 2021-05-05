@@ -7,6 +7,7 @@ import { POST, TOKEN, BASE_URL } from '../../store/utility';
 import { updateUserProfile } from '../../store/actions/profile';
 
 import { logout } from '../../store/actions/auth';
+import { Link } from 'react-router-dom';
 
 export default function Edit(props) {
 	const userDetails = useSelector((state) => state.profile.user_details);
@@ -146,6 +147,19 @@ export default function Edit(props) {
 								</div>
 
 								<div className='row form-group'>
+									<div className='col-6'>
+										<label>Passowrd</label>
+										<input type='password' className='form-control' disabled defaultValue={'{}"|:":;l;;/.,./*/ '} />
+									</div>
+
+									<div className='col-6 mt-1'>
+										<Link to='/changePassword'>
+											<button className='btn btn-secondary mt-4'> Change Passowrd </button>
+										</Link>
+									</div>
+								</div>
+
+								<div className='row form-group'>
 									<div className='col-7'>
 										<label htmlFor='editBio'>Bio</label>
 										<textarea className='form-control' rows='2' id='bio' name='editBio' defaultValue={userInfo.bio}></textarea>
@@ -157,7 +171,7 @@ export default function Edit(props) {
 										<button type='submit' className='btn btn-primary'>
 											Update
 										</button>
-										<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#exampleModalCenter'>
+										<button type='button' className='btn btn-danger' data-toggle='modal' data-target='#exampleModalCenter'>
 											Delete
 										</button>
 									</div>
@@ -166,25 +180,25 @@ export default function Edit(props) {
 						</div>
 					)}
 
-					<div class='modal fade' id='exampleModalCenter' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
-						<div class='modal-dialog modal-dialog-centered' role='document'>
-							<div class='modal-content'>
-								<div class='modal-header'>
-									<h5 class='modal-title' id='exampleModalLongTitle'>
+					<div className='modal fade' id='exampleModalCenter' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+						<div className='modal-dialog modal-dialog-centered' role='document'>
+							<div className='modal-content'>
+								<div className='modal-header'>
+									<h5 className='modal-title' id='exampleModalLongTitle'>
 										Are you sure you want to Delete your Profile?
 									</h5>
-									<button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+									<button type='button' className='close' data-dismiss='modal' aria-label='Close'>
 										<span aria-hidden='true'>&times;</span>
 									</button>
 								</div>
-								<div class='modal-body'> You cannot Undo Your Action</div>
-								<div class='modal-footer'>
-									<button type='button' class='btn btn-secondary' data-dismiss='modal'>
+								<div className='modal-body'> You cannot Undo Your Action</div>
+								<div className='modal-footer'>
+									<button type='button' className='btn btn-secondary' data-dismiss='modal'>
 										Close
 									</button>
 									<button
 										type='button'
-										class='btn btn-danger'
+										className='btn btn-danger'
 										onClick={(event) => {
 											event.preventDefault();
 											if (TOKEN) {

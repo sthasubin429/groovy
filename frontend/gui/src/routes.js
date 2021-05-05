@@ -16,6 +16,7 @@ import Artists from './pages/artists';
 import ArtistPage from './pages/artistPage';
 import Composer from './pages/composer';
 import SinglePlayer from './pages/singlePlayer';
+import ChangePassword from './pages/changePassword';
 
 export const BaseRouter = () => (
 	<div>
@@ -40,5 +41,6 @@ export const LoggedInRoute = () => (
 		<Route exact path='/artistDetail/' component={ArtistPage} />
 		<Route exact path='/composer/' component={Composer} />
 		<Route exact path='/listen/' component={SinglePlayer} />
+		<Route exact path='/changePassword/' component={ChangePassword} />
 	</div>
 );
