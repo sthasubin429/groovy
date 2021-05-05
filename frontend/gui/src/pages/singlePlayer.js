@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import AudioPlayer from 'react-h5-audio-player';
 
-import Comment from '../components/player/comment';
+import Comment from '../components/player/comments2';
 import React, { useEffect, useState } from 'react';
 
 import { BASE_URL, TOKEN, POST } from '../store/utility';
@@ -216,13 +216,14 @@ export default function SinglePlayer() {
 						<div className='post-comment-img'>{user ? <img src={user.profile_picture} height='50px' width='50px' className='float-left' /> : <></>} </div>
 						<form onSubmit={(event) => handleSubmit(event, POST)} id='post_comment_form' className='flex-fill post-comment-form'>
 							<div className='form-row'>
-								<textarea className='form-control ' id='comment' name='comment' placeholder='Write a Comment' rows='2'></textarea>
+								<input className='form-control ' id='comment' name='comment' placeholder='Write a Comment' type='text' />
+								{/* <textarea className='form-control ' id='comment' name='comment' placeholder='Write a Comment' rows='2'></textarea> */}
 							</div>
 						</form>
 
-						<button className='post-comment-btn col-2' type='submit' name='submit' form='post_comment_form'>
+						{/* <button className='post-comment-btn col-2' type='submit' name='submit' form='post_comment_form'>
 							<span> Submit </span>
-						</button>
+						</button> */}
 					</div>
 
 					<div className='col-12 song-comments'>

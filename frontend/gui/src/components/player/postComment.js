@@ -65,13 +65,13 @@ export default function PostComment() {
 						</div>
 						<form onSubmit={(event) => handleSubmit(event, POST)} id='post_comment_form' className='flex-fill post-comment-form'>
 							<div className='form-row'>
-								<textarea className='form-control ' id='comment' name='comment' placeholder='Write a Comment' rows='2'></textarea>
+								<input className='form-control ' id='comment' name='comment' placeholder='Write a Comment' type='text' />
 							</div>
 						</form>
 
-						<button className='post-comment-btn col-2' type='submit' name='submit' form='post_comment_form'>
+						{/* <button className='post-comment-btn col-2' type='submit' name='submit' form='post_comment_form'>
 							<span> Submit </span>
-						</button>
+						</button> */}
 
 						{/* <input type='Submit' name='submit' className='btn btn-primary' /> */}
 					</div>

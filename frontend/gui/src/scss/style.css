@@ -236,6 +236,16 @@ ul {
   margin: 0 0 0 1rem;
 }
 
+.song-comments .song-comment .song-comment-edit {
+  margin: 1rem 1rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.song-comments .song-comment .song-comment-delete {
+  margin: 1rem 1rem;
+  padding: 0.2rem 0.5rem;
+}
+
 .song-comments .song-no-comments {
   padding: 1rem;
 }

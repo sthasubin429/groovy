@@ -171,7 +171,7 @@ export default function Edit(props) {
 																},
 															})
 															.then((res) => {
-																console.log(res.data);
+																// console.log(res.data);
 																dispatch(logout());
 															})
 															.catch((err) => {

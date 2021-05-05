@@ -1,12 +1,14 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { BASE_URL, TOKEN } from '../../store/utility';
 
 export default function Comment(props) {
 	// console.log(props.comment);
 
 	const [profile, setProfile] = useState(null);
-	const [edit, setEdit] = useState(false);
+
+	const user = useSelector((state) => state.profile.user_details);
 
 	useEffect(() => {
 		axios
