@@ -11,6 +11,7 @@
 .song-card {
 	margin: 2rem 1rem;
 	cursor: pointer;
+	position: relative;
 
 	.songList-songImg {
 		border-radius: 50%;
@@ -22,5 +23,12 @@
 		div {
 			margin: 0.5rem 0;
 		}
+	}
+
+	.song-dropdown {
+		position: absolute;
+		top: -0.5rem;
+		right: -1.2rem;
+		padding: 0 0.2rem;
 	}
 }

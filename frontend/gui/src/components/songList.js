@@ -1,24 +1,86 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import Loading from '../components/other/loading';
 import { BASE_URL, TOKEN } from '../store/utility';
 
 export const SongCard = (props) => {
+	const user = useSelector((state) => state.profile.user_info);
+	const [allowEdit, setAllowEdit] = useState(false);
+	useEffect(() => {
+		if (user && props.song) {
+			if (user.user === props.song.username) {
+				console.log(user, props.song);
+				setAllowEdit(true);
+			} else {
+				setAllowEdit(false);
+			}
+		} else {
+			setAllowEdit(false);
+		}
+	}, [user, props.song]);
+
+	const handleDelete = (event) => {
+		event.preventDefault();
+		if (window.confirm('Are you sure you wish to delete Your Song? \nYou cannot undo this action.')) {
+			if (TOKEN) {
+				axios
+					.delete(`${BASE_URL}/songs/api/${props.song.id}/delete/`, {
+						headers: {
+							authorization: 'Token ' + TOKEN,
+						},
+					})
+					.then((res) => {
+						// console.log(res.data);
+						window.location.reload();
+					})
+					.catch((err) => {
+						console.log(err);
+					});
+			}
+		}
+	};
+
 	return (
 		<>
-			<div
-				className='song-card'
-				onClick={() => {
-					window.location.replace('http://localhost:3000/listen');
-					localStorage.setItem('listen', props.song.id);
-				}}
-			>
-				<img src={props.song.song_photo} className='songList-songImg text-center' alt='Song' />
+			<div className='song-card'>
+				{allowEdit ? (
+					<>
+						<button
+							type='button'
+							className='song-dropdown btn btn-secondary dropdown-toggle '
+							data-toggle='dropdown'
+							aria-haspopup='true'
+							aria-expanded='false'
+						></button>
+						<div className='dropdown-menu dropdown-menu-right'>
+							<button
+								className='dropdown-item btn-danger'
+								type='button'
+								onClick={(event) => {
+									handleDelete(event);
+								}}
+							>
+								Delete
+							</button>
+						</div>
+					</>
+				) : (
+					<></>
+				)}
+				<div
+					onClick={() => {
+						window.location.replace('http://localhost:3000/listen');
+						localStorage.setItem('listen', props.song.id);
+					}}
+				>
+					<img src={props.song.song_photo} className='songList-songImg text-center' alt='Song' />
 
-				<div className='songList-songDetail'>
-					<div className='text-capitalize text-center'>{props.song.song_name}</div>
-					<div className='text-center'>{props.song.getUsername}</div>
+					<div className='songList-songDetail'>
+						<div className='text-capitalize text-center'>{props.song.song_name}</div>
+						<div className='text-center'>{props.song.getUsername}</div>
+					</div>
 				</div>
 			</div>
 		</>

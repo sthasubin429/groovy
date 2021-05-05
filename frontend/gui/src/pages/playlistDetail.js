@@ -57,10 +57,6 @@ export default function PlaylistDetail() {
 		}
 	}, [user, playlistInfo]);
 
-	console.log(playlistInfo);
-	console.log(user);
-	console.log(allowChange);
-
 	return (
 		<>
 			{loading ? (

@@ -396,6 +396,7 @@ ul {
 .song-card {
   margin: 2rem 1rem;
   cursor: pointer;
+  position: relative;
 }
 
 .song-card .songList-songImg {
@@ -406,6 +407,13 @@ ul {
 
 .song-card .songList-songDetail div {
   margin: 0.5rem 0;
+}
+
+.song-card .song-dropdown {
+  position: absolute;
+  top: -0.5rem;
+  right: -1.2rem;
+  padding: 0 0.2rem;
 }
 
 .profile-header .profile-name {
