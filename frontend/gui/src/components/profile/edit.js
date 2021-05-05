@@ -157,30 +157,7 @@ export default function Edit(props) {
 										<button type='submit' className='btn btn-primary'>
 											Update
 										</button>
-
-										<button
-											className='btn btn-danger'
-											onClick={(event) => {
-												event.preventDefault();
-												if (window.confirm('Are you sure you wish to delete Your Profile? \nYou cannot undo this action.')) {
-													if (TOKEN) {
-														axios
-															.delete(`${BASE_URL}/userProfile/api/${userDetails.pk}/delete/`, {
-																headers: {
-																	authorization: 'Token ' + TOKEN,
-																},
-															})
-															.then((res) => {
-																// console.log(res.data);
-																dispatch(logout());
-															})
-															.catch((err) => {
-																console.log(err);
-															});
-													}
-												}
-											}}
-										>
+										<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#exampleModalCenter'>
 											Delete
 										</button>
 									</div>
@@ -188,6 +165,52 @@ export default function Edit(props) {
 							</form>
 						</div>
 					)}
+
+					<div class='modal fade' id='exampleModalCenter' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+						<div class='modal-dialog modal-dialog-centered' role='document'>
+							<div class='modal-content'>
+								<div class='modal-header'>
+									<h5 class='modal-title' id='exampleModalLongTitle'>
+										Are you sure you want to Delete your Profile?
+									</h5>
+									<button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+										<span aria-hidden='true'>&times;</span>
+									</button>
+								</div>
+								<div class='modal-body'> You cannot Undo Your Action</div>
+								<div class='modal-footer'>
+									<button type='button' class='btn btn-secondary' data-dismiss='modal'>
+										Close
+									</button>
+									<button
+										type='button'
+										class='btn btn-danger'
+										onClick={(event) => {
+											event.preventDefault();
+											if (TOKEN) {
+												axios
+													.delete(`${BASE_URL}/userProfile/api/${userDetails.pk}/delete/`, {
+														headers: {
+															authorization: 'Token ' + TOKEN,
+														},
+													})
+													.then((res) => {
+														// console.log(res.data);
+														window.location.reload();
+														dispatch(logout());
+													})
+													.catch((err) => {
+														console.log(err);
+													});
+											}
+										}}
+									>
+										Save changes
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</>
 			)}
 		</>
