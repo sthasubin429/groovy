@@ -18,12 +18,16 @@ import Composer from './pages/composer';
 import SinglePlayer from './pages/singlePlayer';
 import ChangePassword from './pages/changePassword';
 import PlaylistDetail from './pages/playlistDetail';
+import ForgotPassword from './pages/forgotPassword';
+import PasswordResetConfirm from './pages/passwordResetConfirm';
 
 export const BaseRouter = () => (
 	<div>
 		<Route exact path='/' component={Home} />
 		<Route exact path='/login/' component={Login} />
 		<Route exact path='/register/' component={Register} />
+		<Route exact path='/forgotPassword/' component={ForgotPassword} />
+		<Route exact path='/passwordResetConfirm/:token' component={PasswordResetConfirm} />
 	</div>
 );
 

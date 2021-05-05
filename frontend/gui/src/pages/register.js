@@ -106,7 +106,7 @@ export default function Register() {
 							type='password'
 							className='form-control'
 							name='registerPassword1'
-							placeholder='Enter your Passowrd here'
+							placeholder='Enter your Password here'
 							{...register('registerPassword1', {
 								required: true,
 								pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
@@ -126,7 +126,7 @@ export default function Register() {
 							type='password'
 							className='form-control'
 							name='registerPassword2'
-							placeholder='Confirm your Passowrd'
+							placeholder='Confirm your Password'
 							{...register('registerPassword2', {
 								required: true,
 								pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,

@@ -42,6 +42,9 @@ export default function Login() {
 				</div>
 				<div className='form-group'>
 					<label for='loginPassword'>Password</label>
+					<a className='form-sublink link float-right' href='/forgotPassword'>
+						Forgot password?
+					</a>
 					<input type='password' className='form-control' name='loginPassword' placeholder='Password' />
 				</div>
 				{loading ? (

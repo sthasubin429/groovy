@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import UserProfileListView, UserProfileDetailView, UserProfileCreateView, UserProfileUpdateView, UserProfileDeleteView
 
 urlpatterns = [
@@ -7,5 +7,6 @@ urlpatterns = [
     path('api/<int:userID>/', UserProfileDetailView.as_view()),
     # path('api/<pk>/', UserProfileDetailView.as_view()),
     path('api/<pk>/update/', UserProfileUpdateView.as_view()),
-    path('api/<pk>/delete/', UserProfileDeleteView.as_view())
+    path('api/<pk>/delete/', UserProfileDeleteView.as_view()),
+    path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
 ]
