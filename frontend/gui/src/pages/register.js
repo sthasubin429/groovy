@@ -41,22 +41,25 @@ export default function Register() {
 	// console.log(watch('example'));
 	return (
 		<>
-			<div className='container'>
-				{error ? (
-					<>
-						<DangerMessage message='Username or Email Already Exists' />
-					</>
-				) : (
-					<></>
-				)}
-				{passwordMatch === false ? (
-					<>
-						<DangerMessage message='Password did not Match' />
-					</>
-				) : (
-					<></>
-				)}
-				<form onSubmit={handleSubmit(onSubmit)}>
+			<div className='container d-flex flex-column align-items-center'>
+				<div className='col-12 col-sm-7'>
+					{error ? (
+						<>
+							<DangerMessage message='Username or Email Already Exists' />
+						</>
+					) : (
+						<></>
+					)}
+					{passwordMatch === false ? (
+						<>
+							<DangerMessage message='Password did not Match' />
+						</>
+					) : (
+						<></>
+					)}
+				</div>
+
+				<form onSubmit={handleSubmit(onSubmit)} className='col-12 col-sm-7'>
 					<div className='form-group'>
 						<label htmlFor='registerEmail'>Email Address</label>
 						<input
@@ -142,10 +145,25 @@ export default function Register() {
 						<Loading />
 					) : (
 						<div className='form-group'>
-							<input type='submit' className='btn btn-primary' />
+							<input type='submit' value='Sign Up' className='btn btn-primary  float-right  px-5 rounded-pill' />
 						</div>
 					)}
 				</form>
+
+				<p class='text-gray-soft text-center small my-2'>
+					By clicking "Sign up" you agree to our{' '}
+					<a href='/' className='link'>
+						Terms of Service
+					</a>
+					.
+				</p>
+
+				<p class='text-gray-soft text-center small my-2'>
+					Already have an account?{' '}
+					<a href='/login' className='link'>
+						Login
+					</a>
+				</p>
 			</div>
 		</>
 	);

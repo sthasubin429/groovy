@@ -24,8 +24,8 @@ export default function Login() {
 	};
 
 	return (
-		<div className='container '>
-			<>
+		<div className='container d-flex flex-column align-items-center'>
+			<div className='col-12 col-sm-7'>
 				{error ? (
 					<>
 						<UserPassNotMatch />
@@ -33,24 +33,32 @@ export default function Login() {
 				) : (
 					<></>
 				)}
-				<form onSubmit={(event) => handleSubmit(event)} className='d-flex flex-column align-items-center'>
-					<div className='form-group col-12 col-sm-7'>
-						<label for='loginUsername'>Username</label>
-						<input type='text' className='form-control' name='loginUsername' placeholder='Username' />
+			</div>
+
+			<form onSubmit={(event) => handleSubmit(event)} className='col-12 col-sm-7'>
+				<div className='form-group '>
+					<label for='loginUsername'>Username</label>
+					<input type='text' className='form-control' name='loginUsername' placeholder='Username' />
+				</div>
+				<div className='form-group'>
+					<label for='loginPassword'>Password</label>
+					<input type='password' className='form-control' name='loginPassword' placeholder='Password' />
+				</div>
+				{loading ? (
+					<Loading />
+				) : (
+					<div className='form-group'>
+						<input type='submit' className='btn btn-primary float-right my-2 px-5 rounded-pill' />
 					</div>
-					<div className='form-group col-12 col-sm-7'>
-						<label for='loginPassword'>Password</label>
-						<input type='password' className='form-control' name='loginPassword' placeholder='Password' />
-					</div>
-					{loading ? (
-						<Loading />
-					) : (
-						<div className='form-group col-12 col-sm-7'>
-							<input type='submit' className='btn btn-primary float-right  px-5' />
-						</div>
-					)}
-				</form>
-			</>
+				)}
+			</form>
+
+			<p class='small text-center text-gray-soft my-3'>
+				Don't have an account yet?{' '}
+				<a href='/register' className='link'>
+					Register
+				</a>
+			</p>
 		</div>
 	);
 }
