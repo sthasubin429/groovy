@@ -166,6 +166,63 @@
 	}
 }
 
+.playlistDetail-container {
+	background-color: #fff;
+	margin: 0.5rem 0;
+	padding: 1rem;
+	border-radius: 0.5rem;
+
+	.playlistDetail-header {
+		background: rgb(128, 134, 146);
+		background: linear-gradient(90deg, rgba(128, 134, 146, 1) 0%, rgba(164, 171, 187, 1) 100%);
+		padding: 0.5rem;
+	}
+
+	.header-info {
+		margin: 1rem;
+		position: relative;
+		.header-button {
+			position: absolute;
+			padding: 0.5rem 1.5rem;
+			margin: 0;
+			top: -1rem;
+			right: 1em;
+			background-color: #1db954;
+			border-radius: 2rem;
+			box-shadow: none;
+			border: none;
+			font-weight: 600;
+			transition: transform 0.2s;
+
+			.header-icon {
+				margin: 0 0.2rem;
+			}
+		}
+		.header-button:hover {
+			transform: scale(1.1);
+			text-decoration: none;
+		}
+		* {
+			color: #fff;
+		}
+		.header-title {
+			margin: 2rem 0 -0.5rem 0.5rem;
+			padding: 0;
+			font-weight: 700;
+		}
+		.header-name {
+			margin: 0 0 0rem 0.5rem;
+			padding: 0;
+			font-weight: 700;
+			font-size: 2.7rem;
+		}
+		.header-username {
+			margin: 0 0 0 0.5rem;
+			padding: 0;
+			font-weight: 600;
+		}
+	}
+}
 .rhap_container {
 	background-color: $sidebar-background !important;
 	box-shadow: none !important;

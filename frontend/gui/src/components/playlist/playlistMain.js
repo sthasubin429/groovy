@@ -11,7 +11,7 @@ export const PlaylistCard = (props) => {
 				<img src={props.playlist.playlist_cover} className='playlist-card-img' />
 
 				<Link
-					to='/player'
+					to='/playlistDetail'
 					onClick={() => {
 						dispatch(changePlaylist(props.playlist.id));
 					}}
@@ -24,12 +24,6 @@ export const PlaylistCard = (props) => {
 		</>
 	);
 };
-
-// const RenderPaginaiton = (props) => {
-// 	return (
-
-// 	);
-// };
 
 export default function PlaylistMain(props) {
 	const [playlist, setPlaylist] = useState(props.playlist);

@@ -28,6 +28,7 @@ export const HeartNotFilled = () => {
 export default function InteractionBar() {
 	const likeCount = useSelector((state) => state.player.likeCount);
 	const like = useSelector((state) => state.player.like);
+
 	const dispatch = useDispatch();
 
 	return (
