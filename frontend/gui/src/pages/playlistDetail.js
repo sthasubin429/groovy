@@ -53,9 +53,14 @@ export default function PlaylistDetail() {
 	const dispatch = useDispatch();
 
 	let playlist_id = localStorage.getItem('current_playlist');
+
 	const playlist = useSelector((state) => state.player.playlist_song_details);
+	const user = useSelector((state) => state.profile.user_info);
+
 	const [loading, setLoading] = useState(true);
 	const [playlistInfo, setplaylistInfo] = useState(null);
+
+	const [allowChange, setAllowChange] = useState(false);
 
 	useEffect(() => {
 		dispatch(checkPlaylist());
@@ -78,8 +83,21 @@ export default function PlaylistDetail() {
 			setLoading(false);
 		}
 	}, [playlist, playlistInfo]);
+	useEffect(() => {
+		if (playlistInfo && user) {
+			if (playlistInfo.created_by === user.user) {
+				setAllowChange(true);
+			} else {
+				setAllowChange(false);
+			}
+		} else {
+			setAllowChange(false);
+		}
+	}, [user, playlistInfo]);
 
 	console.log(playlistInfo);
+	console.log(user);
+	console.log(allowChange);
 
 	return (
 		<>
@@ -112,22 +130,87 @@ export default function PlaylistDetail() {
 							</p>
 						</div>
 					</div>
-					<table class='table table-hover table-striped'>
-						<thead>
-							<tr>
-								<th scope='col'></th>
-								<th scope='col'>Title</th>
-								<th scope='col'>Uploaded By</th>
-								<th scope='col'>Date</th>
-								<th scope='col'>Likes</th>
-							</tr>
-						</thead>
-						<tbody>
-							{playlist.map((song, index) => (
-								<GenerateRows song={song} index={index} key={index} />
-							))}
-						</tbody>
-					</table>
+					<div className='playlistDetail-table'>
+						<table class='table table-hover table-striped'>
+							<thead>
+								<tr>
+									<th scope='col'></th>
+									<th scope='col'>Title</th>
+									<th scope='col'>Uploaded By</th>
+									<th scope='col'>Date</th>
+									<th scope='col'>Likes</th>
+								</tr>
+							</thead>
+							<tbody>
+								{playlist.map((song, index) => (
+									<GenerateRows song={song} index={index} key={index} />
+								))}
+							</tbody>
+						</table>
+						{allowChange ? (
+							<>
+								<div className='playlist-table-btn d-flex justify-content-around'>
+									<button className='btn btn-secondary'> Edit</button>
+									<button type='button' className='btn btn-danger' data-toggle='modal' data-target='#exampleModalCenter'>
+										Delete
+									</button>
+								</div>
+								<div
+									className='modal fade'
+									id='exampleModalCenter'
+									tabindex='-1'
+									role='dialog'
+									aria-labelledby='exampleModalCenterTitle'
+									aria-hidden='true'
+								>
+									<div className='modal-dialog modal-dialog-centered' role='document'>
+										<div className='modal-content'>
+											<div className='modal-header'>
+												<h5 className='modal-title' id='exampleModalLongTitle'>
+													Are you sure you want to Delete your Playlist?
+												</h5>
+												<button type='button' className='close' data-dismiss='modal' aria-label='Close'>
+													<span aria-hidden='true'>&times;</span>
+												</button>
+											</div>
+											<div className='modal-body'> You cannot Undo Your Action</div>
+											<div className='modal-footer'>
+												<button type='button' className='btn btn-secondary' data-dismiss='modal'>
+													Close
+												</button>
+												<button
+													type='button'
+													className='btn btn-danger'
+													onClick={(event) => {
+														event.preventDefault();
+														if (TOKEN) {
+															axios
+																.delete(`${BASE_URL}/songs/playlist/api/${playlistInfo.id}/delete/`, {
+																	headers: {
+																		authorization: 'Token ' + TOKEN,
+																	},
+																})
+																.then((res) => {
+																	// console.log(res.data);
+																	window.location.replace('http://localhost:3000/playlist');
+																})
+																.catch((err) => {
+																	console.log(err);
+																});
+														}
+													}}
+												>
+													Delete
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</>
+						) : (
+							<></>
+						)}
+					</div>
 				</div>
 			)}
 		</>

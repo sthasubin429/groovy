@@ -219,7 +219,7 @@ export default function Edit(props) {
 											}
 										}}
 									>
-										Save changes
+										Delete
 									</button>
 								</div>
 							</div>

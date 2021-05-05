@@ -250,26 +250,21 @@ ul {
   padding: 1rem;
 }
 
-.playlistDetail-container {
-  background-color: #fff;
-  margin: 0.5rem 0;
-  padding: 1rem;
-  border-radius: 0.5rem;
-}
-
 .playlistDetail-container .playlistDetail-header {
   background: #808692;
   background: -webkit-gradient(linear, left top, right top, from(#808692), to(#a4abbb));
   background: linear-gradient(90deg, #808692 0%, #a4abbb 100%);
-  padding: 0.5rem;
+  margin: 0.5rem 0;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
 }
 
-.playlistDetail-container .header-info {
+.playlistDetail-container .playlistDetail-header .header-info {
   margin: 1rem;
   position: relative;
 }
 
-.playlistDetail-container .header-info .header-button {
+.playlistDetail-container .playlistDetail-header .header-info .header-button {
   position: absolute;
   padding: 0.5rem 1.5rem;
   margin: 0;
@@ -287,37 +282,43 @@ ul {
   transition: transform 0.2s, -webkit-transform 0.2s;
 }
 
-.playlistDetail-container .header-info .header-button .header-icon {
+.playlistDetail-container .playlistDetail-header .header-info .header-button .header-icon {
   margin: 0 0.2rem;
 }
 
-.playlistDetail-container .header-info .header-button:hover {
+.playlistDetail-container .playlistDetail-header .header-info .header-button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
   text-decoration: none;
 }
 
-.playlistDetail-container .header-info * {
+.playlistDetail-container .playlistDetail-header .header-info * {
   color: #fff;
 }
 
-.playlistDetail-container .header-info .header-title {
+.playlistDetail-container .playlistDetail-header .header-info .header-title {
   margin: 2rem 0 -0.5rem 0.5rem;
   padding: 0;
   font-weight: 700;
 }
 
-.playlistDetail-container .header-info .header-name {
+.playlistDetail-container .playlistDetail-header .header-info .header-name {
   margin: 0 0 0rem 0.5rem;
   padding: 0;
   font-weight: 700;
   font-size: 2.7rem;
 }
 
-.playlistDetail-container .header-info .header-username {
+.playlistDetail-container .playlistDetail-header .header-info .header-username {
   margin: 0 0 0 0.5rem;
   padding: 0;
   font-weight: 600;
+}
+
+.playlistDetail-container .playlistDetail-table {
+  background-color: #fff;
+  margin: 1rem 0;
+  padding: 2rem 1.5rem 1rem 1.5rem;
 }
 
 .rhap_container {
