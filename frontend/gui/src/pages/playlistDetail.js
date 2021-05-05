@@ -11,44 +11,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { changePlaylist, checkPlaylist } from '../store/actions/player';
 
-export function GenerateRows(props) {
-	let date = new Date(props.song.song_date);
-	const [likes, setLikes] = useState(0);
-	useEffect(() => {
-		axios
-			.get(`${BASE_URL}/interaction/likes/api/song/${props.song.id}/`, {
-				headers: {
-					authorization: 'Token ' + TOKEN,
-				},
-			})
-			.then((res) => {
-				setLikes(res.data.length);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	}, [props.song]);
-	return (
-		<>
-			<tr
-				onClick={() => {
-					window.location.replace('http://localhost:3000/listen');
-					localStorage.setItem('listen', props.song.id);
-				}}
-			>
-				<th scope='row'>
-					<img src={props.song.song_photo} width='30' height='30'></img>
-				</th>
-				<td>{props.song.song_name}</td>
-				<td>{props.song.getUsername}</td>
-				<td>
-					{date.getFullYear()}-{date.getMonth()}-{date.getDay()}
-				</td>
-				<td>{likes}</td>
-			</tr>
-		</>
-	);
-}
 export default function PlaylistDetail() {
 	const dispatch = useDispatch();
 
@@ -213,6 +175,45 @@ export default function PlaylistDetail() {
 					</div>
 				</div>
 			)}
+		</>
+	);
+}
+
+export function GenerateRows(props) {
+	let date = new Date(props.song.song_date);
+	const [likes, setLikes] = useState(0);
+	useEffect(() => {
+		axios
+			.get(`${BASE_URL}/interaction/likes/api/song/${props.song.id}/`, {
+				headers: {
+					authorization: 'Token ' + TOKEN,
+				},
+			})
+			.then((res) => {
+				setLikes(res.data.length);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}, [props.song]);
+	return (
+		<>
+			<tr
+				onClick={() => {
+					window.location.replace('http://localhost:3000/listen');
+					localStorage.setItem('listen', props.song.id);
+				}}
+			>
+				<th scope='row'>
+					<img src={props.song.song_photo} width='30' height='30'></img>
+				</th>
+				<td>{props.song.song_name}</td>
+				<td>{props.song.getUsername}</td>
+				<td>
+					{date.getFullYear()}-{date.getMonth()}-{date.getDay()}
+				</td>
+				<td>{likes}</td>
+			</tr>
 		</>
 	);
 }

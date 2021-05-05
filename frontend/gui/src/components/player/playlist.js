@@ -15,14 +15,12 @@ export const PlaylistDetails = (props) => {
 					console.log(dispatch(changeSong(props.index)));
 				}}
 			>
-				<img src={props.song.song_photo} className='playlist-songImg' alt='Song' />
+				<img src={props.song.song_photo} className='playlist-songImg' alt='Song' width='50' height='50' />
 
 				<div className='playlist-songDetail'>
 					<div className='text-capitalize'>{props.song.song_name}</div>
 					<div>{props.song.getUsername}</div>
 				</div>
-
-				<div className='playlist-icon ml-auto'>Icon</div>
 			</li>
 		</>
 	);

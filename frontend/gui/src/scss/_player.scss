@@ -31,24 +31,30 @@
 	}
 
 	.playlist-container {
+		overflow: auto;
+
 		ul {
 			margin: 0;
 			padding: 0;
 		}
 
 		li {
-			margin: 1rem 0;
+			margin: 0.5rem 0;
+			padding: 0.5rem;
+			cursor: pointer;
+			border-radius: 0.5rem;
+		}
+		li:hover {
+			background-color: $hover-background;
 		}
 		.playlist-songImg {
 			border-radius: 10%;
-			width: 5rem;
-			height: 5rem;
 		}
 		.playlist-songDetail {
 			margin: auto 1rem;
 
 			div {
-				margin: 0.5rem 0;
+				margin: 0.2rem 0;
 			}
 		}
 

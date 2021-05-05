@@ -118,19 +118,28 @@ ul {
   margin: 0 0.3rem;
 }
 
+.customPlayer-container .playlist-container {
+  overflow: auto;
+}
+
 .customPlayer-container .playlist-container ul {
   margin: 0;
   padding: 0;
 }
 
 .customPlayer-container .playlist-container li {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.customPlayer-container .playlist-container li:hover {
+  background-color: #ededed;
 }
 
 .customPlayer-container .playlist-container .playlist-songImg {
   border-radius: 10%;
-  width: 5rem;
-  height: 5rem;
 }
 
 .customPlayer-container .playlist-container .playlist-songDetail {
@@ -138,7 +147,7 @@ ul {
 }
 
 .customPlayer-container .playlist-container .playlist-songDetail div {
-  margin: 0.5rem 0;
+  margin: 0.2rem 0;
 }
 
 .customPlayer-container .playlist-container .playlist-icon {
