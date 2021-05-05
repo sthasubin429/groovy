@@ -24,3 +24,20 @@
 .ai-center {
 	align-items: center;
 }
+
+.btn-primary {
+	background-color: $primary-colour;
+	box-shadow: none;
+	border: $primary-colour;
+}
+
+.btn-primary:hover {
+	background-color: $primary-colour;
+	box-shadow: none;
+}
+
+.btn-primary:active {
+	background-color: $primary-colour;
+	box-shadow: none;
+	border: none;
+}

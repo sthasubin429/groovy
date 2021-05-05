@@ -80,9 +80,37 @@ ul {
           align-items: center;
 }
 
+.btn-primary {
+  background-color: #3738e8;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: #3738e8;
+}
+
+.btn-primary:hover {
+  background-color: #3738e8;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.btn-primary:active {
+  background-color: #3738e8;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+}
+
 .landing_main {
   font-size: 5em;
   width: 100%;
+}
+
+.main-nav {
+  background-color: #9197a5 !important;
+}
+
+.main-nav * {
+  color: #323244 !important;
 }
 
 .sidebar-container {

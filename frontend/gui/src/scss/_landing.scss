@@ -3,3 +3,11 @@
 	width: 100%;
 	// margin: 1.125rem;
 }
+
+.main-nav {
+	background-color: $scrollbar-background !important;
+
+	* {
+		color: $text-colour !important;
+	}
+}
