@@ -23,3 +23,16 @@ a {
 ul {
 	list-style-type: none;
 }
+*::-webkit-scrollbar {
+	width: 0.5rem; /* width of the entire scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+	background: $hover-background; /* color of the tracking area */
+	border-radius: 0.2rem;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: $scrollbar-background; /* color of the scroll thumb */
+	border-radius: 0.3rem;
+}

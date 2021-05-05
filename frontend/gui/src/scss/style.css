@@ -27,6 +27,23 @@ ul {
   list-style-type: none;
 }
 
+*::-webkit-scrollbar {
+  width: 0.5rem;
+  /* width of the entire scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+  background: #ededed;
+  /* color of the tracking area */
+  border-radius: 0.2rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #9197a5;
+  /* color of the scroll thumb */
+  border-radius: 0.3rem;
+}
+
 .left {
   float: left;
 }
@@ -119,6 +136,7 @@ ul {
 }
 
 .customPlayer-container .playlist-container {
+  height: 28rem;
   overflow: auto;
 }
 
