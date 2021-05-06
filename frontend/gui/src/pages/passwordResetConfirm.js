@@ -151,7 +151,7 @@ export default function PasswordResetConfirm() {
 							<Loading />
 						) : (
 							<div className='form-group'>
-								<input type='submit' value='Sign Up' className='btn btn-primary  float-right  px-5 rounded-pill' />
+								<input type='submit' value='Reset' className='btn btn-primary  float-right  px-5 rounded-pill' />
 							</div>
 						)}
 					</form>

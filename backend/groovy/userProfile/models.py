@@ -5,6 +5,7 @@ from django.dispatch import receiver
 from django.urls import reverse
 from django_rest_passwordreset.signals import reset_password_token_created
 from django.core.mail import send_mail  
+from django.template.loader import render_to_string
 
 
 @receiver(reset_password_token_created)
@@ -12,17 +13,27 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
 
     email_plaintext_message = "http://localhost:3000/passwordResetConfirm/{}".format(reset_password_token.key)
 
+    msg_plain = render_to_string('email.txt', {'link': email_plaintext_message})
+    msg_html = render_to_string('email.html', {'link': email_plaintext_message})
 
     send_mail(
-        # title:
-        "Password Reset for {title}".format(title="Some website title"),
-        # message:
-        email_plaintext_message,
-        # from:
+        "Password Reset for {title}".format(title="Groovy"),
+        msg_plain,
         "stha.groovy@gmail.com",
-        # to:
-        [reset_password_token.user.email]
+        [reset_password_token.user.email],
+        html_message=msg_html,
     )
+
+    # send_mail(
+    #     # title:
+    #     "Password Reset for {title}".format(title="Groovy"),
+    #     # message:
+    #     email_plaintext_message,
+    #     # from:
+    #     "stha.groovy@gmail.com",
+    #     # to:
+    #     [reset_password_token.user.email]
+    # )
 
 
 # Create your models here.
