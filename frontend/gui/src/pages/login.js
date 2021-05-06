@@ -26,6 +26,10 @@ export default function Login() {
 	return (
 		<div className='container d-flex flex-column align-items-center'>
 			<div className='col-12 col-sm-7'>
+				<h4 class='text-center text-gray-soft my-3 text-primary-colour'> Login </h4>
+			</div>
+
+			<div className='col-12 col-sm-7'>
 				{error ? (
 					<>
 						<UserPassNotMatch />
