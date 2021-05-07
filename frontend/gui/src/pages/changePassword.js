@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 export default function ChangePassword() {
 	const [loading, setLoading] = useState(false);
 	const dispatch = useDispatch();
-	// const error = useSelector((state) => state.auth.error);
+	const [error, setError] = useState(false);
 
 	const {
 		register,
@@ -35,12 +35,14 @@ export default function ChangePassword() {
 				.then((res) => {
 					console.log(res.data);
 					setLoading(false);
+					setError(false);
 					dispatch(logout());
 					window.location.replace('http://localhost:3000/login');
 				})
 				.catch((err) => {
 					console.log(err);
 					setLoading(false);
+					setError(true);
 				});
 		} else {
 			setPasswordMatch(false);
@@ -51,7 +53,15 @@ export default function ChangePassword() {
 		<>
 			<div className='changePassword-container'>
 				<h2> Change Password</h2>
+				{}
 
+				{error === true ? (
+					<>
+						<DangerMessage message='Old Password Did Not Match' />
+					</>
+				) : (
+					<></>
+				)}
 				{passwordMatch === false ? (
 					<>
 						<DangerMessage message='Password did not Match' />
@@ -61,7 +71,7 @@ export default function ChangePassword() {
 				)}
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<div class='form-group col-12 col-sm-7'>
-						<label for='old_password'>Password</label>
+						<label for='old_password'>Old Password</label>
 						<input
 							{...register('old_password', {
 								required: true,

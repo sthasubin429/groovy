@@ -222,7 +222,7 @@ export default function ArtistProfile(props) {
 								<>
 									<div>{followingCount} Followers</div>
 									<div>{followerCount} Following</div>
-									<div>15 Tracks</div>
+									<div>{songs ? <>{songs.length}</> : <>0</>} Tracks</div>
 								</>
 							)}
 						</div>

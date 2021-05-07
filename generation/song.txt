@@ -1,50 +1,38 @@
-mrichh'somc
-M:6/8
+rnagg
+::| CDDE(FE) D3E|F2GA Bcde|dBGF E2(DE)|
+FGAF E2(DE)|FEFA d2AF|Edde dcA^F|G2(AF) D2D2|
+F2(EF) D2(de)|fedf edcB|GFED B2(AF)|DFAc d>GEC|(3DEF (G"F<D)"D.C."e "D.C."fe|]
+
+
+X: 399
+T:The Fairy The Carradadhe
+M:C
 L:1/8
+B:O'Neill's 385
+N:"Moderate."
+N:"collected by J. O'Neill"
+Z:Transcribed by Chris Falt, cfalt@trytel.com
+K:D
+A|(d2(e/f/))(e/2d/2c/2) BAG|(FA).A A2(A/2B/2) \
+| (c/2B/2c)d ecA|(A<A)G (F<E).D|
+(D>ED) (GAB)|(c>dc) (B2A)|(A>GE) (TGED)|(TEDC) (D2 D)|
+(=E>GG) (G>ED)|(Cc).B {A}(GE).D|(DE).D (DC).C|(DE).D D3||
+
+
+X:562
+T:Templeate., The
+T:cor.abi.d naa.can.s no .cuilin far.
+R:air
+N:"Slow."
+B:O'Neill's 593
+Z:Transcription by John B. Walsh (walsh@math.ubc.ca)
+M:3/4
+L:1/8
+%Q:100
 K:G
-d2 c B>cd|d2 B GBA|G>FG gag|fdd d2 (3(e/f/)|
-g2 e {a}gfg|efd cBA|Bdd gec|dBG G2:|
-B|~c3 Bcd|ecA ABc|dgd dBG|gbg efg|\
-bgg eag|ged cAF|GBB EFG|AGG G2:|
-
-
-X:863
-T:Wattle Covert Love The Maid
-N:"Collected by F.O'Neill"
-B:O'Neill's 835
-Z:Transcribed by Dan G. Petersen, dangp@post6.tele.dk
-M:6/8
-L:1/8
-K:G
-(d/c/)|BdB AGE|dBG GAG|EGA BAG|Be^d e2(d/e/)|
-=f>gf edc|BAB Bcd|(e<a)f gec|dBG G2:|
-(d/e/)|fdd edc|Bdd dgf|gdc BAG|Bdd d2c|
-(B/c/d).e fdB|(B/c/d)B AFA|GED DCD|ABc d2:|
-
-
-X:872
-T:Jackson's Wedding
-N:"Collected by F.O'Neill"
-B:O'Neill's 851
-Z:Transcribed by Dan G. Petersen, dangp@post6.tele.dk
-M:6/8
-L:1/8
-K:G
-D|GAG GAB|{d}cBc dAG|{a}gfe dAG|{F}EDE cde|
-~f3 ~f3|dgg gab|{a}gfe ded|cAG G2:|
-d|gfg afd|gfg a2d|fga gfg|afd d2=e|
-fga gag|=fde fef|{a}gdc fed|ced c2:|
-
-
-X:1027
-T:The Ballomaruf
-R:Reel
-N:Collected by F.O'Neill
-B:O'Neill's 1258
-Z:Transcribed by Trish O'Neil
-M:C|
-L:1/8
-K:Em
-B|A2AB AFEF|dBBA BedB|A2FD FDFA|ABA^G AFDD|
-B2BF BBBB|AFAF EFAF|E2GF EFde|fdBd BAF:|
-|e
+(Bc)|(d2 c2 >c)|(B2 A2) (G>F)|(F2 D2) (C>C)|B3 d (c>B)|
+A2 c2 (B>A)|(G2 A2) (B>c)|A2 G2 G2|G4 (=F>G)|
+(A2 B2) .d2|(de>f)(g>a) (g>a)|b2 (a>g) (^fa)(g>c)|B2 (A>G) z G|
+(F>E) (.B>.B) (.B-.B)|{c}d2 (B>c) (d>e)|(f2 d2) c>A|G4 (D>E)|
+G4 (F>E)|(D4 D)|(B,3 D) (.E.G.A)|
+B2 (dc)(B>A)|(G2 A2) .B>d|(c2 B2) (c>B)|(A4 G2)

@@ -9,6 +9,7 @@ export default function UserDetails() {
 	const userDetails = useSelector((state) => state.profile.user_details);
 	const userInfo = useSelector((state) => state.profile.user_info);
 	const loading = useSelector((state) => state.profile.loading);
+	const songs = useSelector((state) => state.profile.song_list);
 	const [followerLoading, setFollowerLoading] = useState(true);
 	const [follower, setFollower] = useState(0);
 	const [following, setFollowing] = useState(0);
@@ -90,7 +91,7 @@ export default function UserDetails() {
 										<div className='col pt-2'>{follower} Following</div>
 									</>
 								)}
-								<div className='col pt-2'>15 Tracks</div>
+								<div className='col pt-2'>{songs ? <>{songs.length}</> : <></>} Tracks</div>
 							</div>
 
 							<div className='artist-bio'>
