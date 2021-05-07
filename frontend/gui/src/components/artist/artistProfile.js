@@ -20,7 +20,7 @@ export default function ArtistProfile(props) {
 	const [followerCount, setFollowerCount] = useState(0);
 	const [followingCount, setFollowingCount] = useState(0);
 
-	// console.log(props.artist);
+	// console.log(following);
 	const [loading, setLoading] = useState(true);
 
 	const [playlist, setPlaylist] = useState([]);
@@ -71,9 +71,9 @@ export default function ArtistProfile(props) {
 	}, [followData]);
 
 	useEffect(() => {
-		if (follow) {
+		if (following) {
 			axios
-				.get(`${BASE_URL}/interaction/follow/api/getFollowers/${follow.user}/`, {
+				.get(`${BASE_URL}/interaction/follow/api/getFollowers/${following}/`, {
 					headers: {
 						authorization: 'Token ' + TOKEN,
 					},
@@ -81,15 +81,15 @@ export default function ArtistProfile(props) {
 				.then((res) => {
 					// console.log(res.data);
 					setFollowerCount(res.data.length);
-					getFollowingCount(follow.user);
+					getFollowingCount(following);
 				})
 				.catch((err) => {
 					// console.log(err);
-					getFollowingCount(follow.user);
+					getFollowingCount(following);
 					setFollowerCount(0);
 				});
 		}
-	}, [follow]);
+	}, [following]);
 
 	const getFollowingCount = (user_id) => {
 		axios
@@ -220,8 +220,8 @@ export default function ArtistProfile(props) {
 								</div>
 							) : (
 								<>
-									<div>{followerCount} Followers</div>
-									<div>{followingCount} Following</div>
+									<div>{followingCount} Followers</div>
+									<div>{followerCount} Following</div>
 									<div>15 Tracks</div>
 								</>
 							)}

@@ -56,7 +56,7 @@ export default function ComposerMain() {
 							Download
 						</a>
 
-						<p className='composer-download-msg text-center'> You can click Download abovee to Generate a new Piece</p>
+						<p className='composer-download-msg text-center'> You can click Download above to Generate a new Piece</p>
 
 						<p className='composer-download-msg text-center'>
 							On downloading you will get a text file. Copy the content of the text file and go to{' '}

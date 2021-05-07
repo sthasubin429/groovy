@@ -86,8 +86,8 @@ export default function UserDetails() {
 									</div>
 								) : (
 									<>
-										<div className='col pt-2'>{follower} Followers</div>
-										<div className='col pt-2'>{following} Following</div>
+										<div className='col pt-2'>{following} Followers</div>
+										<div className='col pt-2'>{follower} Following</div>
 									</>
 								)}
 								<div className='col pt-2'>15 Tracks</div>

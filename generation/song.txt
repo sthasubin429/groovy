@@ -1,41 +1,50 @@
-e thit gorne!
+mrichh'somc
 M:6/8
 L:1/8
-B:O'Neill's 1579
-N:"collected by F. O'Neill"
-Z:Transcribed by Dave Wooldridge
 K:G
-(G>A) \
-| B2 g>e dB | AG E2 G>A | B2 (B>d) (d>B) | A3 =d (eg) |
-f2 (g<a) (gf) | eg a4 (g>e) | d2 B2 G>A | D6 ||
-(c>B) \
-| (d2 c2 B2) | (G2 B2 d2) | (d2 B2 c2) | A4 (B>c) |
-| (d2 g2) f2 | (~d3 e) f2 | d2 c2 B2 | A6 | G2 G2 A2 |
-B2 d2 B2 | {B}c2 B2 c2 | d6 (3cde | f4 d2 |\
-g3 e c2 | d2 g2 f2 | e2 d2 c2 | B2 A2 B2 |\
-c2 B2 A2 | G2 E2 G2 | {d}(c2 B2 c2) | {B}(A2 G2) .G2 ||
+d2 c B>cd|d2 B GBA|G>FG gag|fdd d2 (3(e/f/)|
+g2 e {a}gfg|efd cBA|Bdd gec|dBG G2:|
+B|~c3 Bcd|ecA ABc|dgd dBG|gbg efg|\
+bgg eag|ged cAF|GBB EFG|AGG G2:|
 
 
-X:470
-T:Banks af the Gait Glen
-N:"Moderate"
-N:Irish title: ui main deri.de in li.d
-B:O'Neill's 413
-Z:Transcribed by henrik.norbeck@mailbox.swipnet.se
-M:3/4
+X:863
+T:Wattle Covert Love The Maid
+N:"Collected by F.O'Neill"
+B:O'Neill's 835
+Z:Transcribed by Dan G. Petersen, dangp@post6.tele.dk
+M:6/8
 L:1/8
 K:G
-(B>A)|G2 A2 B2|d2 g2 g2|(a>gfe) (dB)|d2 B2 (GA)|
-B2 d2 ec|B2 {d}c2 (B>c)|(A2 G2) .G2|G4||
+(d/c/)|BdB AGE|dBG GAG|EGA BAG|Be^d e2(d/e/)|
+=f>gf edc|BAB Bcd|(e<a)f gec|dBG G2:|
+(d/e/)|fdd edc|Bdd dgf|gdc BAG|Bdd d2c|
+(B/c/d).e fdB|(B/c/d)B AFA|GED DCD|ABc d2:|
 
 
-X:115
-T:Wead a Stat
-N:"With feeling"
-B:O'Neill's 108
-Z:Transcribed by henrik.norbeck@mailbox.swipnet.se
-M:C
+X:872
+T:Jackson's Wedding
+N:"Collected by F.O'Neill"
+B:O'Neill's 851
+Z:Transcribed by Dan G. Petersen, dangp@post6.tele.dk
+M:6/8
 L:1/8
 K:G
-G2 G>A B>cd>e | f>A (3BAG F2 A>F | G>FG>A B>GB>d | c>BA>G F>DD>E |
-        F>GF>E G>BA>c | B>GB>d e>c (3dcB | (3ABG (3FGE (3DEG (3ABG | F2 D2 
+D|GAG GAB|{d}cBc dAG|{a}gfe dAG|{F}EDE cde|
+~f3 ~f3|dgg gab|{a}gfe ded|cAG G2:|
+d|gfg afd|gfg a2d|fga gfg|afd d2=e|
+fga gag|=fde fef|{a}gdc fed|ced c2:|
+
+
+X:1027
+T:The Ballomaruf
+R:Reel
+N:Collected by F.O'Neill
+B:O'Neill's 1258
+Z:Transcribed by Trish O'Neil
+M:C|
+L:1/8
+K:Em
+B|A2AB AFEF|dBBA BedB|A2FD FDFA|ABA^G AFDD|
+B2BF BBBB|AFAF EFAF|E2GF EFde|fdBd BAF:|
+|e

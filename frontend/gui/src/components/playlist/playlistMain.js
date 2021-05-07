@@ -30,7 +30,7 @@ export default function PlaylistMain(props) {
 	// const dispatch = useDispatch();
 	const [playlistPaginated, setPlaylistPaginated] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
-	let noOfItem = 4;
+	let noOfItem = 12;
 	let noOfPages = Math.ceil(playlist.length / noOfItem);
 
 	// console.log(noOfPages);

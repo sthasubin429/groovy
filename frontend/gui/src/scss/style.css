@@ -420,7 +420,7 @@ ul {
 
 .songlist-container {
   background-color: #fff;
-  margin: 2rem 0.5rem;
+  margin: 2rem 0.5rem 0.5rem 1rem;
   padding: 1rem;
   border-radius: 0.5rem;
 }
@@ -433,6 +433,7 @@ ul {
   margin: 2rem 1rem;
   cursor: pointer;
   position: relative;
+  max-width: 6rem;
 }
 
 .song-card .songList-songImg {

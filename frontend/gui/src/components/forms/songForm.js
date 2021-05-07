@@ -1,12 +1,12 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { BASE_URL, POST } from '../../store/utility.js';
 import { getUserDetails } from '../../store/actions/user.js';
 
 function SongForm(props) {
 	const [audioFile, setAudioFile] = useState();
 	const [imageFile, setImageFile] = useState();
-
+	const songCover = useRef();
 	let userData = getUserDetails();
 
 	const handleSubmit = (event, requestType) => {
@@ -46,6 +46,7 @@ function SongForm(props) {
 	};
 	const handleImageFile = (e) => {
 		let image = e.target.files[0];
+		songCover.current.src = URL.createObjectURL(image);
 		setImageFile(image);
 	};
 
@@ -69,11 +70,20 @@ function SongForm(props) {
 							onChange={(e) => {
 								handleAudioFile(e);
 							}}
+							accept='audio/mp3'
 						/>
 					</div>
 
 					<div className='form-group'>
 						<label htmlFor='image'> Song Image </label> <br />
+						<img
+							src='http://127.0.0.1:8000/media/playlistCover/default.jpg'
+							className='rounded mx-auto d-block'
+							alt='Playlist Cover'
+							width='240px'
+							className='m-4'
+							ref={songCover}
+						/>
 						<input
 							type='file'
 							id='image'

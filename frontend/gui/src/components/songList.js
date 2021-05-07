@@ -131,7 +131,7 @@ function SongList(props) {
 	const [songsPaginated, setSongsPaginated] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [noOfPages, setNoOfPages] = useState(1);
-	let noOfItem = 4;
+	let noOfItem = 18;
 
 	useEffect(() => {
 		if (search) {
