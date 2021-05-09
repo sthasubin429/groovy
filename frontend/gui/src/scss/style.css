@@ -225,6 +225,32 @@ ul {
   color: #323244;
 }
 
+.home-container .featured-artist {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.home-container .featured-artist .carousel-card-text {
+  text-align: start;
+}
+
+.home-container .featured-artist .carousel-card-text .text-name {
+  font-size: 2rem;
+  margin: 0.4rem 0 0.4rem 0.8rem;
+}
+
+.home-container .featured-artist .carousel-card-text .text-username {
+  font-size: 1.3rem;
+  margin: 0.4rem 0 0.4rem 0.8rem;
+}
+
+.home-container .featured-playlist {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
 .footer-container {
   background: #555555;
   padding: 1.5rem 0 0 0;

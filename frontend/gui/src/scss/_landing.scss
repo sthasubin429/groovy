@@ -115,3 +115,31 @@
 .text-primary-colour {
 	color: $text-colour;
 }
+
+.home-container {
+	.featured-artist {
+		background-color: #fff;
+		border-radius: 0.5rem;
+		margin: 1rem 0;
+
+		.carousel-card-text {
+			text-align: start;
+
+			.text-name {
+				font-size: 2rem;
+				margin: 0.4rem 0 0.4rem 0.8rem;
+			}
+
+			.text-username {
+				font-size: 1.3rem;
+				margin: 0.4rem 0 0.4rem 0.8rem;
+			}
+		}
+	}
+
+	.featured-playlist {
+		background-color: #fff;
+		border-radius: 0.5rem;
+		margin: 1rem 0;
+	}
+}

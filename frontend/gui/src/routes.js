@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import Home from './pages/home';
+import LandingPage from './pages/landing';
 import Login from './pages/login';
 import Player from './pages/player';
 import AllSongs from './pages/allSongs';
@@ -20,10 +20,11 @@ import ChangePassword from './pages/changePassword';
 import PlaylistDetail from './pages/playlistDetail';
 import ForgotPassword from './pages/forgotPassword';
 import PasswordResetConfirm from './pages/passwordResetConfirm';
+import HomePage from './pages/home';
 
 export const BaseRouter = () => (
 	<div>
-		<Route exact path='/' component={Home} />
+		<Route exact path='/' component={LandingPage} />
 		<Route exact path='/login/' component={Login} />
 		<Route exact path='/register/' component={Register} />
 		<Route exact path='/forgotPassword/' component={ForgotPassword} />
@@ -33,7 +34,7 @@ export const BaseRouter = () => (
 
 export const LoggedInRoute = () => (
 	<div>
-		<Route exact path='/' component={Home} />
+		<Route exact path='/' component={HomePage} />
 		<Route exact path='/player/' component={Player} />
 		<Route exact path='/upload/' component={UploadMusic} />
 		<Route exact path='/allSongs/' component={AllSongs} />
