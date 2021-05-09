@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BASE_URL, TOKEN } from '../../store/utility';
 import axios from 'axios';
 import Loading from '../other/loading';
+import { changePlaylist } from '../../store/actions/player';
+import { Link } from 'react-router-dom';
 
 export default function FeaturedArtist() {
-	const [allArtists, setAllArtists] = useState([]);
+	const [artist, setArtists] = useState([]);
+	const [playlist, setPlaylist] = useState();
 	const [loading, setLoading] = useState(true);
 	const userInfo = useSelector((state) => state.profile.user_info);
 
@@ -25,15 +28,36 @@ export default function FeaturedArtist() {
 							filteredData.push(d);
 						}
 					});
-					setAllArtists(filteredData.sort(() => Math.random() - Math.random()).slice(0, 3));
+					let fd = filteredData[Math.floor(Math.random() * filteredData.length)];
+					console.log(fd);
 
-					setLoading(false);
+					axios
+						.get(`${BASE_URL}/songs/playlist/api/userPlaylist/${fd.user}/`, {
+							headers: {
+								authorization: 'Token ' + TOKEN,
+							},
+						})
+						.then((res) => {
+							if (res.data.length < 2) {
+								setPlaylist(res.data);
+							} else {
+								setPlaylist(res.data.sort(() => Math.random() - Math.random()).slice(0, 2));
+							}
+							setLoading(false);
+						})
+						.catch((err) => {
+							console.log(err);
+							setLoading(false);
+						});
+					setArtists(fd);
 				})
 				.catch((err) => {
 					console.log(err);
+					setLoading(false);
 				});
 		}
 	}, [userInfo]);
+	console.log(artist, playlist);
 
 	return (
 		<>
@@ -42,57 +66,37 @@ export default function FeaturedArtist() {
 					<Loading />
 				) : (
 					<>
-						<div className='carousel-container'>
-							<div id='carouselExampleIndicators' className='carousel slide' data-ride='carousel'>
-								<h4> Featured Artists</h4>
-								<div className='carousel-inner'>
-									<div className='carousel-item active'>
-										<div className='d-flex justify-content-start'>
-											<div className='carousel-card-text'>
-												<div className='text-capitalize text-name'>
-													{allArtists[0].first_name} {allArtists[0].last_name}
-												</div>
-												<p className='text-username'> {allArtists[0].getUsername}</p>
-											</div>
-											<div className='carousel-card-img '>
-												<img src={allArtists[0].profile_picture} alt='...' width='300' height='250' />
-											</div>
-										</div>
-									</div>
-									<div className='carousel-item'>
-										<div className='d-flex justify-content-start'>
-											<div className='carousel-card-text'>
-												<div className='text-capitalize text-name'>
-													{allArtists[1].first_name} {allArtists[1].last_name}
-												</div>
-												<p className='text-username'> {allArtists[1].getUsername}</p>
-											</div>
-											<div className='carousel-card-img '>
-												<img src={allArtists[1].profile_picture} alt='...' width='300' height='250' />
-											</div>
-										</div>
-									</div>
-									<div className='carousel-item'>
-										<div className='d-flex justify-content-start'>
-											<div className='carousel-card-text'>
-												<div className='text-capitalize text-name'>
-													{allArtists[2].first_name} {allArtists[2].last_name}
-												</div>
-												<p className='text-username'> {allArtists[2].getUsername}</p>
-											</div>
-											<div className='carousel-card-img '>
-												<img src={allArtists[2].profile_picture} alt='...' width='300' height='250' />
-											</div>
-										</div>
-									</div>
+						<h4> Featured Artist</h4>
+						<div className='fArtist-card'>
+							<div className='fArtist-card-left'>
+								<div className='text-capitalize text-name'>
+									<Link
+										to='/artistDetail'
+										onClick={() => {
+											localStorage.setItem('profile_view', artist.user);
+										}}
+									>
+										{artist.first_name} {artist.last_name}
+									</Link>
 								</div>
-
-								<a className='carousel-control-prev ' href='#carouselExampleIndicators' role='button' data-slide='prev'>
-									<span className='carousel-control-prev-icon' aria-hidden='true'></span>
-								</a>
-								<a className='carousel-control-next' href='#carouselExampleIndicators' role='button' data-slide='next'>
-									<span className='carousel-control-next-icon' aria-hidden='true'></span>
-								</a>
+								<p className='text-username'>
+									<Link
+										to='/artistDetail'
+										onClick={() => {
+											localStorage.setItem('profile_view', artist.user);
+										}}
+									>
+										{artist.getUsername}
+									</Link>{' '}
+								</p>
+								<div className='fArtist-playlist-card d-flex align-content-between justify-content-start flex-wrap'>
+									{playlist.map((playlist) => (
+										<PlaylistCard key={playlist.id} playlist={playlist} />
+									))}
+								</div>
+							</div>
+							<div className='fArtist-card-img'>
+								<img src={artist.profile_picture} alt='...' width='100%' />
 							</div>
 						</div>
 					</>
@@ -101,3 +105,23 @@ export default function FeaturedArtist() {
 		</>
 	);
 }
+
+export const PlaylistCard = (props) => {
+	const dispatch = useDispatch();
+	return (
+		<>
+			<div className='playlist-card'>
+				<img src={props.playlist.playlist_cover} className='playlist-card-img' width='120' height='120' />
+
+				<Link
+					to='/playlistDetail'
+					onClick={() => {
+						dispatch(changePlaylist(props.playlist.id));
+					}}
+				>
+					<h6 className='text-center'>{props.playlist.playlist_name}</h6>
+				</Link>
+			</div>
+		</>
+	);
+};

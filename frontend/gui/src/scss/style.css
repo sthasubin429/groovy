@@ -229,20 +229,38 @@ ul {
   background-color: #fff;
   border-radius: 0.5rem;
   margin: 1rem 0;
+  padding: 1rem;
 }
 
-.home-container .featured-artist .carousel-card-text {
-  text-align: start;
+.home-container .featured-artist h4 {
+  margin: 0 1rem;
 }
 
-.home-container .featured-artist .carousel-card-text .text-name {
+.home-container .featured-artist .fArtist-card {
+  margin: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto minmax(200px, 30%);
+      grid-template-columns: auto minmax(200px, 30%);
+}
+
+.home-container .featured-artist .fArtist-card .fArtist-card-left .text-name {
   font-size: 2rem;
   margin: 0.4rem 0 0.4rem 0.8rem;
 }
 
-.home-container .featured-artist .carousel-card-text .text-username {
+.home-container .featured-artist .fArtist-card .fArtist-card-left .text-username {
   font-size: 1.3rem;
   margin: 0.4rem 0 0.4rem 0.8rem;
+}
+
+.home-container .featured-artist .fArtist-card .fArtist-card-left .fArtist-playlist-card .playlist-card .playlist-card-img {
+  border-radius: 0.5rem;
+  margin: 0.5rem 1rem;
+}
+
+.home-container .featured-artist .fArtist-card .fArtist-card-img img {
+  border-radius: 0.5rem;
 }
 
 .home-container .featured-playlist {

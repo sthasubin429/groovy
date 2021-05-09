@@ -28,8 +28,6 @@ export default function FeaturedSongs() {
 		}
 	}, [userInfo]);
 
-	console.log(allSongs);
-
 	return (
 		<>
 			<div className='featured-artist'>

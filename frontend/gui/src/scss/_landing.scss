@@ -121,18 +121,40 @@
 		background-color: #fff;
 		border-radius: 0.5rem;
 		margin: 1rem 0;
+		padding: 1rem;
 
-		.carousel-card-text {
-			text-align: start;
+		h4 {
+			margin: 0 1rem;
+		}
+		.fArtist-card {
+			margin: 1rem;
+			display: grid;
+			grid-template-columns: auto minmax(200px, 30%);
 
-			.text-name {
-				font-size: 2rem;
-				margin: 0.4rem 0 0.4rem 0.8rem;
+			.fArtist-card-left {
+				.text-name {
+					font-size: 2rem;
+					margin: 0.4rem 0 0.4rem 0.8rem;
+				}
+
+				.text-username {
+					font-size: 1.3rem;
+					margin: 0.4rem 0 0.4rem 0.8rem;
+				}
+				.fArtist-playlist-card {
+					.playlist-card {
+						.playlist-card-img {
+							border-radius: 0.5rem;
+							margin: 0.5rem 1rem;
+						}
+					}
+				}
 			}
 
-			.text-username {
-				font-size: 1.3rem;
-				margin: 0.4rem 0 0.4rem 0.8rem;
+			.fArtist-card-img {
+				img {
+					border-radius: 0.5rem;
+				}
 			}
 		}
 	}
