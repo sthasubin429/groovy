@@ -225,6 +225,50 @@ ul {
   color: #323244;
 }
 
+.footer-container {
+  background: #555555;
+  padding: 1.5rem 0 0 0;
+}
+
+.footer-container * {
+  color: #fff;
+}
+
+.footer-container .footer-card ul {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-container .footer-card ul li {
+  line-height: 1.5rem;
+}
+
+.footer-container .footer-card ul li * {
+  text-decoration: none;
+}
+
+.footer-container .footer-card ul li *:hover {
+  text-decoration: none;
+}
+
+.footer-container .footer-card .footer-link {
+  margin: 0.2rem;
+}
+
+.footer-container .footer-card .footer-link * {
+  font-size: 1.5rem;
+}
+
+.footer-container .footer-seperator {
+  width: 80%;
+  height: 2px;
+  background: #868686;
+}
+
+.footer-container .copyright {
+  margin: 1rem 0;
+}
+
 .sidebar-container {
   background-color: #fff;
   height: 100%;

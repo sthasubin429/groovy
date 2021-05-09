@@ -16,10 +16,10 @@ class Landing extends Component {
 					</div>
 				</div>
 				<div className='container carousel-container'>
-					<div id='carouselExampleIndicators' class='carousel slide' data-ride='carousel'>
-						<div class='carousel-inner'>
-							<div class='carousel-item active'>
-								<div class='d-flex justify-content-start'>
+					<div id='carouselExampleIndicators' className='carousel slide' data-ride='carousel'>
+						<div className='carousel-inner'>
+							<div className='carousel-item active'>
+								<div className='d-flex justify-content-start'>
 									<div className='carousel-card-img '>
 										<img src={`${process.env.PUBLIC_URL}/Assests/images/cover3.jpg`} alt='...' width='100%' />
 									</div>
@@ -32,8 +32,8 @@ class Landing extends Component {
 									</div>
 								</div>
 							</div>
-							<div class='carousel-item '>
-								<div class='d-flex justify-content-start'>
+							<div className='carousel-item '>
+								<div className='d-flex justify-content-start'>
 									<div className='carousel-card-img'>
 										<img src={`${process.env.PUBLIC_URL}/Assests/images/cover2.jpg`} alt='...' width='100%' />
 									</div>
@@ -46,8 +46,8 @@ class Landing extends Component {
 									</div>
 								</div>
 							</div>
-							<div class='carousel-item '>
-								<div class='d-flex justify-content-start'>
+							<div className='carousel-item '>
+								<div className='d-flex justify-content-start'>
 									<div className='carousel-card-img '>
 										<img src={`${process.env.PUBLIC_URL}/Assests/images/cover1.jpg`} alt='...' width='100%' />
 									</div>
@@ -62,11 +62,11 @@ class Landing extends Component {
 							</div>
 						</div>
 
-						<a class='carousel-control-prev ' href='#carouselExampleIndicators' role='button' data-slide='prev'>
-							<span class='carousel-control-prev-icon' aria-hidden='true'></span>
+						<a className='carousel-control-prev ' href='#carouselExampleIndicators' role='button' data-slide='prev'>
+							<span className='carousel-control-prev-icon' aria-hidden='true'></span>
 						</a>
-						<a class='carousel-control-next' href='#carouselExampleIndicators' role='button' data-slide='next'>
-							<span class='carousel-control-next-icon' aria-hidden='true'></span>
+						<a className='carousel-control-next' href='#carouselExampleIndicators' role='button' data-slide='next'>
+							<span className='carousel-control-next-icon' aria-hidden='true'></span>
 						</a>
 					</div>
 				</div>
