@@ -156,7 +156,7 @@ function CustomPlayer() {
 						{displayPlaylist ? (
 							<>
 								<div className=''>
-									<Playlist />
+									<Playlist playlist={playlist} />
 								</div>
 							</>
 						) : (

@@ -22,7 +22,7 @@ export const playerChangePlaylist = (playlist_id, playlist_details) => {
 	return {
 		type: actionTypes.PLAYER_CHANGE_PLAYLIST,
 		playlist_id: playlist_id,
-		playlist_details: playlist_details,
+		playlist_details: playlist_details.sort((a, b) => a.playlist_songs - b.playlist_songs),
 		index: 0,
 	};
 };
@@ -38,7 +38,7 @@ export const playerChangeSong = (index, current_song) => {
 export const playerPlaylistSongDetails = (playlist_song_details) => {
 	return {
 		type: actionTypes.PLAYER_PLAYLIST_SONG_DETAILS,
-		playlist_song_details: playlist_song_details,
+		playlist_song_details: playlist_song_details.sort((a, b) => a.id - b.id),
 	};
 };
 

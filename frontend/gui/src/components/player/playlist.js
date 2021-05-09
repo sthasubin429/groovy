@@ -12,7 +12,7 @@ export const PlaylistDetails = (props) => {
 			<li
 				className='d-flex'
 				onClick={(e) => {
-					console.log(dispatch(changeSong(props.index)));
+					dispatch(changeSong(props.index));
 				}}
 			>
 				<img src={props.song.song_photo} className='playlist-songImg' alt='Song' width='50' height='50' />
@@ -26,7 +26,19 @@ export const PlaylistDetails = (props) => {
 	);
 };
 
-export default function Playlist() {
+export default function Playlist(props) {
+	// const [loading, setLoading] = useState(true);
+	// const [playlist, setPlaylist] = useState(props.playlist);
+
+	// useEffect(() => {
+	// 	if (props.playlist) {
+	// 		// console.log(playlist);
+	// 		setPlaylist(props.playlist);
+	// 		setLoading(false);
+	// 	}
+	// }, [props.playlist]);
+	// console.log(p)
+
 	const [loading, setLoading] = useState(true);
 	const playlist = useSelector((state) => state.player.playlist_song_details);
 

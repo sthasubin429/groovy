@@ -30,7 +30,7 @@ export default function FeaturedSongs() {
 
 	return (
 		<>
-			<div className='featured-artist'>
+			<div className='featured-songs'>
 				{loading ? (
 					<Loading />
 				) : (
