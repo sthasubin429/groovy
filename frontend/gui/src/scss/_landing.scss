@@ -1,7 +1,103 @@
-.landing_main {
-	font-size: 5em;
-	width: 100%;
-	// margin: 1.125rem;
+.landing-header {
+	background-image: url('/Assests/images/cover.jpg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: left top;
+	color: #fff;
+	aspect-ratio: 1.6;
+	display: grid;
+	place-items: center;
+
+	.landing-header-text {
+		h1 {
+			font-size: 3rem;
+		}
+
+		p {
+			font-size: 1.5rem;
+		}
+	}
+
+	.landing-header-btn {
+		* {
+			color: #fff;
+			margin: 0 0.5rem;
+
+			border: none;
+			text-decoration: none;
+			padding: 0.5rem 2rem;
+		}
+
+		*:active {
+			border: noe;
+		}
+		.btn-signup {
+			font-size: 1.2rem;
+			background-color: #8ecae6;
+			transition: 0.2s;
+		}
+		.btn-signup:hover {
+			background: #8ecae6;
+			transform: scale(1.1);
+		}
+
+		.btn-learn {
+			background-color: #8ecae6;
+			font-size: 1.2rem;
+			transition: 0.2s;
+		}
+		.btn-learn:hover {
+			background: #8ecae6;
+			transform: scale(1.1);
+		}
+	}
+}
+.carousel-container {
+	padding: 1rem;
+	margin: 1rem auto;
+	background-color: #fff;
+	border-radius: 0.5rem;
+
+	.carousel-card-img {
+		width: 50%;
+		padding: 0.5rem;
+		margin: 0 0.5rem;
+		img {
+			border-radius: 0.5rem;
+		}
+	}
+
+	.carousel-card-text {
+		width: 50%;
+		padding: 0.5rem;
+		margin: 0 0.5rem;
+		text-align: center;
+		.carousel-btn {
+			border: none;
+			text-decoration: none;
+			text-align: center;
+			padding: 0.5rem 1.5rem;
+			background-color: $primary_colour;
+			color: #fff;
+			border: 00.5rem;
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+		.carousel-card-img {
+			display: none;
+		}
+		.carousel-card-text {
+			width: 100%;
+			height: 15rem;
+		}
+	}
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+	filter: invert(100%);
+	width: 5%;
 }
 
 .main-nav {
