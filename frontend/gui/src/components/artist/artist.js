@@ -38,9 +38,11 @@ export default function Artist() {
 				</div>
 			) : (
 				<>
-					{artists.map((artist) => (
-						<ArtistDetail key={artist.id} artist={artist} user_id={userInfo.id} />
-					))}
+					<div className='d-flex flex-wrap justify-content-center'>
+						{artists.map((artist) => (
+							<ArtistDetail key={artist.id} artist={artist} user_id={userInfo.id} />
+						))}
+					</div>
 				</>
 			)}
 		</>

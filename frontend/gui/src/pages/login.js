@@ -66,6 +66,8 @@ export default function Login() {
 					Register
 				</a>
 			</p>
+
+			<div className='mb-5'></div>
 		</div>
 	);
 }

@@ -581,7 +581,7 @@ ul {
   margin: 2rem 1rem;
   cursor: pointer;
   position: relative;
-  max-width: 6rem;
+  max-width: 8rem;
 }
 
 .song-card .songList-songImg {
@@ -621,14 +621,27 @@ ul {
   margin: 1rem 0;
 }
 
+.artist-container {
+  background-color: #fff;
+  margin: 2rem 0.5rem 0.5rem 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.artist-container .artist-title {
+  padding: 1rem 1.5rem;
+}
+
 .artist-card {
-  margin: 3rem;
+  margin: 2rem 1rem;
+  cursor: pointer;
+  max-width: 7rem;
 }
 
 .artist-card .artistCard-Img {
   border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
+  width: 6rem;
+  height: 6rem;
 }
 
 .artist-card .artistCard-details {

@@ -168,6 +168,8 @@ export default function Register() {
 						Login
 					</a>
 				</p>
+
+				<div className='mb-5'></div>
 			</div>
 		</>
 	);
