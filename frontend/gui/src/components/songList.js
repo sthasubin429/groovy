@@ -147,7 +147,7 @@ function SongList(props) {
 		}
 	}, [currentPage, allSongs, searchSongs, search]);
 
-	const changePlaylist = (direction) => {
+	const changePage = (direction) => {
 		if (direction === 'prev') {
 			if (currentPage !== 1) {
 				setCurrentPage(currentPage - 1);
@@ -188,7 +188,7 @@ function SongList(props) {
 				</div>
 			) : (
 				<> */}
-			<div className='d-flex flex-wrap'>
+			<div className='d-flex flex-wrap justify-content-center'>
 				{songsPaginated.map((song) => (
 					<SongCard key={song.id} song={song} />
 				))}
@@ -200,7 +200,7 @@ function SongList(props) {
 						className='page-link'
 						onClick={(e) => {
 							e.preventDefault();
-							changePlaylist('prev');
+							changePage('prev');
 						}}
 					>
 						<span aria-hidden='true'>&laquo;</span>
@@ -227,7 +227,7 @@ function SongList(props) {
 						className='page-link'
 						onClick={(e) => {
 							e.preventDefault();
-							changePlaylist('next');
+							changePage('next');
 						}}
 					>
 						<span aria-hidden='true'>&raquo;</span>

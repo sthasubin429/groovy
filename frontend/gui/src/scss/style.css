@@ -581,7 +581,7 @@ ul {
   margin: 2rem 1rem;
   cursor: pointer;
   position: relative;
-  max-width: 8rem;
+  max-width: 6rem;
 }
 
 .song-card .songList-songImg {
