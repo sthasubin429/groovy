@@ -14,6 +14,24 @@ export default function PlaylistEdit() {
 	const [playlistInfo, setPlaylistInfo] = useState();
 	const [accessError, setAccessError] = useState(false);
 
+	const [songs, setSongs] = useState([]);
+
+	useEffect(() => {
+		setSongs([]);
+		axios
+			.get(`${BASE_URL}/songs/api/`, {
+				headers: {
+					authorization: 'Token ' + TOKEN,
+				},
+			})
+			.then((res) => {
+				setSongs(res.data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}, []);
+
 	useEffect(() => {
 		if (playlist_id) {
 			dispatch(checkPlaylist());
@@ -52,7 +70,7 @@ export default function PlaylistEdit() {
 				</>
 			) : (
 				<>
-					<PlaylistEditForm playlist={playlist} playlistInfo={playlistInfo} user={user} playlistDetail={playlistDetail} />
+					<PlaylistEditForm playlist={playlist} playlistInfo={playlistInfo} user={user} playlistDetail={playlistDetail} songs={songs} />
 				</>
 			)}
 		</>

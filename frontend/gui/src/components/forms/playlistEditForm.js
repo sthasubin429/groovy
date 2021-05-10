@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { BASE_URL, DELETE, PUT, TOKEN } from '../../store/utility';
+import { BASE_URL, DELETE, PUT, TOKEN, POST } from '../../store/utility';
 import Loading from '../other/loading';
 import axios from 'axios';
 
@@ -15,6 +15,7 @@ export default function PlaylistEditForm(props) {
 	const [loading, setLoading] = useState(true);
 	const [loadingPlaylistDetail, setLoadingPlaylistDetail] = useState(false);
 	const songCover = useRef();
+	const [error, setError] = useState(false);
 
 	useEffect(() => {
 		setPlaylist(props.playlist);
@@ -34,7 +35,8 @@ export default function PlaylistEditForm(props) {
 		songCover.current.src = URL.createObjectURL(image);
 		setImageFile(image);
 	};
-	console.log(playlist, user, playlistInfo, playlistDetail);
+	// console.log(playlist, user, playlistInfo, playlistDetail);
+	// console.log(playlistDetail);
 
 	const handleSubmit = (event, requestType) => {
 		setLoadingPlaylistDetail(true);
@@ -66,6 +68,121 @@ export default function PlaylistEditForm(props) {
 						});
 				}
 		}
+	};
+
+	const [options, setOptions] = useState([]);
+	const choiceRef = useRef();
+
+	useEffect(() => {
+		if (props.songs) {
+			const songs = [...props.songs];
+			let optionList = [];
+			if (songs.length > 0) {
+				songs.forEach((song) => {
+					optionList.push(
+						<option
+							className='text-capitalize'
+							value={song.song_name}
+							key={song.id}
+							onClick={() => {
+								choiceRef.value = this.value;
+							}}
+						/>
+					);
+				});
+			}
+			// console.log(optionList);
+			setOptions(optionList);
+		}
+	}, [props.songs]);
+
+	const [choiceKeys, setChoiceKeys] = useState([]);
+
+	const [songChoiceArray, setSongChoiceArray] = useState([]);
+	useEffect(() => {
+		let temp = [];
+
+		choiceKeys.forEach((keys) =>
+			temp.push(
+				<div className='form-group row' key={keys}>
+					<div className='col-12 col-sm-8'>
+						<input className='form-control' list='songList' id='songChoice' placeholder='Type to search...' ref={choiceRef} />
+						<datalist id='songList'> {options} </datalist>
+					</div>
+
+					<div className='col-12 col-sm-4'>
+						<button
+							onClick={(event) => {
+								event.preventDefault();
+								let tempChoice = [...choiceKeys];
+								tempChoice.splice(tempChoice.indexOf(keys), 1);
+								setChoiceKeys(tempChoice);
+							}}
+							className='btn btn-danger'
+						>
+							Remove
+						</button>
+					</div>
+				</div>
+			)
+		);
+		setSongChoiceArray(temp);
+	}, [choiceKeys, options]);
+
+	const handleAddSongs = (songChoice, playlistDetail, requestType) => {
+		let formData = new FormData();
+		formData.append('playlist_id', playlistDetail.id);
+		formData.append('playlist_songs', songChoice);
+
+		switch (requestType) {
+			case POST:
+				if (TOKEN) {
+					axios
+						.post(`${BASE_URL}/songs/playlistDetail/api/create/`, formData, {
+							headers: {
+								authorization: 'Token ' + TOKEN,
+							},
+						})
+						.then((res) => {
+							// console.log(res.data);
+							window.location.replace('http://localhost:3000/playlistDetail');
+						})
+						.catch((err) => {
+							// console.log(err);
+							setError(true);
+							setLoading(false);
+						});
+				}
+		}
+	};
+
+	const handleAddSongsSubmit = (event) => {
+		event.preventDefault();
+		// handleAddSongs()
+		let songChoice = event.target.elements.songChoice;
+		// console.log(songChoice.length > 1);
+		// console.log(typeof songChoice);
+		let songIdArr = [];
+		const songs = [...props.songs];
+
+		songs.forEach((song) => {
+			if (songChoice.length > 1) {
+				songChoice.forEach((choice) => {
+					if (song['song_name'] === choice.value) {
+						songIdArr.push(song.id);
+					}
+				});
+			} else {
+				if (song['song_name'] === songChoice.value) {
+					songIdArr.push(song.id);
+				}
+			}
+		});
+
+		let songIdUnique = [...new Set(songIdArr)];
+		songIdUnique.forEach((songId) => {
+			handleAddSongs(songId, playlistInfo, POST);
+		});
 	};
 
 	return (
@@ -115,14 +232,37 @@ export default function PlaylistEditForm(props) {
 							</div>
 						</div>
 
-						{loadingPlaylistDetail ? <Loading /> : <input type='Submit' name='submit' className='btn btn-primary' />}
+						{loadingPlaylistDetail ? <Loading /> : <input type='Submit' value='Save Changes' name='submit' className='btn btn-primary' />}
 					</form>
 
-					<form>
+					<div>
 						{playlist.map((playlist, i) => (
-							<EditPlaylistOldSongs key={playlist.id} playlist={playlist} playlistDetail={playlistDetail[i]} />
+							<EditPlaylistOldSongs key={i} playlist={playlist} playlistDetail={playlistDetail[i]} length={playlistDetail.length} />
 						))}
-					</form>
+					</div>
+
+					<div>
+						<form
+							onSubmit={(event) => {
+								handleAddSongsSubmit(event);
+							}}
+						>
+							{songChoiceArray}
+							<div className='form-group row col-12'>
+								<button
+									onClick={(event) => {
+										event.preventDefault();
+										setChoiceKeys(choiceKeys.concat(choiceKeys[choiceKeys.length - 1] + 1));
+									}}
+									className='btn btn-secondary'
+								>
+									Add Songs
+								</button>
+							</div>
+
+							<input type='Submit' value='Submit' name='submit' className='btn btn-primary' />
+						</form>
+					</div>
 				</>
 			)}
 		</>
@@ -130,14 +270,14 @@ export default function PlaylistEditForm(props) {
 }
 
 export function EditPlaylistOldSongs(props) {
-	console.log(props.playlist);
-	console.log(props.playlistDetail);
+	// console.log(props.playlist);
+	// console.log(props.playlistDetail);
 
-	const handleRemoveOldSong = (event, requestType, id) => {
-		event.preventDefault();
+	const handleRemoveOldSong = (requestType, id) => {
+		// event.preventDefault();
 		switch (requestType) {
 			case DELETE:
-				if (TOKEN) {
+				if (TOKEN && props.length > 2) {
 					axios
 						.delete(`${BASE_URL}/songs/playlistDetail/api/${id}/delete/`, {
 							headers: {
@@ -166,7 +306,11 @@ export function EditPlaylistOldSongs(props) {
 					<button
 						className='btn btn-danger'
 						onClick={(event) => {
-							handleRemoveOldSong(event, DELETE, props.playlistDetail.id);
+							event.preventDefault();
+							// console.log(props.playlistDetail.id);
+							if (window.confirm('Are you sure you wish to revoce Song From Playlist? \nYou cannot undo this action.')) {
+								handleRemoveOldSong(DELETE, props.playlistDetail.id);
+							}
 						}}
 					>
 						Remove
