@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { changeSong } from './player';
+
 import { BASE_URL } from '../utility';
 import * as actionTypes from './actionTypes';
-import { changeSong } from './player';
 
 export const profileStart = () => {
 	return {

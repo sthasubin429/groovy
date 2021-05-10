@@ -1,7 +1,8 @@
+import axios from 'axios';
+import Loading from '../other/loading';
+
 import React, { useEffect, useRef, useState } from 'react';
 import { BASE_URL, DELETE, PUT, TOKEN, POST } from '../../store/utility';
-import Loading from '../other/loading';
-import axios from 'axios';
 
 export default function PlaylistEditForm(props) {
 	let playlist_id = localStorage.getItem('current_playlist');

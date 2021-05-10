@@ -1,9 +1,12 @@
+import axios from 'axios';
+
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { DangerMessage, SucessMessage } from '../components/other/message';
-import Loading from '../components/other/loading';
-import axios from 'axios';
+
 import { BASE_URL } from '../store/utility';
+import Loading from '../components/other/loading';
+
+import { DangerMessage, SucessMessage } from '../components/other/message';
 
 export default function ForgotPassword() {
 	const [error, setError] = useState(false);

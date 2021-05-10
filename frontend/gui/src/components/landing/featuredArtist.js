@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { BASE_URL, TOKEN } from '../../store/utility';
 import axios from 'axios';
 import Loading from '../other/loading';
-import { changePlaylist } from '../../store/actions/player';
+
 import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+
+import { BASE_URL, TOKEN } from '../../store/utility';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { changePlaylist } from '../../store/actions/player';
 
 export default function FeaturedArtist() {
 	const [artist, setArtists] = useState([]);

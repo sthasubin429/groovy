@@ -1,13 +1,13 @@
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 import React, { useState, useRef } from 'react';
+import { logout } from '../../store/actions/auth';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { POST, TOKEN, BASE_URL } from '../../store/utility';
 
 import { updateUserProfile } from '../../store/actions/profile';
-
-import { logout } from '../../store/actions/auth';
-import { Link } from 'react-router-dom';
 
 export default function Edit(props) {
 	const userDetails = useSelector((state) => state.profile.user_details);

@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
 import axios from 'axios';
-import { useForm } from 'react-hook-form';
-import Loading from '../components/other/loading';
-import { logout } from '../store/actions/auth';
 
-import { DangerMessage } from '../components/other/message';
-import { BASE_URL, TOKEN } from '../store/utility';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
+
+import { logout } from '../store/actions/auth';
+import Loading from '../components/other/loading';
+
+import { BASE_URL, TOKEN } from '../store/utility';
+import { DangerMessage } from '../components/other/message';
 
 export default function ChangePassword() {
 	const [loading, setLoading] = useState(false);

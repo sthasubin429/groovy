@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { BASE_URL, TOKEN } from '../../store/utility';
 import axios from 'axios';
 import Loading from '../other/loading';
+
+import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { BASE_URL, TOKEN } from '../../store/utility';
 
 export default function FeaturedSongs() {
 	const [allSongs, setAllSongs] = useState([]);

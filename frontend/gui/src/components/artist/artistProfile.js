@@ -20,7 +20,6 @@ export default function ArtistProfile(props) {
 	const [followerCount, setFollowerCount] = useState(0);
 	const [followingCount, setFollowingCount] = useState(0);
 
-	// console.log(following);
 	const [loading, setLoading] = useState(true);
 
 	const [playlist, setPlaylist] = useState([]);
@@ -110,10 +109,8 @@ export default function ArtistProfile(props) {
 			});
 	};
 
-	// console.log(followData);
 	const handleOnClick = (event, requestType) => {
 		event.preventDefault();
-		// console.log(follow, following);
 		let formData = new FormData();
 
 		formData.append('user', follow.user);
@@ -149,8 +146,6 @@ export default function ArtistProfile(props) {
 							},
 						})
 						.then((res) => {
-							// console.log(res.data);
-							// checkFollowState(follow.user, following);
 							window.location.reload();
 						})
 						.catch((err) => {
@@ -173,12 +168,6 @@ export default function ArtistProfile(props) {
 			})
 			.catch((err) => console.log(err));
 	};
-
-	// useEffect(() => {
-	// 	if (playlist && songs) {
-	// 		setLoading(false);
-	// 	}
-	// }, [playlist, songs]);
 
 	return (
 		<>
@@ -231,8 +220,6 @@ export default function ArtistProfile(props) {
 							<h4>Bio </h4>
 							<p> {props.artist[0].bio}</p>
 						</div>
-
-						{/* <img src={props.artist[0].profile_picture} className='rounded p-2 ' alt='Profile Picture' width='100%' /> */}
 					</div>
 				</div>
 

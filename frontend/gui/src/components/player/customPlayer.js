@@ -3,13 +3,13 @@ import Playlist from './playlist';
 import 'react-h5-audio-player/lib/styles.css';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 import React, { useState, useRef, useEffect } from 'react';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 
 import * as playerActions from '../../store/actions/player.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { faPlay, faPause, faVolumeUp, faBars, faStepBackward, faStepForward, faRedo, faRandom } from '@fortawesome/free-solid-svg-icons';
 
 function CustomPlayer() {
 	const [isPlaying, setIsPlaying] = useState(true);

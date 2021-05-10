@@ -1,6 +1,7 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+
+import React, { useState, useEffect } from 'react';
 import { BASE_URL, TOKEN } from '../../store/utility';
 
 export default function Comment(props) {

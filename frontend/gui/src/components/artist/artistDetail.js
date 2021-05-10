@@ -1,12 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-// import { profileUpdateProfileView } from '../../store/actions/profile';
-// import { useDispatch } from 'react-redux';
 
 export default function ArtistDetail(props) {
-	// const dispatch = useDispatch();
-	// console.log(props.artist.id, props.user_id);
-
 	if (props.artist.id !== props.user_id) {
 		return (
 			<>

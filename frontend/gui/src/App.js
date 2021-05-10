@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
 import './scss/style.css';
+import React, { Component } from 'react';
 
-import { BrowserRouter as Router } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import * as actions from './store/actions/auth';
 import Main from './pages/main';
+import * as actions from './store/actions/auth';
 
 class App extends Component {
 	componentDidMount() {

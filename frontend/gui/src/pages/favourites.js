@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import axios from 'axios';
-import { BASE_URL, TOKEN } from '../store/utility';
+import { useSelector } from 'react-redux';
+
 import Loading from '../components/other/loading';
+import { BASE_URL, TOKEN } from '../store/utility';
+
+import React, { useEffect, useState } from 'react';
 import { SongCard } from '../components/landing/featuredSongs';
 
 export default function Favourites() {

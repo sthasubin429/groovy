@@ -1,9 +1,10 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
+import { useSelector } from 'react-redux';
 import Loading from '../components/other/loading';
+
 import { BASE_URL, TOKEN } from '../store/utility';
+import React, { useState, useEffect } from 'react';
 
 export const SongCard = (props) => {
 	const user = useSelector((state) => state.profile.user_info);

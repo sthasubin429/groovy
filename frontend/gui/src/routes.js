@@ -1,29 +1,40 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import LandingPage from './pages/landing';
 import Login from './pages/login';
 import Player from './pages/player';
-import AllSongs from './pages/allSongs';
-import Register from './pages/register';
-import Playlist from './pages/playlist';
-import UploadMusic from './pages/uploadMusic';
-import PlaylistCreate from './pages/playlistCreate';
-import RegisterDetails from './pages/registerDetails';
-import Profile from './pages/profile';
-import ProfileEdit from './pages/profileEdit';
-import Artists from './pages/artists';
-import ArtistPage from './pages/artistPage';
-import Composer from './pages/composer';
-import SinglePlayer from './pages/singlePlayer';
-import ChangePassword from './pages/changePassword';
-import PlaylistDetail from './pages/playlistDetail';
-import ForgotPassword from './pages/forgotPassword';
-import PasswordResetConfirm from './pages/passwordResetConfirm';
+
 import HomePage from './pages/home';
+import Artists from './pages/artists';
+
+import Profile from './pages/profile';
+import AllSongs from './pages/allSongs';
+
+import Composer from './pages/composer';
+import Register from './pages/register';
+
+import Playlist from './pages/playlist';
+import LandingPage from './pages/landing';
+
 import Following from './pages/following';
+import ArtistPage from './pages/artistPage';
+
 import Favourites from './pages/favourites';
+import ProfileEdit from './pages/profileEdit';
+
+import UploadMusic from './pages/uploadMusic';
+import SinglePlayer from './pages/singlePlayer';
+
 import PlaylistEdit from './pages/playlistEdit';
+import ChangePassword from './pages/changePassword';
+
+import PlaylistCreate from './pages/playlistCreate';
+import PlaylistDetail from './pages/playlistDetail';
+
+import ForgotPassword from './pages/forgotPassword';
+import RegisterDetails from './pages/registerDetails';
+
+import PasswordResetConfirm from './pages/passwordResetConfirm';
 
 export const BaseRouter = () => (
 	<div>

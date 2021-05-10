@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-import { BASE_URL, TOKEN } from '../store/utility';
+
 import Loading from '../components/other/loading';
+import { BASE_URL, TOKEN } from '../store/utility';
+
+import React, { useEffect, useState } from 'react';
+
 import FollowingSongs from '../components/following/followingSongs';
 import FollowingPlaylist from '../components/following/followingPlaylist';
 

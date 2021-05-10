@@ -1,11 +1,14 @@
+import axios from 'axios';
+
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+
+import { BASE_URL } from '../store/utility';
+import { useLocation } from 'react-router-dom';
 
 import Loading from '../components/other/loading';
 import { DangerMessage, SucessMessage } from '../components/other/message';
-import axios from 'axios';
-import { BASE_URL } from '../store/utility';
+
 export default function PasswordResetConfirm() {
 	const location = useLocation();
 	let path = location.pathname;

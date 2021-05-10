@@ -1,7 +1,8 @@
 import React from 'react';
+
+import FeaturedSongs from '../components/landing/featuredSongs';
 import FeaturedArtist from '../components/landing/featuredArtist';
 import FeaturedPlaylist from '../components/landing/featuredPlaylist';
-import FeaturedSongs from '../components/landing/featuredSongs';
 
 export default function HomePage() {
 	return (

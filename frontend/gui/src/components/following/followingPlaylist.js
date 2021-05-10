@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { BASE_URL, TOKEN } from '../../store/utility';
 import Loading from '../other/loading';
+
+import React, { useEffect, useState } from 'react';
+import { BASE_URL, TOKEN } from '../../store/utility';
+
 import { PlaylistCard } from '../playlist/playlistMain';
 
 export default function FollowingPlaylist(props) {

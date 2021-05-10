@@ -1,5 +1,5 @@
-import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../utility';
+import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
 	playlist_id: null,
