@@ -1,17 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { BASE_URL, POST, TOKEN } from '../../store/utility';
+import { BASE_URL, DELETE, PUT, TOKEN } from '../../store/utility';
 import Loading from '../other/loading';
 import axios from 'axios';
 
 export default function PlaylistEditForm(props) {
 	let playlist_id = localStorage.getItem('current_playlist');
 
-	// const playlist = useSelector((state) => state.player.playlist_song_details);
-	// const user = useSelector((state) => state.profile.user_info);
-
 	const [playlist, setPlaylist] = useState(props.playlist);
 	const [playlistInfo, setPlaylistInfo] = useState(props.playlistInfo);
+	const [playlistDetail, setPlaylistDetail] = useState(props.playlistDetail);
 	const [user, setUser] = useState(props.user);
 	const [imageFile, setImageFile] = useState();
 
@@ -23,7 +20,8 @@ export default function PlaylistEditForm(props) {
 		setPlaylist(props.playlist);
 		setPlaylistInfo(props.playlistInfo);
 		setUser(props.user);
-	}, [props.playlistInfo, props.playlist, props.user]);
+		setPlaylistDetail(props.playlistDetail);
+	}, [props.playlistInfo, props.playlist, props.user, props.playlistDetail]);
 
 	useEffect(() => {
 		if (playlist && user && playlistInfo) {
@@ -36,7 +34,7 @@ export default function PlaylistEditForm(props) {
 		songCover.current.src = URL.createObjectURL(image);
 		setImageFile(image);
 	};
-	console.log(playlist, user, playlistInfo);
+	console.log(playlist, user, playlistInfo, playlistDetail);
 
 	const handleSubmit = (event, requestType) => {
 		setLoadingPlaylistDetail(true);
@@ -51,7 +49,7 @@ export default function PlaylistEditForm(props) {
 		}
 
 		switch (requestType) {
-			case POST:
+			case PUT:
 				if (TOKEN) {
 					axios
 						.put(`${BASE_URL}/songs/playlist/api/${playlist_id}/update/`, formData, {
@@ -77,7 +75,7 @@ export default function PlaylistEditForm(props) {
 			) : (
 				<>
 					<h4> Edit Playlist</h4>
-					<form className='col-12 m-4' onSubmit={(event) => handleSubmit(event, POST)}>
+					<form className='col-12 m-4' onSubmit={(event) => handleSubmit(event, PUT)}>
 						<div className='form-group row'>
 							<label htmlFor='playlistName' className='col-12 col-md-2 col-form-label'>
 								Name
@@ -119,8 +117,62 @@ export default function PlaylistEditForm(props) {
 
 						{loadingPlaylistDetail ? <Loading /> : <input type='Submit' name='submit' className='btn btn-primary' />}
 					</form>
+
+					<form>
+						{playlist.map((playlist, i) => (
+							<EditPlaylistOldSongs key={playlist.id} playlist={playlist} playlistDetail={playlistDetail[i]} />
+						))}
+					</form>
 				</>
 			)}
+		</>
+	);
+}
+
+export function EditPlaylistOldSongs(props) {
+	console.log(props.playlist);
+	console.log(props.playlistDetail);
+
+	const handleRemoveOldSong = (event, requestType, id) => {
+		event.preventDefault();
+		switch (requestType) {
+			case DELETE:
+				if (TOKEN) {
+					axios
+						.delete(`${BASE_URL}/songs/playlistDetail/api/${id}/delete/`, {
+							headers: {
+								authorization: 'Token ' + TOKEN,
+							},
+						})
+						.then((res) => {
+							console.log(res.data);
+							window.location.reload();
+						})
+						.catch((err) => {
+							console.log(err);
+						});
+				}
+		}
+	};
+
+	return (
+		<>
+			<div className='form-group row'>
+				<div className='col-12 col-sm-8'>
+					<input className='form-control' defaultValue={props.playlist.song_name} disabled />
+				</div>
+
+				<div className='col-12 col-sm-4'>
+					<button
+						className='btn btn-danger'
+						onClick={(event) => {
+							handleRemoveOldSong(event, DELETE, props.playlistDetail.id);
+						}}
+					>
+						Remove
+					</button>
+				</div>
+			</div>
 		</>
 	);
 }
