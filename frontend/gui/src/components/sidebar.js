@@ -82,7 +82,7 @@ export default function Sidebar() {
 								</Link>
 							</li>
 							<li className='nav-item'>
-								<Link className='nav-link' to='/'>
+								<Link className='nav-link' to='/favourites'>
 									<FontAwesomeIcon icon={faHeart} className='nav-icon' />
 									Favourites
 								</Link>

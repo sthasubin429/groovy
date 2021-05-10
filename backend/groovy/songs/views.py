@@ -76,7 +76,6 @@ class PlaylistDeleteView(DestroyAPIView):
 
 
 class GetUserPlaylist(ListAPIView):
- 
     serializer_class = PlaylistSerializer
 
     def get_queryset(self):

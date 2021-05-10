@@ -22,6 +22,7 @@ import ForgotPassword from './pages/forgotPassword';
 import PasswordResetConfirm from './pages/passwordResetConfirm';
 import HomePage from './pages/home';
 import Following from './pages/following';
+import Favourites from './pages/favourites';
 
 export const BaseRouter = () => (
 	<div>
@@ -51,5 +52,6 @@ export const LoggedInRoute = () => (
 		<Route exact path='/changePassword/' component={ChangePassword} />
 		<Route exact path='/playlistDetail/' component={PlaylistDetail} />
 		<Route exact path='/following/' component={Following} />
+		<Route exact path='/favourites/' component={Favourites} />
 	</div>
 );

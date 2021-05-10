@@ -11,7 +11,7 @@ class Like(models.Model):
     @property
     def getUsername(self):
         return self.username.username
-
+        
 
 class Comment(models.Model):
     song = models.ForeignKey(Songs, on_delete=models.CASCADE)

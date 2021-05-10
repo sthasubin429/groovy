@@ -19,6 +19,15 @@ class GetSongLikes(ListAPIView):
     def get_queryset(self):
         self.id = self.kwargs['songID']
         return Like.objects.filter(song=self.id)
+        
+
+class GetUserLikes(ListAPIView):
+    # queryset = Like.objects.all()
+    serializer_class = LikeSerializer
+
+    def get_queryset(self):
+        self.id = self.kwargs['userID']
+        return Like.objects.filter(username=self.id)
 
 
 class CheckUserSongLike(ListAPIView):
