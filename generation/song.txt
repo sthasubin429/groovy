@@ -1,38 +1,47 @@
-rnagg
-::| CDDE(FE) D3E|F2GA Bcde|dBGF E2(DE)|
-FGAF E2(DE)|FEFA d2AF|Edde dcA^F|G2(AF) D2D2|
-F2(EF) D2(de)|fedf edcB|GFED B2(AF)|DFAc d>GEC|(3DEF (G"F<D)"D.C."e "D.C."fe|]
+|fag/b/
+afd|g/f/g/a/ b b/3/2g/2a/2b/2|a3 fg|
+a3 g|fed efg|a2f gfe|dcB A2 :|
+(F/G/)|AAB cBA|ceg fed|cBA BAF|ABd def|
+(g/f/e)g fdc|ded cBA|dcd fed|cAA A2:|
+f|gfe agf|gfe fed|cec dcd|ecA ABc|
+dAF DFA|BdB c2A|Bcd age|fdd d2:|
+(g/a/)|bab afd|cdf ecA|fdf eag|fdd d2d|
+fag fed|cdB AGF|EFG Adc|BGG G2:|
 
 
-X: 399
-T:The Fairy The Carradadhe
-M:C
+X:1013
+T:Maring Macbogan
+R:double jig
+N:"collected by Fielding"
+B:O'Neill's 1027
+Z:Transcribed by Dan G. Petersen, dangp@post6.tele.dk
+M:6/8
 L:1/8
-B:O'Neill's 385
-N:"Moderate."
-N:"collected by J. O'Neill"
-Z:Transcribed by Chris Falt, cfalt@trytel.com
-K:D
-A|(d2(e/f/))(e/2d/2c/2) BAG|(FA).A A2(A/2B/2) \
-| (c/2B/2c)d ecA|(A<A)G (F<E).D|
-(D>ED) (GAB)|(c>dc) (B2A)|(A>GE) (TGED)|(TEDC) (D2 D)|
-(=E>GG) (G>ED)|(Cc).B {A}(GE).D|(DE).D (DC).C|(DE).D D3||
-
-
-X:562
-T:Templeate., The
-T:cor.abi.d naa.can.s no .cuilin far.
-R:air
-N:"Slow."
-B:O'Neill's 593
-Z:Transcription by John B. Walsh (walsh@math.ubc.ca)
-M:3/4
-L:1/8
-%Q:100
 K:G
-(Bc)|(d2 c2 >c)|(B2 A2) (G>F)|(F2 D2) (C>C)|B3 d (c>B)|
-A2 c2 (B>A)|(G2 A2) (B>c)|A2 G2 G2|G4 (=F>G)|
-(A2 B2) .d2|(de>f)(g>a) (g>a)|b2 (a>g) (^fa)(g>c)|B2 (A>G) z G|
-(F>E) (.B>.B) (.B-.B)|{c}d2 (B>c) (d>e)|(f2 d2) c>A|G4 (D>E)|
-G4 (F>E)|(D4 D)|(B,3 D) (.E.G.A)|
-B2 (dc)(B>A)|(G2 A2) .B>d|(c2 B2) (c>B)|(A4 G2)
+(3G/A/B/|cAG GFG|AGG GBd|gfd efg|fdd d2(f/g/)|
+fdg fed|cAG FGA|(B/c/d)B AFD|DGG G2:|
+c|Bdg fdB|gba gfe|fef gbg|faf ged|
+gag gdf|efg a2 b|aba gfe|dBG A2:|
+
+
+X:1055
+T:One the Boy furm of Shamracher
+R:double jig
+N:"collected by O'Reilly"
+B:O'Neill's 1087
+Z:Transcribed by henrik.norbeck@mailbox.swipnet.se
+M:6/8
+L:1/8
+K:G
+A|BAB EFG|AFD DB,D|GAB Bcd|cEF G2 G|
+DFA GFA|DED AFA|Bcd ABc|d2d dBc:|
+def gag|fed edc|def gfg|eag fdB|
+Ggf gfg|agf g2 g|faf Adf|edd d2z||
+
+
+X:1180
+T:The Swulfingar
+R:double jig
+N:"collected by Cronin"
+B:O'Neill's 1072
+Z:Transcribed 

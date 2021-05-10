@@ -70,7 +70,7 @@ export default function Sidebar() {
 								</Link>
 							</li>
 							<li className='nav-item'>
-								<Link className='nav-link' to='/'>
+								<Link className='nav-link' to='/playlist'>
 									<FontAwesomeIcon icon={faMusic} className='nav-icon' />
 									Albums
 								</Link>
@@ -88,7 +88,7 @@ export default function Sidebar() {
 								</Link>
 							</li>
 							<li className='nav-item'>
-								<Link className='nav-link' to='/'>
+								<Link className='nav-link' to='/following'>
 									<FontAwesomeIcon icon={faUserFriends} className='nav-icon' />
 									Following
 								</Link>

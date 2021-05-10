@@ -827,4 +827,11 @@ ul {
   font-size: 1.2rem;
   margin: 1rem;
 }
+
+.following-song-container {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+}
 /*# sourceMappingURL=style.css.map */
