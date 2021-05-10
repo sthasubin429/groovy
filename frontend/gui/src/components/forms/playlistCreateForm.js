@@ -72,10 +72,8 @@ export default function PlaylistCreateForm(props) {
 		});
 
 		let songIdUnique = [...new Set(songIdArr)];
-		// console.log(songIdUnique);
-		// console.log(songIdUnique.length);
+
 		if (songIdUnique.length >= 2) {
-			console.log('hello');
 			switch (requestType) {
 				case POST:
 					if (TOKEN) {
@@ -100,7 +98,6 @@ export default function PlaylistCreateForm(props) {
 					}
 			}
 		} else {
-			console.log('hi');
 			setError(true);
 			setLoading(false);
 		}

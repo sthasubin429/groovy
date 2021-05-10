@@ -108,7 +108,9 @@ export default function PlaylistDetail() {
 						{allowChange ? (
 							<>
 								<div className='playlist-table-btn d-flex justify-content-around'>
-									<button className='btn btn-secondary'> Edit</button>
+									<Link to='/playlistEdit'>
+										<button className='btn btn-secondary'> Edit</button>
+									</Link>
 									<button type='button' className='btn btn-danger' data-toggle='modal' data-target='#exampleModalCenter'>
 										Delete
 									</button>
