@@ -88,6 +88,13 @@ function CustomPlayer() {
 									}}
 								/> */}
 								<h2 className='d-flex justify-content-center'>Now Playing</h2>
+								<FontAwesomeIcon
+									icon={faBars}
+									className='customPlayer-header-bars'
+									onClick={() => {
+										setDisplayPlaylist(!displayPlaylist);
+									}}
+								/>
 							</div>
 							<div className='flex-container jc-center'>
 								<img src={song.song_photo} className='customPlayer-songImg' alt='Song' />
@@ -103,17 +110,6 @@ function CustomPlayer() {
 								src={song.song_audio}
 								showSkipControls={true}
 								showJumpControls={false}
-								customAdditionalControls={[
-									RHAP_UI.LOOP,
-									<FontAwesomeIcon
-										icon={faBars}
-										size='1x'
-										className='mx-2'
-										onClick={() => {
-											setDisplayPlaylist(!displayPlaylist);
-										}}
-									/>,
-								]}
 								onClickPrevious={(e) => {
 									handleChange('prev');
 								}}
@@ -125,33 +121,6 @@ function CustomPlayer() {
 								}}
 								// other props here
 							/>
-							{/* <div className='flex-container jc-center ai-center customPlayer-controls'>
-								<FontAwesomeIcon icon={faRedo} size='3x' />
-
-								<div className='main-controls'>
-									<FontAwesomeIcon
-										icon={faStepBackward}
-										size='3x'
-										onClick={() => {
-											handleChange('prev');
-											resetIsPlaying();
-										}}
-									/>
-
-									<FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size='3x' onClick={handlePausePlay} />
-
-									<FontAwesomeIcon
-										icon={faStepForward}
-										size='3x'
-										onClick={() => {
-											handleChange('next');
-											resetIsPlaying();
-										}}
-									/>
-								</div>
-
-								<FontAwesomeIcon icon={faRandom} size='3x' />
-							</div> */}
 						</div>
 						{displayPlaylist ? (
 							<>

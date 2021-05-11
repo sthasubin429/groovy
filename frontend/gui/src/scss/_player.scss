@@ -6,10 +6,17 @@
 
 	.customPlayer-header {
 		margin: 1.125rem 0;
+		position: relative;
 
 		* {
 			display: inline-block;
 			margin: 0 0.625rem;
+		}
+		.customPlayer-header-bars {
+			position: absolute;
+			top: 0.625rem;
+			left: 1rem;
+			font-size: 1.5rem;
 		}
 	}
 

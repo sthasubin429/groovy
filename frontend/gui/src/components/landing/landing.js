@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Landing extends Component {
 	render() {
@@ -10,7 +11,10 @@ class Landing extends Component {
 						<p> Enjoy Endless Music</p>
 
 						<div className='landing-header-btn d-flex justify-content-center'>
-							<button className='btn-signup'>Sign Up</button>
+							<Link to='/register' className='btn-signup'>
+								Sign Up{' '}
+							</Link>
+
 							<button className='btn-learn'> Learn More</button>
 						</div>
 					</div>

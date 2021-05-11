@@ -269,6 +269,21 @@ ul {
   margin: 1rem 0;
 }
 
+.default-container {
+  width: 100%;
+  height: 60vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.default-container .default-btn {
+  background-color: #3738e8;
+  padding: 0.5rem 2rem;
+  color: #fff;
+  border-radius: 4rem;
+}
+
 .footer-container {
   background: #555555;
   padding: 1.5rem 0 0 0;
@@ -338,11 +353,19 @@ ul {
 
 .customPlayer-container .customPlayer-header {
   margin: 1.125rem 0;
+  position: relative;
 }
 
 .customPlayer-container .customPlayer-header * {
   display: inline-block;
   margin: 0 0.625rem;
+}
+
+.customPlayer-container .customPlayer-header .customPlayer-header-bars {
+  position: absolute;
+  top: 0.625rem;
+  left: 1rem;
+  font-size: 1.5rem;
 }
 
 .customPlayer-container .customPlayer-songImg {
