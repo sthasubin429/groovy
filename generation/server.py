@@ -38,13 +38,11 @@ def generate():
             'status': False,
             'message': 'File Not Generated'
         }
-    
 
-
-@app.route('/download/')
+@app.route('/downloadFile/', methods=['GET'])
 def downloadFile():
     filename = os.path.join(app.root_path, 'song.txt')
-    return send_file(filename, mimetype='txt', as_attachment=True)
+    return send_file(filename, as_attachment=True,  cache_timeout=0)
 
 
 if __name__ == '__main__':

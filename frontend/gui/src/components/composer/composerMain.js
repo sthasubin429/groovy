@@ -52,12 +52,13 @@ export default function ComposerMain() {
 
 				{generated ? (
 					<>
-						<a href='http://127.0.0.1:5000/download' target='_blank' className='composer-download'>
+						<a href='http://127.0.0.1:5000/downloadFile/' target='_blank' className='composer-download'>
 							Download
 						</a>
-
+						{/* <a href='http://127.0.0.1:5000/uploads/song.txt' target='_blank' className='composer-download'>
+							Download
+						</a> */}
 						<p className='composer-download-msg text-center'> You can click Download above to Generate a new Piece</p>
-
 						<p className='composer-download-msg text-center'>
 							On downloading you will get a text file. Copy the content of the text file and go to{' '}
 							<a href='http://www.mandolintab.net/abcconverter.php' target='_blank'>

@@ -165,25 +165,28 @@ export default function PlaylistEditForm(props) {
 		// console.log(typeof songChoice);
 		let songIdArr = [];
 		const songs = [...props.songs];
-
-		songs.forEach((song) => {
-			if (songChoice.length > 1) {
-				songChoice.forEach((choice) => {
-					if (song['song_name'] === choice.value) {
+		if (songChoice) {
+			songs.forEach((song) => {
+				if (songChoice.length > 1) {
+					songChoice.forEach((choice) => {
+						if (song['song_name'] === choice.value) {
+							songIdArr.push(song.id);
+						}
+					});
+				} else {
+					if (song['song_name'] === songChoice.value) {
 						songIdArr.push(song.id);
 					}
-				});
-			} else {
-				if (song['song_name'] === songChoice.value) {
-					songIdArr.push(song.id);
 				}
-			}
-		});
+			});
 
-		let songIdUnique = [...new Set(songIdArr)];
-		songIdUnique.forEach((songId) => {
-			handleAddSongs(songId, playlistInfo, POST);
-		});
+			let songIdUnique = [...new Set(songIdArr)];
+			songIdUnique.forEach((songId) => {
+				handleAddSongs(songId, playlistInfo, POST);
+			});
+		} else {
+			window.location.reload();
+		}
 	};
 
 	return (
