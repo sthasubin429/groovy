@@ -9,7 +9,7 @@ export const PlaylistCard = (props) => {
 	return (
 		<>
 			<div className='playlist-card'>
-				<img src={props.playlist.playlist_cover} className='playlist-card-img' />
+				<img src={props.playlist.playlist_cover} className='playlist-card-img' alt='Playlist Cover' />
 
 				<Link
 					to='/playlistDetail'
@@ -28,13 +28,10 @@ export const PlaylistCard = (props) => {
 
 export default function PlaylistMain(props) {
 	const [playlist, setPlaylist] = useState(props.playlist);
-	// const dispatch = useDispatch();
 	const [playlistPaginated, setPlaylistPaginated] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	let noOfItem = 12;
 	let noOfPages = Math.ceil(playlist.length / noOfItem);
-
-	// console.log(noOfPages);
 
 	useEffect(() => {
 		setPlaylist(props.playlist);
@@ -42,7 +39,6 @@ export default function PlaylistMain(props) {
 
 	useEffect(() => {
 		let filterd = playlist.slice((currentPage - 1) * noOfItem, currentPage * noOfItem);
-		console.log(currentPage);
 		setPlaylistPaginated(filterd);
 	}, [currentPage, playlist]);
 
@@ -68,10 +64,8 @@ export default function PlaylistMain(props) {
 				{playlistPaginated.map((playlist) => (
 					<PlaylistCard key={playlist.id} playlist={playlist} />
 				))}
-				{/* <PlaylistCard playlist={playlistPaginated} /> */}
 			</div>
 
-			{/* <RenderPaginaiton numPages={noOfPages} /> */}
 			<ul className='pagination d-flex justify-content-center'>
 				<li className='page-item'>
 					<button

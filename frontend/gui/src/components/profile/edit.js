@@ -209,12 +209,11 @@ export default function Edit(props) {
 														},
 													})
 													.then((res) => {
-														// console.log(res.data);
 														window.location.reload();
 														dispatch(logout());
 													})
 													.catch((err) => {
-														console.log(err);
+														window.location.replace('http://localhost:3000/500/');
 													});
 											}
 										}}

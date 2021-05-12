@@ -22,14 +22,11 @@ export default function Register() {
 	const [passwordMatch, setPasswordMatch] = useState(null);
 
 	const onSubmit = (data) => {
-		// event.preventDefault();
-
 		let email = data.registerEmail;
 		let username = data.registerUsername;
 		let password1 = data.registerPassword1;
 		let password2 = data.registerPassword2;
 
-		console.log(email, username, password1, password2);
 		if (password1 === password2) {
 			setPasswordMatch(true);
 			dispatch(actions.authRegister(username, email, password1, password2));
@@ -38,12 +35,11 @@ export default function Register() {
 		}
 	};
 
-	// console.log(watch('example'));
 	return (
 		<>
 			<div className='container d-flex flex-column align-items-center'>
 				<div className='col-12 col-sm-7'>
-					<h4 class='text-center text-gray-soft my-3 text-primary-colour'> Register </h4>
+					<h4 className='text-center text-gray-soft my-3 text-primary-colour'> Register </h4>
 				</div>
 
 				<div className='col-12 col-sm-7'>
@@ -154,7 +150,7 @@ export default function Register() {
 					)}
 				</form>
 
-				<p class='text-gray-soft text-center small my-2'>
+				<p className='text-gray-soft text-center small my-2'>
 					By clicking "Sign up" you agree to our{' '}
 					<a href='/' className='link'>
 						Terms of Service
@@ -162,7 +158,7 @@ export default function Register() {
 					.
 				</p>
 
-				<p class='text-gray-soft text-center small my-2'>
+				<p className='text-gray-soft text-center small my-2'>
 					Already have an account?{' '}
 					<a href='/login' className='link'>
 						Login

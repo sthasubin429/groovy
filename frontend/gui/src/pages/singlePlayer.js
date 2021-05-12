@@ -60,11 +60,11 @@ export default function SinglePlayer() {
 							}
 						})
 						.catch((err) => {
-							console.log(err);
+							window.location.replace('http://localhost:3000/500/');
 						});
 				})
 				.catch((err) => {
-					console.log(err);
+					window.location.replace('http://localhost:3000/500/');
 				});
 
 			axios
@@ -77,7 +77,7 @@ export default function SinglePlayer() {
 					setCommentList(res.data);
 				})
 				.catch((err) => {
-					console.log(err);
+					window.location.replace('http://localhost:3000/500/');
 				});
 		}
 	}, [user, song_id]);
@@ -129,7 +129,7 @@ export default function SinglePlayer() {
 					setLoading(false);
 				})
 				.catch((err) => {
-					console.log(err);
+					window.location.replace('http://localhost:3000/500/');
 				});
 		}
 	}, [song_id]);

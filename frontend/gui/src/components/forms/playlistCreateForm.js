@@ -24,13 +24,10 @@ export default function PlaylistCreateForm(props) {
 	};
 
 	useEffect(() => {
-		// console.log(typeof props.songs);
 		const songs = [...props.songs];
 		let optionList = [];
 		if (songs.length > 0) {
 			songs.forEach((song) => {
-				// console.log(song.song_name);
-				// console.log(song.id);
 				optionList.push(
 					<option
 						className='text-capitalize'
@@ -43,7 +40,6 @@ export default function PlaylistCreateForm(props) {
 				);
 			});
 		}
-		// console.log(optionList);
 		setOptions(optionList);
 	}, [props.songs]);
 
@@ -59,7 +55,6 @@ export default function PlaylistCreateForm(props) {
 		}
 
 		let songChoice = event.target.elements.songChoice;
-		// console.log(songChoice);
 		let songIdArr = [];
 		const songs = [...props.songs];
 
@@ -91,9 +86,9 @@ export default function PlaylistCreateForm(props) {
 								});
 							})
 							.catch((err) => {
-								console.log(err);
 								setError(true);
 								setLoading(false);
+								window.location.replace('http://localhost:3000/500/');
 							});
 					}
 			}
@@ -102,8 +97,6 @@ export default function PlaylistCreateForm(props) {
 			setLoading(false);
 		}
 	};
-
-	console.log(error, loading);
 
 	const addSongs = (songChoice, playlistDetail, requestType) => {
 		let formData = new FormData();
@@ -124,9 +117,9 @@ export default function PlaylistCreateForm(props) {
 							window.location.replace('http://localhost:3000/playlist');
 						})
 						.catch((err) => {
-							console.log(err);
 							setError(true);
 							setLoading(false);
+							window.location.replace('http://localhost:3000/500/');
 						});
 				}
 		}

@@ -1,34 +1,38 @@
-C|"~/D7"ADc|
-"G"d^cd "D7"def|"G"edB "D7"cGA|"G"Bcd "C"efg|"G"dBG "D7"GFG|
-"G"BAB GBd|"C"edc "C"gag|"G"dBG G2g|"C"AGG "D7"FAG|"G"G2d "G"g3::
-"G"dBg gdB|"D7"d3 A2d|"G"dBd Bcd|"C"efe e2f|"G"ggg g2d|
-"C"ecg bag|"F"fga fed|"G"def "C"gef|"G"gdB "D7"A2F|"G"G3 G2:|
+mec d2F|
+[1 ABcd efg|fdd cAG|FEF GEC|DED D2||
+(c/d/)|{e}fef dfe|def dcB|cBc dBd|cAB cde|
+ded dcB|cef ecA|fdd fag|fdd d2:|
+f|~gfg agf|gfg efg|abg faf|ged cAG|
+faf gec|dfg agf|ecA ABA|BGG G2:|
 
 
-X: 123
-T:Ssaikes of dulpan's Pafroshe
-% Nottingham Music Database
-S:Playford
-M:2/4
-L:1/4
-K:F
-G|"G"b2 dg|"G"g2 fg|"C"ag gf|"C"e3/2d/2 cd|"C"e2 ef|
-"G"gg e2|"C"e3/2c/2 cd|"Dm"cd Bd|"G"d3/2c/2 "Am"BA|"G"G(3d/2e/2f/2 "C"gf|\
-"C"ec ce|
-"G7"dc Bc|"G"dg a2|"C"fc'g|"F"cc'a|"F"Ac "G"d2|"C"e3"8"ag|"F"ag "F"aa|"Bb"bg fe|"F"f2 af:|
-"F"ff de|"F"c3A|"G7"B2 GG|"C7"cG cd|"C7"ce cA|"F"Ad ag|"C"f2 -f2|"F"f4|"G"A2 "G7"BA|\
-"G"GG "E7"G2||
+X:1035
+T:Biked Kildek and Stack
+R:double jig
+B:O'Neill's 1059
+Z:Transcribed by henrik.norbeck@mailbox.swipnet.se
+M:6/8
+L:1/8
+K:G
+(3d/e/f/|gdd GAG|FDF ABc|dgf edc|BAG G2(F/G/)|
+AFA dfa|agf efg|(f/g/a)f gec|ded d2:|
+d|gfg afd|gfg afd|(f/g/a)g =fd=f|ecA ABc|
+dgb dag|fdf efg|bag agf|gfe d2:|
 
 
-X: 38
-T:Gillen's Hornpipe
-% Nottingham Music Database
-S:Kevin Briggs, via EF
-M:4/4
-L:1/4
-K:D
-P:A
-D|"D"F/2E/2D/2F/2 Ad|"D"F/2G/2A/2G/2 F/2D/2F/2G/2|"G"A/2B/2c/2d/2 e/2f/2g/2e/2|\
-"Em"d/2c/2B/2c/2 "D"dB/2c/2|
-"G"de/2f/2 gf/2e/2|"G"+dc++Bc+B/2c/2 dg|"D"f/2e/2d/2c/2 "C"B2|\
-"D"A/2B/2d/2e/2 f/2e/2d/2c/2|"Em"BA "A7"eA|
+X:1096
+T:The Charmic Come
+R:double jig
+N:"collected by J.O'Neill"
+B:O'Neill's 1075
+Z:Transcribed by henrik.norbeck@mailbox.swipnet.se
+M:6/8
+L:1/8
+K:G
+FED DED|FGA c2 B|(G/F/E).D (F/E/).F|(F/G/A).F (EF).D|
+(E/F/G).E (F/E/).D|(FA).A (EF).D|(EF).E EFD|D3 D2:|
+D|GBd e2f|{a}gfg edB|A>GF EDE|FDF A3|
+B>cB Bdc|dBG AFD|G>Bd def|g>fe d2(G/A/)|
+BGB (d/e/)(f/g/)(e/d/)|cBc (B/c/)(d/B/) (A/G/)|A>BG A2(B/c/)|dde dBG:|
+(G/A/) (B/c/)d (B/c/d)(B/A/)|G>FG (ED)(E/F/)|D>EG A>BA|BAd HB2(f/2e/2)|
+dBG (GF).D|(c/d/e) (B/d/) z (e/f/)|gBA

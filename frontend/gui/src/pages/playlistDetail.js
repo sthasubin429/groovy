@@ -36,7 +36,7 @@ export default function PlaylistDetail() {
 				setplaylistInfo(res.data);
 			})
 			.catch((err) => {
-				console.log(err);
+				window.location.replace('http://localhost:3000/500/');
 			});
 	}, [playlist_id]);
 
@@ -89,7 +89,7 @@ export default function PlaylistDetail() {
 						</div>
 					</div>
 					<div className='playlistDetail-table'>
-						<table class='table table-hover table-striped'>
+						<table className='table table-hover table-striped'>
 							<thead>
 								<tr>
 									<th scope='col'></th>

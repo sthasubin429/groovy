@@ -33,10 +33,11 @@ function SongForm(props) {
 							},
 						})
 						.then((res) => {
-							// console.log(res);
 							window.location.replace('http://localhost:3000/allSongs');
 						})
-						.catch((err) => console.log(err));
+						.catch((err) => {
+							window.location.replace('http://localhost:3000/500/');
+						});
 				}
 		}
 	};

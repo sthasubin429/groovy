@@ -27,7 +27,6 @@ export default function ForgotPassword() {
 		axios
 			.post(`${BASE_URL}/userProfile/api/password_reset/`, data)
 			.then((res) => {
-				//console.log(res.data)
 				if (res.data.status === 'OK') {
 					setPasswordRestSucess(true);
 				} else {

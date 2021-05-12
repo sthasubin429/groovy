@@ -5,11 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { BASE_URL, TOKEN } from '../../store/utility';
 
 export default function Comment(props) {
-	// console.log(props.comment);
-
 	const [profile, setProfile] = useState(null);
-
-	const user = useSelector((state) => state.profile.user_details);
 
 	useEffect(() => {
 		axios
@@ -19,12 +15,10 @@ export default function Comment(props) {
 				},
 			})
 			.then((res) => {
-				// userData['userDetails'] = { ...res.data[0] };
-				// console.log(res.data);
 				setProfile(res.data[0].profile_picture);
 			})
 			.catch((err) => {
-				console.log(err);
+				window.location.replace('http://localhost:3000/500/');
 			});
 	}, []);
 

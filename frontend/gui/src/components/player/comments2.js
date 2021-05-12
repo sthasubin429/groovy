@@ -5,12 +5,9 @@ import React, { useState, useEffect } from 'react';
 import { BASE_URL, TOKEN } from '../../store/utility';
 
 export default function Comment(props) {
-	// console.log(props.comment);
-
 	const [profile, setProfile] = useState(null);
 	const [allowEdit, setAllowEdit] = useState(false);
 	const [edit, setEdit] = useState(false);
-	// const [editStatus, setEditStatus] = useState(false);
 
 	const user = useSelector((state) => state.profile.user_details);
 
@@ -22,12 +19,10 @@ export default function Comment(props) {
 				},
 			})
 			.then((res) => {
-				// userData['userDetails'] = { ...res.data[0] };
-				// console.log(res.data);
 				setProfile(res.data[0].profile_picture);
 			})
 			.catch((err) => {
-				console.log(err);
+				window.location.replace('http://localhost:3000/500/');
 			});
 	}, []);
 
@@ -60,10 +55,11 @@ export default function Comment(props) {
 					},
 				})
 				.then((res) => {
-					// console.log(res);
 					window.location.reload();
 				})
-				.catch((err) => console.log(err));
+				.catch((err) => {
+					window.location.replace('http://localhost:3000/500/');
+				});
 		}
 	};
 

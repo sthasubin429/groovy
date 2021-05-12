@@ -32,9 +32,6 @@ export default function UserDetailForm(props) {
 
 		formData.append('user', userData.userInfo.pk);
 
-		// console.log(formData);
-		// console.log(firstName, lastName, imageFile);
-
 		switch (requestType) {
 			case POST:
 				const token = localStorage.getItem('token');
@@ -47,10 +44,11 @@ export default function UserDetailForm(props) {
 							},
 						})
 						.then((res) => {
-							console.log(res);
 							window.location.replace('http://localhost:3000/');
 						})
-						.catch((err) => console.log(err));
+						.catch((err) => {
+							window.location.replace('http://localhost:3000/500/');
+						});
 				}
 		}
 	};

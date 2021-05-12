@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 import Login from './pages/login';
 import Player from './pages/player';
@@ -11,23 +11,24 @@ import Profile from './pages/profile';
 import AllSongs from './pages/allSongs';
 
 import Composer from './pages/composer';
+import NotFound from './pages/notFound';
+
 import Register from './pages/register';
-
 import Playlist from './pages/playlist';
+
 import LandingPage from './pages/landing';
-
 import Following from './pages/following';
+
 import ArtistPage from './pages/artistPage';
-
 import Favourites from './pages/favourites';
+
 import ProfileEdit from './pages/profileEdit';
-
 import UploadMusic from './pages/uploadMusic';
+
 import SinglePlayer from './pages/singlePlayer';
-
 import PlaylistEdit from './pages/playlistEdit';
-import ChangePassword from './pages/changePassword';
 
+import ChangePassword from './pages/changePassword';
 import PlaylistCreate from './pages/playlistCreate';
 import PlaylistDetail from './pages/playlistDetail';
 
@@ -45,7 +46,8 @@ export const BaseRouter = () => (
 			<Route exact path='/register/' component={Register} />
 			<Route exact path='/forgotPassword/' component={ForgotPassword} />
 			<Route exact path='/passwordResetConfirm/:token' component={PasswordResetConfirm} />
-			<Route component={LoggedOutDefault} />
+			<Route exact path='/500/' component={NotFound} />
+			<Route path='/' component={LoggedOutDefault} />
 		</Switch>
 	</div>
 );
@@ -54,6 +56,7 @@ export const LoggedInRoute = () => (
 	<div>
 		<Switch>
 			<Route exact path='/' component={HomePage} />
+			<Redirect from='/home/' to='/' />
 			<Route exact path='/player/' component={Player} />
 			<Route exact path='/upload/' component={UploadMusic} />
 			<Route exact path='/allSongs/' component={AllSongs} />
@@ -71,7 +74,8 @@ export const LoggedInRoute = () => (
 			<Route exact path='/following/' component={Following} />
 			<Route exact path='/favourites/' component={Favourites} />
 			<Route exact path='/playlistEdit/' component={PlaylistEdit} />
-			<Route component={LoggedInDefault} />
+			<Route exact path='/500/' component={NotFound} />
+			<Route path='/' component={LoggedInDefault} />
 		</Switch>
 	</div>
 );

@@ -22,12 +22,11 @@ export default function Favourites() {
 					},
 				})
 				.then((res) => {
-					// console.log(res.data);
 					setLikes(res.data);
 				})
 				.catch((err) => {
-					console.log(err);
 					setLikes([]);
+					window.location.replace('http://localhost:3000/500/');
 				});
 		}
 	}, [userInfo]);
@@ -43,7 +42,6 @@ export default function Favourites() {
 						},
 					})
 					.then((res) => {
-						// console.log(res.data);
 						likesObj[like.song] = res.data;
 						setSongDetail(likesObj);
 						if (likes.length === Object.keys(likesObj).length) {
@@ -51,8 +49,8 @@ export default function Favourites() {
 						}
 					})
 					.catch((err) => {
-						console.log(err);
 						setLoading(false);
+						window.location.replace('http://localhost:3000/500/');
 					});
 			});
 		}

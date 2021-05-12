@@ -33,7 +33,7 @@ export default function Artist() {
 					setLoading(false);
 				})
 				.catch((err) => {
-					console.log(err);
+					window.location.replace('http://localhost:3000/500/');
 				});
 		}
 	}, [userInfo]);
@@ -47,12 +47,10 @@ export default function Artist() {
 		if (search) {
 			let filterd = searchArtists.slice((currentPage - 1) * noOfItem, currentPage * noOfItem);
 			setNoOfPages(Math.ceil(searchArtists.length / noOfItem));
-			console.log(currentPage);
 			setArtistsPaginated(filterd);
 		} else {
 			let filterd = allArtists.slice((currentPage - 1) * noOfItem, currentPage * noOfItem);
 			setNoOfPages(Math.ceil(allArtists.length / noOfItem));
-			console.log(currentPage);
 			setArtistsPaginated(filterd);
 		}
 	}, [currentPage, allArtists, searchArtists, search]);
@@ -78,7 +76,6 @@ export default function Artist() {
 		setLoading(true);
 
 		let query = event.target.elements.search.value;
-		console.log(query);
 
 		if (query) {
 			axios
@@ -96,7 +93,7 @@ export default function Artist() {
 					setSearch(false);
 					setLoading(false);
 					setSearchArtists([]);
-					// console.log(err);
+					window.location.replace('http://localhost:3000/500/');
 				});
 		} else {
 			setSearch(false);
@@ -108,18 +105,18 @@ export default function Artist() {
 	return (
 		<>
 			<form
-				class='form-inline'
+				className='form-inline'
 				onSubmit={(e) => {
 					handleSearch(e);
 				}}
 			>
-				<input class='form-control mr-2 ml-3 col-8' type='search' placeholder='Search' aria-label='Search' name='search' />
+				<input className='form-control mr-2 ml-3 col-8' type='search' placeholder='Search' aria-label='Search' name='search' />
 				{loading ? (
 					<div className='pt-5 spinner-border text-primary' role='status'>
 						<span className='sr-only'>Loading...</span>
 					</div>
 				) : (
-					<button class='btn btn-outline-primary my-2 my-sm-0' type='submit'>
+					<button className='btn btn-outline-primary my-2 my-sm-0' type='submit'>
 						Search
 					</button>
 				)}

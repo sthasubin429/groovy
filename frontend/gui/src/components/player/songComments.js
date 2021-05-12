@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 
 export default function SongComments() {
 	const commentsList = useSelector((state) => state.player.comments);
-	// console.log(commentsList);
 	const [commentState, setCommentState] = useState(false);
 
 	useEffect(() => {

@@ -46,25 +46,19 @@ function CustomPlayer() {
 	};
 
 	const handleChange = (changeValue) => {
-		// console.log('old index ' + index);
 		if (changeValue === 'next') {
 			if (index + 1 < playlistCount) {
 				dispatch(playerActions.changeSong(index + 1));
-				// console.log('inside if 1 ' + index);
 			} else {
 				dispatch(playerActions.changeSong(0));
-				// console.log('inside else 1 ' + index);
 			}
 		} else if (changeValue === 'prev') {
 			if (index > 0) {
 				dispatch(playerActions.changeSong(index - 1));
-				// console.log('inside if 2 ' + index);
 			} else {
 				dispatch(playerActions.changeSong(playlistCount - 1));
-				// console.log('inside else 2 ' + index);
 			}
 		}
-		// console.log('new index ' + index);
 	};
 	return (
 		<>

@@ -55,3 +55,27 @@
 
     Your frontend server should be running.
     Open and use.
+
+### Backend
+
+    Make sure you have python installed.
+    Install virtualenv.
+
+    $pip install virtualenv
+    [installing virtualenv]
+
+    $cd generation
+
+    $virtualenv env
+    [creating a virtual environment]
+
+    $source env/Scripts/activate
+    [activating virtual environment]
+
+    $pip install -r requirements.txt
+    [installing requirements]
+
+    $python server.py
+    [running server]
+
+    Flask is deploying generation system.

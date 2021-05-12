@@ -21,7 +21,7 @@ export default function PlaylistCreate() {
 				setSongs(res.data);
 			})
 			.catch((err) => {
-				console.log(err);
+				window.location.replace('http://localhost:3000/500/');
 			});
 	}, []);
 

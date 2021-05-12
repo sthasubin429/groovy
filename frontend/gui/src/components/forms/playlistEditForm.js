@@ -36,8 +36,6 @@ export default function PlaylistEditForm(props) {
 		songCover.current.src = URL.createObjectURL(image);
 		setImageFile(image);
 	};
-	// console.log(playlist, user, playlistInfo, playlistDetail);
-	// console.log(playlistDetail);
 
 	const handleSubmit = (event, requestType) => {
 		setLoadingPlaylistDetail(true);
@@ -61,11 +59,11 @@ export default function PlaylistEditForm(props) {
 							},
 						})
 						.then((res) => {
-							console.log(res.data);
 							window.location.reload();
 						})
 						.catch((err) => {
 							console.log(err);
+							window.location.replace('http://localhost:3000/500/');
 						});
 				}
 		}
@@ -92,7 +90,6 @@ export default function PlaylistEditForm(props) {
 					);
 				});
 			}
-			// console.log(optionList);
 			setOptions(optionList);
 		}
 	}, [props.songs]);
@@ -100,6 +97,7 @@ export default function PlaylistEditForm(props) {
 	const [choiceKeys, setChoiceKeys] = useState([]);
 
 	const [songChoiceArray, setSongChoiceArray] = useState([]);
+
 	useEffect(() => {
 		let temp = [];
 
@@ -145,13 +143,12 @@ export default function PlaylistEditForm(props) {
 							},
 						})
 						.then((res) => {
-							// console.log(res.data);
 							window.location.replace('http://localhost:3000/playlistDetail');
 						})
 						.catch((err) => {
-							// console.log(err);
 							setError(true);
 							setLoading(false);
+							window.location.replace('http://localhost:3000/500/');
 						});
 				}
 		}
@@ -159,10 +156,8 @@ export default function PlaylistEditForm(props) {
 
 	const handleAddSongsSubmit = (event) => {
 		event.preventDefault();
-		// handleAddSongs()
 		let songChoice = event.target.elements.songChoice;
-		// console.log(songChoice.length > 1);
-		// console.log(typeof songChoice);
+
 		let songIdArr = [];
 		const songs = [...props.songs];
 		if (songChoice) {
@@ -274,11 +269,7 @@ export default function PlaylistEditForm(props) {
 }
 
 export function EditPlaylistOldSongs(props) {
-	// console.log(props.playlist);
-	// console.log(props.playlistDetail);
-
 	const handleRemoveOldSong = (requestType, id) => {
-		// event.preventDefault();
 		switch (requestType) {
 			case DELETE:
 				if (TOKEN && props.length > 2) {
@@ -289,11 +280,10 @@ export function EditPlaylistOldSongs(props) {
 							},
 						})
 						.then((res) => {
-							console.log(res.data);
 							window.location.reload();
 						})
 						.catch((err) => {
-							console.log(err);
+							window.location.replace('http://localhost:3000/500/');
 						});
 				}
 		}
@@ -311,7 +301,6 @@ export function EditPlaylistOldSongs(props) {
 						className='btn btn-danger'
 						onClick={(event) => {
 							event.preventDefault();
-							// console.log(props.playlistDetail.id);
 							if (window.confirm('Are you sure you wish to revoce Song From Playlist? \nYou cannot undo this action.')) {
 								handleRemoveOldSong(DELETE, props.playlistDetail.id);
 							}

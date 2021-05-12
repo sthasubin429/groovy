@@ -270,14 +270,42 @@ ul {
 }
 
 .default-container {
-  width: 100%;
-  height: 60vh;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #fff;
   display: -ms-grid;
   display: grid;
   place-items: center;
 }
 
 .default-container .default-btn {
+  background-color: #3738e8;
+  padding: 0.5rem 2rem;
+  color: #fff;
+  border-radius: 4rem;
+}
+
+.notfound-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #fff;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.notfound-container .notfound-second-container {
+  width: 20rem;
+  height: 20rem;
+}
+
+.notfound-container .notfound-second-container .default-btn {
   background-color: #3738e8;
   padding: 0.5rem 2rem;
   color: #fff;

@@ -47,10 +47,12 @@ export default function ArtistProfile(props) {
 						})
 						.catch((err) => {
 							setLoading(false);
+							window.location.replace('http://localhost:3000/500/');
 						});
 				})
 				.catch((err) => {
 					setLoading(false);
+					window.location.replace('http://localhost:3000/500/');
 				});
 		}
 	}, [following]);
@@ -78,12 +80,10 @@ export default function ArtistProfile(props) {
 					},
 				})
 				.then((res) => {
-					// console.log(res.data);
 					setFollowerCount(res.data.length);
 					getFollowingCount(following);
 				})
 				.catch((err) => {
-					// console.log(err);
 					getFollowingCount(following);
 					setFollowerCount(0);
 				});
@@ -98,12 +98,10 @@ export default function ArtistProfile(props) {
 				},
 			})
 			.then((res) => {
-				// console.log(res.data);
 				setFollowingCount(res.data.length);
 				setCountLoading(false);
 			})
 			.catch((err) => {
-				console.log(err);
 				setFollowingCount(0);
 				setCountLoading(false);
 			});
@@ -115,9 +113,7 @@ export default function ArtistProfile(props) {
 
 		formData.append('user', follow.user);
 		formData.append('following', following);
-		for (var value of formData.values()) {
-			console.log(value);
-		}
+
 		switch (requestType) {
 			case POST:
 				if (TOKEN) {
@@ -128,12 +124,10 @@ export default function ArtistProfile(props) {
 							},
 						})
 						.then((res) => {
-							// console.log(res.data);
-							// checkFollowState(follow.user, following);
 							window.location.reload();
 						})
 						.catch((err) => {
-							console.log(err);
+							window.location.replace('http://localhost:3000/500/');
 						});
 				}
 
@@ -149,7 +143,7 @@ export default function ArtistProfile(props) {
 							window.location.reload();
 						})
 						.catch((err) => {
-							console.log(err);
+							window.location.replace('http://localhost:3000/500/');
 						});
 				}
 		}
@@ -163,10 +157,11 @@ export default function ArtistProfile(props) {
 				},
 			})
 			.then((res) => {
-				// console.log(res.data);
 				setFollowData(res.data);
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => {
+				console.log(err);
+			});
 	};
 
 	return (

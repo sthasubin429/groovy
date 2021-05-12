@@ -93,9 +93,6 @@ export default function Sidebar() {
 									Following
 								</Link>
 							</li>
-							{/* <li className='nav-item' onClick={this.props.logout}>
-                        <Link className='nav-link'> Logout </Link>
-                    </li> */}
 						</ul>
 						<p className='sidebar-header'>DISCOVER</p>
 						<ul className='navbar-nav ml-auto'>
@@ -159,7 +156,7 @@ export default function Sidebar() {
 					</div>
 				</>
 			)}
-			<div className='modal fade' id='logout' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+			<div className='modal fade' id='logout' tabIndex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
 				<div className='modal-dialog modal-dialog-centered' role='document'>
 					<div className='modal-content'>
 						<div className='modal-header'>

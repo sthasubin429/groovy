@@ -32,7 +32,6 @@ export default function FeaturedArtist() {
 						}
 					});
 					let fd = filteredData[Math.floor(Math.random() * filteredData.length)];
-					console.log(fd);
 
 					axios
 						.get(`${BASE_URL}/songs/playlist/api/userPlaylist/${fd.user}/`, {
@@ -49,18 +48,17 @@ export default function FeaturedArtist() {
 							setLoading(false);
 						})
 						.catch((err) => {
-							console.log(err);
 							setLoading(false);
+							window.location.replace('http://localhost:3000/500/');
 						});
 					setArtists(fd);
 				})
 				.catch((err) => {
-					console.log(err);
 					setLoading(false);
+					window.location.replace('http://localhost:3000/500/');
 				});
 		}
 	}, [userInfo]);
-	console.log(artist, playlist);
 
 	return (
 		<>
@@ -114,7 +112,7 @@ export const PlaylistCard = (props) => {
 	return (
 		<>
 			<div className='playlist-card'>
-				<img src={props.playlist.playlist_cover} className='playlist-card-img' width='120' height='120' />
+				<img src={props.playlist.playlist_cover} className='playlist-card-img' width='120' height='120' alt='Playlist Cover' />
 
 				<Link
 					to='/playlistDetail'

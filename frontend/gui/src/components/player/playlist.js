@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeSong } from '../../store/actions/player';
 
 export const PlaylistDetails = (props) => {
-	// console.log(props.index);
-
 	const dispatch = useDispatch();
 	return (
 		<>
@@ -27,24 +25,11 @@ export const PlaylistDetails = (props) => {
 };
 
 export default function Playlist(props) {
-	// const [loading, setLoading] = useState(true);
-	// const [playlist, setPlaylist] = useState(props.playlist);
-
-	// useEffect(() => {
-	// 	if (props.playlist) {
-	// 		// console.log(playlist);
-	// 		setPlaylist(props.playlist);
-	// 		setLoading(false);
-	// 	}
-	// }, [props.playlist]);
-	// console.log(p)
-
 	const [loading, setLoading] = useState(true);
 	const playlist = useSelector((state) => state.player.playlist_song_details);
 
 	useEffect(() => {
 		if (playlist) {
-			// console.log(playlist);
 			setLoading(false);
 		}
 	}, [playlist]);

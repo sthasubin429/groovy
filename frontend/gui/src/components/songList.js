@@ -12,7 +12,6 @@ export const SongCard = (props) => {
 	useEffect(() => {
 		if (user && props.song) {
 			if (user.user === props.song.username) {
-				console.log(user, props.song);
 				setAllowEdit(true);
 			} else {
 				setAllowEdit(false);
@@ -33,11 +32,10 @@ export const SongCard = (props) => {
 						},
 					})
 					.then((res) => {
-						// console.log(res.data);
 						window.location.reload();
 					})
 					.catch((err) => {
-						console.log(err);
+						window.location.replace('http://localhost:3000/500/');
 					});
 			}
 		}
@@ -89,7 +87,6 @@ export const SongCard = (props) => {
 };
 
 function SongList(props) {
-	// console.log(props.songs);
 	const [allSongs, setAllSongs] = useState(props.songs);
 	const [loading, setLoading] = useState(false);
 	const [search, setSearch] = useState(false);
@@ -104,7 +101,6 @@ function SongList(props) {
 		setLoading(true);
 
 		let query = event.target.elements.search.value;
-		console.log(query);
 		if (query) {
 			axios
 				.get(`${BASE_URL}/songs/api/search/${query}`, {
@@ -121,7 +117,7 @@ function SongList(props) {
 					setSearch(false);
 					setLoading(false);
 					setSearchSongs([]);
-					// console.log(err);
+					window.location.replace('http://localhost:3000/500/');
 				});
 		} else {
 			setSearch(false);
@@ -138,12 +134,10 @@ function SongList(props) {
 		if (search) {
 			let filterd = searchSongs.slice((currentPage - 1) * noOfItem, currentPage * noOfItem);
 			setNoOfPages(Math.ceil(searchSongs.length / noOfItem));
-			console.log(currentPage);
 			setSongsPaginated(filterd);
 		} else {
 			let filterd = allSongs.slice((currentPage - 1) * noOfItem, currentPage * noOfItem);
 			setNoOfPages(Math.ceil(allSongs.length / noOfItem));
-			console.log(currentPage);
 			setSongsPaginated(filterd);
 		}
 	}, [currentPage, allSongs, searchSongs, search]);
@@ -181,14 +175,7 @@ function SongList(props) {
 					</button>
 				)}
 			</form>
-			{/* {search ? (
-				<div className='d-flex flex-wrap'>
-					{searchSongs.map((song) => (
-						<SongCard key={song.id} song={song} />
-					))}
-				</div>
-			) : (
-				<> */}
+
 			<div className='d-flex flex-wrap justify-content-center'>
 				{songsPaginated.map((song) => (
 					<SongCard key={song.id} song={song} />
@@ -235,13 +222,6 @@ function SongList(props) {
 					</button>
 				</li>
 			</ul>
-			{/* </>
-			)} */}
-			{/* <div className='d-flex flex-wrap'>
-				{allSongs.map((song) => (
-					<SongCard key={song.id} song={song} />
-				))}
-			</div> */}
 		</>
 	);
 }

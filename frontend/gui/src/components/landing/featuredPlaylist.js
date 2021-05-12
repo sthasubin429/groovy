@@ -26,7 +26,7 @@ export default function FeaturedPlaylist() {
 					setLoading(false);
 				})
 				.catch((err) => {
-					console.log(err);
+					window.location.replace('http://localhost:3000/500/');
 				});
 		}
 	}, [userInfo]);

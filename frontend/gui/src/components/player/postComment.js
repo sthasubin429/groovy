@@ -47,7 +47,9 @@ export default function PostComment() {
 							dispatch(getComments(song.id));
 							document.getElementById('post_comment_form').reset();
 						})
-						.catch((err) => console.log(err));
+						.catch((err) => {
+							window.location.replace('http://localhost:3000/500/');
+						});
 				}
 		}
 	};

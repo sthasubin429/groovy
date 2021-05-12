@@ -31,8 +31,8 @@ export default function FollowingPlaylist(props) {
 						}
 					})
 					.catch((err) => {
-						console.log(err);
 						setLoading(false);
+						window.location.replace('http://localhost:3000/500/');
 					});
 			});
 		}

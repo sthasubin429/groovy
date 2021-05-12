@@ -57,7 +57,6 @@ export default function PasswordResetConfirm() {
 					document.getElementById('restPasswordForm').reset();
 				})
 				.catch((err) => {
-					console.log(err);
 					setError(true);
 					setLoading(false);
 					document.getElementById('restPasswordForm').reset();

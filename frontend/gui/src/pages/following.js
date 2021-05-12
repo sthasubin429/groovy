@@ -28,9 +28,9 @@ export default function Following() {
 					setLoading(false);
 				})
 				.catch((err) => {
-					console.log(err);
 					setLoading(false);
 					setFollowing([]);
+					window.location.replace('http://localhost:3000/500/');
 				});
 		}
 	}, [userInfo]);

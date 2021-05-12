@@ -11,7 +11,6 @@ export const HeartFilled = () => {
 	return (
 		<>
 			<FontAwesomeIcon size='1x' icon={faHeart} />
-			{/* <span> Liked </span> */}
 		</>
 	);
 };
@@ -20,7 +19,6 @@ export const HeartNotFilled = () => {
 	return (
 		<>
 			<FontAwesomeIcon size='1x' icon={frHeart} />
-			{/* <span> Liked </span> */}
 		</>
 	);
 };

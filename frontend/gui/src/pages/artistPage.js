@@ -11,8 +11,6 @@ export default function ArtistPage(props) {
 	const [artist, setArtist] = useState([]);
 	const [loading, setLoading] = useState(true);
 
-	// console.log(artistId);
-
 	useEffect(() => {
 		if (artistId) {
 			axios
@@ -22,12 +20,11 @@ export default function ArtistPage(props) {
 					},
 				})
 				.then((res) => {
-					// console.log(res.data);
 					setArtist(res.data);
 					setLoading(false);
 				})
 				.catch((err) => {
-					console.log(err);
+					window.location.replace('http://localhost:3000/500/');
 				});
 		}
 	}, [artistId]);
