@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useSelector } from 'react-redux';
 
 import React, { useState, useEffect } from 'react';
 import { BASE_URL, TOKEN } from '../../store/utility';

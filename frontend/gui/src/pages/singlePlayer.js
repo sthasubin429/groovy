@@ -217,13 +217,8 @@ export default function SinglePlayer() {
 						<form onSubmit={(event) => handleSubmit(event, POST)} id='post_comment_form' className='flex-fill post-comment-form'>
 							<div className='form-row'>
 								<input className='form-control ' id='comment' name='comment' placeholder='Write a Comment' type='text' />
-								{/* <textarea className='form-control ' id='comment' name='comment' placeholder='Write a Comment' rows='2'></textarea> */}
 							</div>
 						</form>
-
-						{/* <button className='post-comment-btn col-2' type='submit' name='submit' form='post_comment_form'>
-							<span> Submit </span>
-						</button> */}
 					</div>
 
 					<div className='col-12 song-comments'>

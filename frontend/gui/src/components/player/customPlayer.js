@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import React, { useState, useRef, useEffect } from 'react';
-import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
+import AudioPlayer from 'react-h5-audio-player';
 
 import * as playerActions from '../../store/actions/player.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
