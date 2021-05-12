@@ -1,12 +1,10 @@
-# Final Year Project
-
 # Groovy
 
 ## A Music Sharing Patform
 
 ## How to Run?
 
-    You need to run two servers one for backend and one for front end.
+    You need to run two servers one for backend and one for front end and one for music generation.
 
 ### Backend
 
@@ -56,7 +54,7 @@
     Your frontend server should be running.
     Open and use.
 
-### Backend
+### Generation
 
     Make sure you have python installed.
     Install virtualenv.
@@ -79,3 +77,5 @@
     [running server]
 
     Flask is deploying generation system.
+
+# Final Year Project
