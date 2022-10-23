@@ -42,7 +42,7 @@ def generate():
 @app.route('/downloadFile/', methods=['GET'])
 def downloadFile():
     filename = os.path.join(app.root_path, 'song.txt')
-    return send_file(filename, as_attachment=True,  cache_timeout=0)
+    return send_file(filename, as_attachment=True)
 
 
 if __name__ == '__main__':
